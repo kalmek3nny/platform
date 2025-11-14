@@ -1,0 +1,300 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b8918f0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b8918f0)
+```c
+
+void FUN_7ff76b8918f0(undefined1 *param_1,undefined8 param_2,undefined8 param_3)
+
+{
+  undefined8 *puVar1;
+  undefined8 uVar2;
+  undefined8 uVar3;
+  undefined8 uVar4;
+  undefined8 uVar5;
+  undefined8 uVar6;
+  bool bVar7;
+  undefined8 *puVar8;
+  char cVar9;
+  char cVar10;
+  char cVar11;
+  char cVar12;
+  ulonglong uVar13;
+  longlong lVar15;
+  undefined8 *puVar16;
+  undefined8 *puVar17;
+  size_t _MaxCount;
+  longlong lVar18;
+  undefined1 auStack_378 [33];
+  undefined1 local_357;
+  undefined1 local_356 [2];
+  undefined4 local_354;
+  undefined8 local_350;
+  undefined8 local_348;
+  undefined8 *local_340 [2];
+  undefined1 local_32f;
+  char local_328;
+  undefined1 local_318 [40];
+  longlong local_2f0 [3];
+  undefined **local_2d8;
+  undefined1 local_2d0 [304];
+  undefined4 local_1a0;
+  undefined **local_198;
+  undefined1 local_190 [304];
+  undefined4 local_60;
+  undefined1 local_58 [16];
+  ulonglong local_48;
+  ulonglong uVar14;
+  
+  local_48 = DAT_7ff76e1be680 ^ (ulonglong)auStack_378;
+  FUN_7ff76b7a6a10(local_318);
+  cVar9 = FUN_7ff76b7a96d0(param_3,param_2,local_318);
+  local_357 = 0;
+  bVar7 = false;
+  local_348 = 0;
+  local_356[0] = 0;
+  local_198 = &PTR_FUN_7ff76c517eb0;
+  cVar12 = '\0';
+  local_190[0] = 0;
+  local_60 = 0;
+  local_2d8 = &PTR_FUN_7ff76c517eb0;
+  local_2d0[0] = 0;
+  local_1a0 = 0;
+  local_350 = 0;
+  local_354 = 0;
+  local_58 = (undefined1  [16])0x0;
+  if ((cVar9 != '\0') && (cVar9 = FUN_7ff76b7a7e60(local_318,"online",&local_357), cVar9 != '\0')) {
+    cVar9 = FUN_7ff76b7aaab0(local_318,"platform");
+    if (((cVar9 == '\0') ||
+        (cVar9 = FUN_7ff76b7a9b10(local_318,"platform",local_58,0x10), cVar9 != '\0')) &&
+       ((cVar9 = FUN_7ff76b7aaab0(local_318,"appearOffline"), cVar9 == '\0' ||
+        (cVar9 = FUN_7ff76b7a7e60(local_318,"appearOffline",local_356), cVar9 != '\0')))) {
+      cVar9 = '\x01';
+      cVar10 = FUN_7ff76b7aaab0(local_318,"localizedTitleName");
+      if (cVar10 != '\0') {
+        FUN_7ff76b7a6a10(local_340);
+        cVar10 = FUN_7ff76b7a96d0(local_318,"localizedTitleName",local_340);
+        if ((cVar10 == '\0') || (cVar10 = FUN_7ff76b885cc0(&local_198,local_340), cVar10 == '\0')) {
+          FUN_7ff76b7a6f40(local_340);
+          goto LAB_7ff76b891e9f;
+        }
+        FUN_7ff76b7a6f40(local_340);
+        bVar7 = true;
+      }
+      cVar11 = FUN_7ff76b7aaab0(local_318,"localizedPresenceString");
+      cVar10 = '\0';
+      if (cVar11 == '\0') {
+LAB_7ff76b891af5:
+        cVar11 = FUN_7ff76b7aaab0(local_318,"firstPartyUserID");
+        if (((cVar11 != '\0') &&
+            (cVar9 = FUN_7ff76b7aa530(local_318,"firstPartyUserID",&local_348), cVar10 = cVar9,
+            cVar9 == '\0')) || (cVar11 = FUN_7ff76b7aaab0(local_318,"updateTime"), cVar11 == '\0'))
+        goto LAB_7ff76b891b7f;
+        cVar9 = FUN_7ff76b7aa530(local_318,"updateTime",&local_350);
+        if (cVar9 == '\0') goto LAB_7ff76b891e9f;
+        FUN_7ff76b897560(local_2f0);
+      }
+      else {
+        FUN_7ff76b7a6a10(local_340);
+        cVar11 = FUN_7ff76b7a96d0(local_318,"localizedPresenceString",local_340);
+        cVar9 = cVar12;
+        if ((cVar11 != '\0') && (cVar12 = FUN_7ff76b885cc0(&local_2d8,local_340), cVar12 != '\0')) {
+          cVar9 = '\x01';
+        }
+        FUN_7ff76b7a6f40(local_340);
+        cVar12 = cVar9;
+        if (cVar9 != '\0') goto LAB_7ff76b891af5;
+LAB_7ff76b891b7f:
+        FUN_7ff76b897560(local_2f0);
+        if (cVar9 == '\0') goto LAB_7ff76b891ea4;
+      }
+      cVar9 = FUN_7ff76b7aaab0(local_318,&DAT_7ff76c3d33e8);
+      if (((cVar9 == '\0') ||
+          (cVar9 = (**(code **)(local_2f0[0] + 0x10))(local_2f0,&DAT_7ff76c3d33e8,local_318),
+          cVar9 != '\0')) &&
+         ((cVar9 = FUN_7ff76b7aaab0(local_318,"titleID"), cVar9 == '\0' ||
+          (cVar9 = FUN_7ff76b7aa340(local_318,"titleID",&local_354), cVar9 != '\0')))) {
+        *param_1 = local_357;
+        uVar14 = 0xffffffffffffffff;
+        do {
+          uVar13 = uVar14 + 1;
+          lVar18 = uVar14 + 1;
+          uVar14 = uVar13;
+        } while (local_58[lVar18] != '\0');
+        _MaxCount = 0x10;
+        if (uVar13 < 0x10) {
+          _MaxCount = uVar13;
+        }
+        memchr(local_340,(int)local_58,_MaxCount);
+        *(undefined1 *)((longlong)local_340 + _MaxCount) = 0;
+        local_32f = 1;
+        FUN_7ff76b890cf0(param_1 + 2,local_340);
+        lVar18 = 2;
+        param_1[1] = local_356[0];
+        if (bVar7) {
+          puVar1 = (undefined8 *)(param_1 + 0x2c8);
+          if (param_1[0x408] != '\0') {
+            (**(code **)*puVar1)(puVar1,0);
+          }
+          lVar15 = 2;
+          *puVar1 = &PTR_FUN_7ff76c517eb0;
+          puVar1 = (undefined8 *)(param_1 + 0x2d0);
+          puVar8 = (undefined8 *)local_190;
+          do {
+            puVar17 = puVar8;
+            puVar16 = puVar1;
+            uVar4 = puVar17[1];
+            uVar5 = puVar17[2];
+            uVar6 = puVar17[3];
+            uVar2 = puVar17[0xe];
+            uVar3 = puVar17[0xf];
+            *puVar16 = *puVar17;
+            puVar16[1] = uVar4;
+            puVar16[2] = uVar5;
+            puVar16[3] = uVar6;
+            uVar4 = puVar17[5];
+            uVar5 = puVar17[6];
+            uVar6 = puVar17[7];
+            puVar16[4] = puVar17[4];
+            puVar16[5] = uVar4;
+            puVar16[6] = uVar5;
+            puVar16[7] = uVar6;
+            uVar4 = puVar17[9];
+            uVar5 = puVar17[10];
+            uVar6 = puVar17[0xb];
+            puVar16[8] = puVar17[8];
+            puVar16[9] = uVar4;
+            puVar16[10] = uVar5;
+            puVar16[0xb] = uVar6;
+            uVar4 = puVar17[0xd];
+            puVar16[0xc] = puVar17[0xc];
+            puVar16[0xd] = uVar4;
+            puVar16[0xe] = uVar2;
+            puVar16[0xf] = uVar3;
+            lVar15 = lVar15 + -1;
+            puVar1 = puVar16 + 0x10;
+            puVar8 = puVar17 + 0x10;
+          } while (lVar15 != 0);
+          uVar2 = puVar17[0x14];
+          uVar3 = puVar17[0x11];
+          uVar4 = puVar17[0x12];
+          uVar5 = puVar17[0x13];
+          puVar16[0x10] = puVar17[0x10];
+          puVar16[0x11] = uVar3;
+          puVar16[0x12] = uVar4;
+          puVar16[0x13] = uVar5;
+          puVar16[0x14] = uVar2;
+          *(undefined4 *)(puVar16 + 0x15) = *(undefined4 *)(puVar17 + 0x15);
+          *(undefined1 *)((longlong)puVar16 + 0xac) = *(undefined1 *)((longlong)puVar17 + 0xac);
+          *(undefined4 *)(param_1 + 0x400) = local_60;
+          param_1[0x408] = 1;
+        }
+        if (cVar12 != '\0') {
+          puVar1 = (undefined8 *)(param_1 + 0x410);
+          if (param_1[0x550] != '\0') {
+            (**(code **)*puVar1)(puVar1,0);
+          }
+          *puVar1 = &PTR_FUN_7ff76c517eb0;
+          puVar1 = (undefined8 *)(param_1 + 0x418);
+          puVar8 = (undefined8 *)local_2d0;
+          do {
+            puVar17 = puVar8;
+            puVar16 = puVar1;
+            uVar4 = puVar17[1];
+            uVar5 = puVar17[2];
+            uVar6 = puVar17[3];
+            uVar2 = puVar17[0xe];
+            uVar3 = puVar17[0xf];
+            *puVar16 = *puVar17;
+            puVar16[1] = uVar4;
+            puVar16[2] = uVar5;
+            puVar16[3] = uVar6;
+            uVar4 = puVar17[5];
+            uVar5 = puVar17[6];
+            uVar6 = puVar17[7];
+            puVar16[4] = puVar17[4];
+            puVar16[5] = uVar4;
+            puVar16[6] = uVar5;
+            puVar16[7] = uVar6;
+            uVar4 = puVar17[9];
+            uVar5 = puVar17[10];
+            uVar6 = puVar17[0xb];
+            puVar16[8] = puVar17[8];
+            puVar16[9] = uVar4;
+            puVar16[10] = uVar5;
+            puVar16[0xb] = uVar6;
+            uVar4 = puVar17[0xd];
+            puVar16[0xc] = puVar17[0xc];
+            puVar16[0xd] = uVar4;
+            puVar16[0xe] = uVar2;
+            puVar16[0xf] = uVar3;
+            lVar18 = lVar18 + -1;
+            puVar1 = puVar16 + 0x10;
+            puVar8 = puVar17 + 0x10;
+          } while (lVar18 != 0);
+          uVar2 = puVar17[0x14];
+          uVar3 = puVar17[0x11];
+          uVar4 = puVar17[0x12];
+          uVar5 = puVar17[0x13];
+          puVar16[0x10] = puVar17[0x10];
+          puVar16[0x11] = uVar3;
+          puVar16[0x12] = uVar4;
+          puVar16[0x13] = uVar5;
+          puVar16[0x14] = uVar2;
+          *(undefined4 *)(puVar16 + 0x15) = *(undefined4 *)(puVar17 + 0x15);
+          *(undefined1 *)((longlong)puVar16 + 0xac) = *(undefined1 *)((longlong)puVar17 + 0xac);
+          *(undefined4 *)(param_1 + 0x548) = local_1a0;
+          param_1[0x550] = 1;
+        }
+        *(undefined4 *)(param_1 + 0x558) = local_354;
+        if (param_1[0x55c] == '\0') {
+          param_1[0x55c] = 1;
+        }
+        FUN_7ff76b897530(local_340,local_2f0);
+        local_328 = '\x01';
+        if (param_1[0x578] == '\0') {
+          FUN_7ff76b897530(param_1 + 0x560,local_340);
+          param_1[0x578] = 1;
+        }
+        else {
+          FUN_7ff76b885450();
+        }
+        if (local_328 != '\0') {
+          (*(code *)*local_340[0])(local_340,0);
+        }
+        *(undefined8 *)(param_1 + 0x580) = local_350;
+        if (param_1[0x588] == '\0') {
+          param_1[0x588] = 1;
+        }
+        if ((cVar10 != '\0') &&
+           (*(undefined8 *)(param_1 + 0x590) = local_348, param_1[0x598] == '\0')) {
+          param_1[0x598] = 1;
+        }
+      }
+      goto LAB_7ff76b891ea4;
+    }
+  }
+LAB_7ff76b891e9f:
+  FUN_7ff76b897560(local_2f0);
+LAB_7ff76b891ea4:
+  FUN_7ff76b897750(local_2f0);
+  FUN_7ff76b885440(&local_2d8);
+  FUN_7ff76b885440(&local_198);
+  FUN_7ff76b7a6f40(local_318);
+  FUN_7ff76c296e60(local_48 ^ (ulonglong)auStack_378);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "updateTime"
+- "firstPartyUserID"
+- "localizedTitleName"
+- "titleID"
+- "platform"
+- "appearOffline"
+- "localizedPresenceString"
+- "online"

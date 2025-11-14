@@ -1,0 +1,155 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769c1d350
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769c1d350)
+```c
+
+void FUN_7ff769c1d350(undefined8 param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  undefined8 uVar3;
+  longlong lVar4;
+  undefined8 uVar5;
+  longlong lVar6;
+  undefined8 *puVar7;
+  ulonglong *puVar8;
+  uint uVar9;
+  uint uVar10;
+  undefined1 auStack_1a8 [32];
+  undefined4 local_188;
+  undefined1 local_184 [4];
+  undefined8 local_180;
+  undefined4 local_178;
+  undefined1 local_174 [4];
+  undefined8 local_170;
+  undefined1 local_168 [8];
+  undefined1 local_160 [8];
+  undefined1 local_158 [8];
+  ulonglong local_150;
+  ulonglong uStack_148;
+  ulonglong uStack_140;
+  ulonglong uStack_138;
+  undefined4 local_130;
+  ulonglong local_128;
+  ulonglong uStack_120;
+  ulonglong uStack_118;
+  ulonglong uStack_110;
+  undefined4 local_108;
+  ulonglong local_f8;
+  ulonglong uStack_f0;
+  ulonglong uStack_e8;
+  ulonglong uStack_e0;
+  ulonglong local_d8;
+  ulonglong uStack_d0;
+  ulonglong uStack_c8;
+  ulonglong uStack_c0;
+  undefined1 local_b8 [80];
+  undefined1 local_68 [24];
+  ulonglong local_50;
+  ulonglong uVar11;
+  
+  local_50 = DAT_7ff76e1be680 ^ (ulonglong)auStack_1a8;
+  uVar3 = FUN_7ff76a7beb00();
+  lVar4 = FUN_7ff76a7bea30(uVar3,param_2);
+  uVar9 = *(uint *)(lVar4 + 0x10);
+  FUN_7ff76ba404f0(param_1,0,2);
+  FUN_7ff76ba41ac0(param_1,"friends");
+  FUN_7ff76ba404f0(param_1,uVar9,0);
+  uVar11 = 0;
+  uVar3 = DAT_7ff76c3ced90;
+  if (uVar9 != 0) {
+    do {
+      local_128 = local_128 & 0xffffffffffffff00;
+      local_180 = 0;
+      local_f8 = local_f8 & 0xffffffffffffff00;
+      local_150 = local_150 & 0xffffffffffffff00;
+      local_170 = 0;
+      uVar1 = *(undefined4 *)
+               (lVar4 + 0x138ea + (longlong)*(int *)(lVar4 + 0x24 + uVar11 * 0x10) * 4);
+      uVar5 = FUN_7ff76a8844f0();
+      lVar6 = FUN_7ff76a884430(uVar5,uVar1,3);
+      puVar7 = (undefined8 *)FUN_7ff76a880420(lVar6,local_168);
+      local_170 = *puVar7;
+      puVar7 = (undefined8 *)FUN_7ff76a8803e0(lVar6,local_160);
+      local_180 = *puVar7;
+      if (((uint)(int)*(char *)(lVar6 + 0x18) >> 1 & 1) == 0) {
+        uVar5 = FUN_7ff76a8844f0();
+        puVar7 = (undefined8 *)FUN_7ff76a880420(lVar6,local_158);
+        FUN_7ff76a884e90(uVar5,&local_188,*puVar7);
+        cVar2 = FUN_7ff76a882500(&local_188);
+        if (cVar2 != '\0') {
+          FUN_7ff76b199ec0(local_184,local_188);
+          puVar8 = (ulonglong *)FUN_7ff76b19a6d0(local_184,local_b8);
+          local_128 = *puVar8;
+          uStack_120 = puVar8[1];
+          uStack_118 = puVar8[2];
+          uStack_110 = puVar8[3];
+          local_108 = (undefined4)puVar8[4];
+          puVar8 = (ulonglong *)FUN_7ff76b19a770(local_184,local_b8);
+          local_f8 = *puVar8;
+          uStack_f0 = puVar8[1];
+          uStack_e8 = puVar8[2];
+          uStack_e0 = puVar8[3];
+          local_d8 = puVar8[4];
+          uStack_d0 = puVar8[5];
+          uStack_c8 = puVar8[6];
+          uStack_c0 = puVar8[7];
+        }
+      }
+      else {
+        uVar5 = FUN_7ff76a8844f0();
+        FUN_7ff76a884dc0(uVar5,&local_178,local_180);
+        FUN_7ff76b199ec0(local_174,local_178);
+        puVar8 = (ulonglong *)FUN_7ff76b19ac00(local_174,local_b8);
+        local_150 = *puVar8;
+        uStack_148 = puVar8[1];
+        uStack_140 = puVar8[2];
+        uStack_138 = puVar8[3];
+        local_130 = (undefined4)puVar8[4];
+      }
+      cVar2 = FUN_7ff76a8d97c0(&local_170);
+      if ((cVar2 != '\0') && (cVar2 = FUN_7ff76a880110(&local_180), cVar2 == '\0')) {
+        FUN_7ff76ba427e0(DAT_7ff7733884f8,0xfffffffd);
+        uVar9 = 0;
+        goto LAB_7ff769c1d63e;
+      }
+      FUN_7ff76ba41a20(param_1,uVar3);
+      FUN_7ff76ba404f0(param_1,0,2);
+      uVar5 = FUN_7ff76a8d9830(&local_170);
+      thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,uVar5,param_1);
+      thunk_FUN_7ff769b67980("gamertag",&local_150,param_1);
+      thunk_FUN_7ff769b67980("crossplayName",&local_128,param_1);
+      thunk_FUN_7ff769b67980("crossplayNameWithHash",&local_f8,param_1);
+      if ((char)local_150 != '\0') {
+        thunk_FUN_7ff769b67980("platformName",&local_150,param_1);
+        thunk_FUN_7ff769b67980("platformNameWithHash",&local_150,param_1);
+      }
+      FUN_7ff76a880210(&local_180,local_68);
+      thunk_FUN_7ff769b67980("platformId",local_68,param_1);
+      FUN_7ff76ba42700(param_1,0xfffffffd);
+      uVar10 = (int)uVar11 + 1;
+      uVar11 = (ulonglong)uVar10;
+    } while (uVar10 < uVar9);
+  }
+  FUN_7ff76ba42700(param_1,0xfffffffd);
+LAB_7ff769c1d63e:
+  thunk_FUN_7ff769b67720("count",uVar9,param_1);
+  FUN_7ff76c296e60(local_50 ^ (ulonglong)auStack_1a8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "crossplayNameWithHash"
+- "platformId"
+- "crossplayName"
+- "friends"
+- "platformNameWithHash"
+- "count"
+- "platformName"
+- "gamertag"

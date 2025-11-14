@@ -1,0 +1,111 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b773b30
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b773b30)
+```c
+
+char FUN_7ff76b773b30(longlong param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  char cVar2;
+  
+  cVar1 = FUN_7ff76b7a9b10(param_2,"accountType",param_1 + 8,10);
+  if (cVar1 == '\0') {
+LAB_7ff76b773da4:
+    FUN_7ff76b7a9610(param_2,"verificationMethod");
+LAB_7ff76b773db3:
+    cVar1 = '\0';
+  }
+  else {
+    cVar1 = FUN_7ff76b7aa530(param_2,"userID",param_1);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"context",param_1 + 0x13,0x10);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"platform",param_1 + 0x24,0xb);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"transactionId",param_1 + 0x30,0x25);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"firstPartyTransactionId",param_1 + 0x56,200);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"state",param_1 + 0x11f,0x10);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"failureReason",param_1 + 0x130,0x100);
+    if (cVar1 == '\0') goto LAB_7ff76b773da4;
+    cVar1 = FUN_7ff76b7a9610(param_2,"verificationMethod");
+    if (cVar1 == '\0') {
+      cVar1 = FUN_7ff76b7a9b10(param_2,"verificationMethod",param_1 + 0x231,0x10);
+      if (cVar1 != '\0') goto LAB_7ff76b773c83;
+      goto LAB_7ff76b773db3;
+    }
+LAB_7ff76b773c83:
+    cVar1 = FUN_7ff76b7a9b10(param_2,"productInfo",param_1 + 0x242,10000);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7aa340(param_2,"storeId",param_1 + 0x2954);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7aa340(param_2,"skuId",param_1 + 0x2958);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7aa340(param_2,"productId",param_1 + 0x295c);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"firstPartyProductId",param_1 + 0x2964,0x400);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"platformData",param_1 + 0x2d65,0x400);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"createdDateTime",param_1 + 0x3166,0x20);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7a9b10(param_2,"modifiedDateTime",param_1 + 0x3187,0x20);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = FUN_7ff76b7aa340(param_2,"collisionField",param_1 + 0x2960);
+    if (cVar1 == '\0') goto LAB_7ff76b773db3;
+    cVar1 = '\x01';
+  }
+  cVar2 = FUN_7ff76b7aaab0(param_2,"purchaseSource");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7aa190(param_2,"purchaseSource",param_1 + 0x31a8);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b773df0;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b773df0:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"purchaseRegion");
+  if (cVar2 == '\0') {
+    return cVar1;
+  }
+  if (cVar1 != '\0') {
+    cVar1 = FUN_7ff76b7a9b10(param_2,"purchaseRegion",param_1 + 0x31aa,0x10);
+    if (cVar1 != '\0') {
+      return '\x01';
+    }
+  }
+  return '\0';
+}
+
+
+```
+
+### STRINGS
+- "platformData"
+- "storeId"
+- "productId"
+- "transactionId"
+- "collisionField"
+- "createdDateTime"
+- "verificationMethod"
+- "userID"
+- "failureReason"
+- "firstPartyTransactionId"
+- "purchaseSource"
+- "context"
+- "purchaseRegion"
+- "skuId"
+- "firstPartyProductId"
+- "state"
+- "modifiedDateTime"
+- "productInfo"
+- "accountType"
+- "platform"

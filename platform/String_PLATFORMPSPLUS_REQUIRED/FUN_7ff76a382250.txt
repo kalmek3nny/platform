@@ -1,0 +1,28 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a382250
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a382250)
+```c
+
+void FUN_7ff76a382250(longlong param_1)
+
+{
+  char *pcVar1;
+  
+  FUN_7ff76ab42d50("PLATFORM/PSPLUS_REQUIRED",0);
+  if (*(char *)(DAT_7ff773b5af70 + 0x28) != '\0') {
+    pcVar1 = (char *)FUN_7ff76a7b7f00(&DAT_7ff773de7e48);
+    if (*pcVar1 != '\0') {
+      FUN_7ff76b931170(param_1 + 0x1b9,0x100,pcVar1);
+      return;
+    }
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "PLATFORM/PSPLUS_REQUIRED"

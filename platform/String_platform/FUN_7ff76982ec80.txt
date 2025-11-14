@@ -1,0 +1,144 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76982ec80
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76982ec80)
+```c
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+
+void FUN_7ff76982ec80(void)
+
+{
+  undefined1 uVar1;
+  char cVar2;
+  undefined4 uVar3;
+  undefined8 uVar4;
+  longlong lVar5;
+  longlong *plVar6;
+  int iVar7;
+  undefined1 auStack_1338 [32];
+  undefined4 local_1318;
+  undefined8 local_1310;
+  undefined1 local_1308 [56];
+  undefined1 local_12d0;
+  undefined4 local_12cc;
+  undefined8 local_1158;
+  undefined1 local_1150 [4096];
+  undefined1 local_150 [312];
+  ulonglong local_18;
+  undefined8 uStack_10;
+  
+  uStack_10 = 0x7ff76982ec98;
+  local_18 = DAT_7ff76e1be680 ^ (ulonglong)auStack_1338;
+  cVar2 = FUN_7ff76580e850();
+  if (cVar2 == '\0') {
+    uVar4 = FUN_7ff76580dca0(0);
+    cVar2 = FUN_7ff76b945d90();
+    if (cVar2 != '\0') {
+      plVar6 = (longlong *)FUN_7ff76b944a70();
+      (**(code **)(*plVar6 + 0x280))
+                (plVar6,"DLog_RecordEventInternal","dlog_event_hw_configurator_config");
+      local_1318 = 0xffffffff;
+      cVar2 = FUN_7ff76b942320(local_1308,uVar4,&local_1158,0x1000);
+      if (cVar2 != '\0') {
+        cVar2 = FUN_7ff76b945d90();
+        if (cVar2 == '\0') {
+          local_12cc = 0xd;
+        }
+        else {
+          cVar2 = FUN_7ff76b941540(local_1308,"dlog_event_hw_configurator_config",1);
+          local_12d0 = 1;
+          if (cVar2 != '\0') {
+            cVar2 = FUN_7ff76b94d920(local_1308,"platform",DAT_7ff77335a3e0);
+            if (cVar2 != '\0') {
+              cVar2 = FUN_7ff76b94ce20(local_1308,"gpu_name",&DAT_7ff77335a1e0,0);
+              if (cVar2 != '\0') {
+                cVar2 = FUN_7ff76b94d800(local_1308,"memory",DAT_7ff77335a3e4);
+                if (cVar2 != '\0') {
+                  cVar2 = FUN_7ff76b945ad0(local_1308,"gpu_preset",DAT_7ff77335a3e8);
+                  if (cVar2 != '\0') {
+                    cVar2 = FUN_7ff76b945ad0(local_1308,"memory_preset",DAT_7ff77335a3e9);
+                    if (cVar2 != '\0') {
+                      FUN_7ff76b948540(local_1308);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      plVar6 = (longlong *)FUN_7ff76b944a70();
+      (**(code **)(*plVar6 + 0x288))(plVar6);
+    }
+  }
+  else {
+    uVar4 = FUN_7ff76580dca0(0);
+    local_1158 = uVar4;
+    FUN_7ff76b940920(local_150,local_1150,0x1000);
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b940950(local_150,1);
+    FUN_7ff7657f67e0(local_150,uVar4,"dlog_event_hw_configurator_config");
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b940950(local_150,2);
+    FUN_7ff7657f6480(local_150,uVar4,"dlog_event_hw_configurator_config");
+    uVar1 = DAT_7ff77335a3e0;
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b950730(local_150,3,uVar1);
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b950610(local_150,4,&DAT_7ff77335a1e0);
+    uVar3 = DAT_7ff77335a3e4;
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b950730(local_150,5,uVar3);
+    iVar7 = (int)DAT_7ff77335a3e8;
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b94fef0(local_150,6,iVar7);
+    iVar7 = (int)DAT_7ff77335a3e9;
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    FUN_7ff76b94fef0(local_150,7,iVar7);
+    lVar5 = FUN_7ff76b94e2e0(local_150);
+    if (lVar5 == 1) {
+      FUN_7ff76b94e3e0(local_150);
+    }
+    uVar3 = FUN_7ff76b950580(local_150);
+    local_1310 = 0x5ba800a7b50d09cb;
+    local_1318 = 2;
+    FUN_7ff76b948250(local_1158,"dlog_event_hw_configurator_config",local_1150,uVar3);
+  }
+  FUN_7ff76c296e60(local_18 ^ (ulonglong)auStack_1338);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "memory_preset"
+- "gpu_name"
+- "gpu_preset"
+- "dlog_event_hw_configurator_config"
+- "memory"
+- "platform"
+- "DLog_RecordEventInternal"

@@ -1,0 +1,156 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a87eac0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a87eac0)
+```c
+
+void FUN_7ff76a87eac0(undefined8 param_1,undefined8 param_2,int param_3,undefined8 param_4)
+
+{
+  char *pcVar1;
+  ulonglong uVar2;
+  char cVar3;
+  undefined1 uVar4;
+  int iVar5;
+  uint uVar6;
+  undefined4 uVar7;
+  undefined8 uVar8;
+  undefined8 uVar9;
+  longlong lVar10;
+  longlong lVar11;
+  uint uVar12;
+  int iVar13;
+  char *pcVar14;
+  undefined1 auStack_318 [32];
+  undefined4 local_2f8 [4];
+  char *local_2e8;
+  ulonglong uStack_2e0;
+  undefined1 local_2c8 [40];
+  undefined1 local_2a0 [40];
+  undefined1 local_278 [560];
+  ulonglong local_48;
+  
+  local_48 = DAT_7ff76e1be680 ^ (ulonglong)auStack_318;
+  local_2e8 = (char *)FUN_7ff76b81b500();
+  uStack_2e0 = 0;
+  if (local_2e8 != (char *)0x0) {
+    cVar3 = *local_2e8;
+    while (cVar3 != '\0') {
+      uStack_2e0 = uStack_2e0 + 1;
+      cVar3 = local_2e8[uStack_2e0];
+    }
+  }
+  FUN_7ff76b7a69c0(local_2a0,&local_2e8);
+  FUN_7ff76b7a6a10(local_2c8);
+  FUN_7ff76b7a96d0(local_2a0,"ruleset_payload",local_2c8);
+  FUN_7ff76a73dd30(local_278);
+  cVar3 = FUN_7ff76a73ebd0(local_278,local_2c8);
+  if (cVar3 != '\0') {
+    iVar13 = 0;
+    do {
+      cVar3 = FUN_7ff764ffbce0(iVar13);
+      if (cVar3 != '\0') {
+        uVar12 = 0;
+        iVar5 = FUN_7ff76b81bbe0(param_4);
+        if (iVar5 != 0) {
+          do {
+            uVar8 = FUN_7ff76b81bc30(param_4,uVar12);
+            uVar8 = FUN_7ff76b81be30(uVar8);
+            FUN_7ff76a8d97a0(&local_2e8,uVar8);
+            uVar8 = FUN_7ff76a8844f0();
+            FUN_7ff76a884e90(uVar8,local_2f8,local_2e8);
+            uVar8 = FUN_7ff76a828870();
+            iVar5 = FUN_7ff76a828ad0(uVar8,iVar13,local_2f8[0],8);
+            cVar3 = FUN_7ff76a882500(local_2f8);
+            if ((cVar3 != '\0') && (iVar5 == 2)) goto LAB_7ff76a87eee9;
+            uVar12 = uVar12 + 1;
+            uVar6 = FUN_7ff76b81bbe0(param_4);
+          } while (uVar12 < uVar6);
+        }
+      }
+      iVar13 = iVar13 + 1;
+    } while (iVar13 < 1);
+    FUN_7ff769bc38f0((longlong)param_3,0,8,param_2);
+    uVar7 = FUN_7ff76b81bbe0(param_4);
+    thunk_FUN_7ff769b67720("partySize",uVar7,param_2);
+    uVar7 = FUN_7ff76b81bb70(param_4);
+    thunk_FUN_7ff769b67720("maxPartySize",uVar7,param_2);
+    uVar8 = FUN_7ff76b81bdf0(param_4);
+    thunk_FUN_7ff769b67980(&DAT_7ff76c3b8490,uVar8,param_2);
+    iVar13 = FUN_7ff76b81bea0(param_4);
+    thunk_FUN_7ff769b676a0("joinable",iVar13 == 0,param_2);
+    uVar8 = FUN_7ff76b81bc20(param_4);
+    FUN_7ff769bd25c0("partyId",uVar8,param_2);
+    uVar8 = FUN_7ff76b81bae0(param_4);
+    FUN_7ff769bd25c0("leaderId",uVar8,param_2);
+    uVar8 = FUN_7ff76b81bd10(param_4);
+    FUN_7ff76a87e9a0(&local_2e8,uVar8);
+    uVar2 = uStack_2e0;
+    pcVar1 = local_2e8;
+    iVar13 = 1;
+    FUN_7ff769bc3880("party",uStack_2e0 & 0xffffffff,0,param_2);
+    for (pcVar14 = pcVar1; pcVar14 != pcVar1 + uVar2 * 0xb0; pcVar14 = pcVar14 + 0xb0) {
+      FUN_7ff769bc38f0((longlong)iVar13,9,0,param_2);
+      uVar8 = FUN_7ff76b81be40(pcVar14);
+      thunk_FUN_7ff769b67980("crossplayName",uVar8,param_2);
+      uVar8 = DAT_7ff7733884f8;
+      uVar9 = FUN_7ff76b81b760(pcVar14);
+      thunk_FUN_7ff769b67980("platform",uVar9,uVar8);
+      lVar10 = FUN_7ff76b81bae0(param_4);
+      lVar11 = FUN_7ff76b81be30(pcVar14);
+      thunk_FUN_7ff769b676a0("isLeader",lVar11 == lVar10,param_2);
+      uVar4 = FUN_7ff76b81b850(pcVar14);
+      thunk_FUN_7ff769b676a0("isCrossplay",uVar4,param_2);
+      uVar4 = FUN_7ff76b81b860(pcVar14);
+      thunk_FUN_7ff769b676a0("isMicEnabled",uVar4,param_2);
+      uVar4 = FUN_7ff76b81b780(pcVar14);
+      thunk_FUN_7ff769b676a0("isHeadsetPresent",uVar4,param_2);
+      uVar4 = FUN_7ff76b81b790(pcVar14);
+      thunk_FUN_7ff769b676a0("isInVoiceChat",uVar4,param_2);
+      iVar5 = FUN_7ff76b81b680(pcVar14);
+      thunk_FUN_7ff769b676a0("isUsingGamepad",iVar5 == 1,param_2);
+      lVar10 = FUN_7ff76b81bae0(param_4);
+      lVar11 = FUN_7ff76b81be30(pcVar14);
+      thunk_FUN_7ff769b676a0("isLeader",lVar11 == lVar10,param_2);
+      uVar8 = FUN_7ff76b81be30(pcVar14);
+      FUN_7ff769bd25c0(&DAT_7ff76c4ed274,uVar8,param_2);
+      uVar8 = FUN_7ff76b81b770(pcVar14);
+      FUN_7ff769bd25c0("platformID",uVar8);
+      FUN_7ff769bc61a0(DAT_7ff7733884f8);
+      iVar13 = iVar13 + 1;
+    }
+    FUN_7ff769bc61a0(DAT_7ff7733884f8);
+    FUN_7ff76a73e0e0(local_278,param_2);
+    FUN_7ff769bc61a0(DAT_7ff7733884f8);
+    if (pcVar1 != (char *)0x0) {
+      FUN_7ff76b789e00(pcVar1);
+    }
+  }
+LAB_7ff76a87eee9:
+  FUN_7ff76b7a6f40(local_2c8);
+  FUN_7ff76b7a6f40(local_2a0);
+  FUN_7ff76c296e60(local_48 ^ (ulonglong)auStack_318);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "platformID"
+- "isUsingGamepad"
+- "partySize"
+- "partyId"
+- "isInVoiceChat"
+- "crossplayName"
+- "isCrossplay"
+- "isMicEnabled"
+- "party"
+- "joinable"
+- "ruleset_payload"
+- "platform"
+- "isHeadsetPresent"
+- "maxPartySize"
+- "leaderId"
+- "isLeader"

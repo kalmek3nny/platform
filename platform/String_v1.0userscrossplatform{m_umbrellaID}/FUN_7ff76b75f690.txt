@@ -1,0 +1,84 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b75f690
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b75f690)
+```c
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+
+void FUN_7ff76b75f690(longlong param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  undefined8 uVar2;
+  undefined8 uVar3;
+  longlong lVar4;
+  undefined1 auStack_2af8 [32];
+  undefined8 local_2ad8 [2];
+  undefined1 local_2ac8 [10928];
+  ulonglong local_18;
+  undefined8 uStack_10;
+  
+  uStack_10 = 0x7ff76b75f6a0;
+  local_18 = DAT_7ff76e1be680 ^ (ulonglong)auStack_2af8;
+  cVar1 = thunk_FUN_7ff763b3216d(param_2,"umbrella");
+  if ((cVar1 != '\0') && (cVar1 = thunk_FUN_7ff782741d56(param_2,0x505554), cVar1 != '\0')) {
+    uVar2 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar1 = thunk_FUN_7ff77ee763d3(uVar2,1);
+    if (cVar1 != '\0') {
+      uVar2 = thunk_FUN_7ff77f04a3f9(param_2);
+      cVar1 = thunk_FUN_7ff763a39ca0(uVar2,1);
+      if ((cVar1 != '\0') &&
+         (cVar1 = thunk_FUN_7ff7825e6de8(param_2,"UserResource","linkUser"), cVar1 != '\0')) {
+        FUN_7ff7657edae0(local_2ac8,0x2aad,"Bearer %s",param_1 + 0x5972);
+        uVar2 = thunk_FUN_7ff77f04a3f9(param_2);
+        cVar1 = thunk_FUN_7ff76438503a(uVar2,"Authorization",local_2ac8);
+        if (cVar1 != '\0') {
+          uVar2 = thunk_FUN_7ff7815e7168(param_2);
+          cVar1 = FUN_7ff76b75ae10(uVar2,"/v1.0/users/crossplatform/{m_umbrellaID}/",param_1 + 0x10)
+          ;
+          if (cVar1 != '\0') {
+            uVar2 = thunk_FUN_7ff7815e7168(param_2);
+            uVar3 = thunk_FUN_7ff76b89f3bc(param_2);
+            lVar4 = thunk_FUN_7ff77f51e559(uVar3);
+            cVar1 = thunk_FUN_7ff77f27de65(uVar2,"client",lVar4 + 0xcb);
+            if (cVar1 != '\0') {
+              local_2ad8[0] = 0;
+              cVar1 = thunk_FUN_7ff78282aece(param_2,local_2ad8);
+              if ((((cVar1 != '\0') && (cVar1 = FUN_7ff76b7adc60(local_2ad8[0]), cVar1 != '\0')) &&
+                  (cVar1 = FUN_7ff76b7ae830(local_2ad8[0],"unoIDToken",param_1 + 0x5572),
+                  cVar1 != '\0')) &&
+                 ((cVar1 = FUN_7ff76b7ae830(local_2ad8[0],"accessToken",param_1 + 0x18),
+                  cVar1 != '\0' &&
+                  (cVar1 = FUN_7ff76b7ae830(local_2ad8[0],"refreshToken",param_1 + 0x2ac5),
+                  cVar1 != '\0')))) {
+                FUN_7ff76b7adfe0(local_2ad8[0]);
+              }
+            }
+          }
+        }
+        goto LAB_7ff76b75f89e;
+      }
+    }
+  }
+  FUN_7ff7657edae0(local_2ac8,0x2aad,"Bearer %s",param_1 + 0x5972);
+LAB_7ff76b75f89e:
+  FUN_7ff76c296e60(local_18 ^ (ulonglong)auStack_2af8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "unoIDToken"
+- "/v1.0/users/crossplatform/{m_umbrellaID}/"
+- "umbrella"
+- "client"
+- "UserResource"
+- "accessToken"
+- "refreshToken"
+- "Authorization"
+- "Bearer %s"
+- "linkUser"

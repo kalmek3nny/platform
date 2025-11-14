@@ -1,0 +1,33 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769e59f30
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769e59f30)
+```c
+
+void FUN_7ff769e59f30(longlong param_1,undefined8 param_2)
+
+{
+  thunk_FUN_7ff769b67980("presence",param_1,param_2);
+  thunk_FUN_7ff769b676a0("joinable",*(undefined1 *)(param_1 + 0x89),param_2);
+  thunk_FUN_7ff769b67720("presencePlatform",*(undefined1 *)(param_1 + 0x88),param_2);
+  thunk_FUN_7ff769b67720("onlineStatus",*(undefined1 *)(param_1 + 0x8a),param_2);
+  thunk_FUN_7ff769b676a0("isOnline",*(undefined1 *)(param_1 + 0x8b),param_2);
+  thunk_FUN_7ff769b67720("inputType",(longlong)*(int *)(param_1 + 0x90),param_2);
+  thunk_FUN_7ff769b67720("gameTitle",*(undefined1 *)(param_1 + 0x8c),param_2);
+  FUN_7ff769bd25c0("partyId",*(undefined8 *)(param_1 + 0x80),param_2);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "presence"
+- "gameTitle"
+- "onlineStatus"
+- "joinable"
+- "inputType"
+- "presencePlatform"
+- "isOnline"
+- "partyId"

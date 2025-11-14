@@ -1,0 +1,196 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a8d3b30
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a8d3b30)
+```c
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_7ff76a8d3b30(uint param_1,longlong *param_2)
+
+{
+  char *pcVar1;
+  ulonglong uVar2;
+  bool bVar3;
+  char cVar4;
+  undefined4 uVar5;
+  int iVar6;
+  int iVar7;
+  uint uVar8;
+  char *pcVar9;
+  longlong lVar10;
+  longlong lVar11;
+  undefined8 uVar12;
+  longlong *plVar13;
+  char *pcVar14;
+  undefined8 uVar15;
+  uint uVar16;
+  ulonglong uVar17;
+  ulonglong uVar18;
+  ulonglong uVar19;
+  longlong lVar20;
+  int iVar21;
+  uint local_res18;
+  ulonglong local_res20;
+  undefined8 local_78;
+  undefined1 local_70 [8];
+  ulonglong local_68;
+  ulonglong local_60 [4];
+  
+  uVar15 = DAT_7ff773f52e08;
+  uVar12 = DAT_7ff7733884f8;
+  uVar17 = (ulonglong)(int)param_1;
+  uVar5 = FUN_7ff764ffbae0(param_1);
+  cVar4 = FUN_7ff769bc2cc0(uVar5,uVar15,uVar12);
+  uVar12 = DAT_7ff7733884f8;
+  if (cVar4 == '\0') {
+    return;
+  }
+  uVar19 = 0;
+  local_60[0] = 0xd1e4b8ec0d20c6a4;
+  local_60[1] = 0xbdf0b2fa1707dba2;
+  uVar18 = uVar19;
+  do {
+    local_res20 = 0xbd88d79e794ea9c7;
+    uVar2 = *(ulonglong *)((longlong)local_60 + uVar18);
+    *(ulonglong *)((longlong)&DAT_7ff773f52e10 + uVar18) =
+         ((~uVar2 & 0xbd88d79e794ea9c7) - 1) +
+         (~((((uVar2 | 0x4277286186b15638) - uVar2) + 0xbd88d79e794ea9c7 | 2) * 2) -
+         (uVar2 & 0x4277286186b15638));
+    uVar18 = uVar18 + 8;
+  } while (uVar18 < 0x10);
+  thunk_FUN_7ff769b67720(&DAT_7ff773f52e10,uVar17,uVar12);
+  local_res20 = 0x3fe779b33548124a;
+  _DAT_7ff773f52e20 = 0x73736563637573;
+  thunk_FUN_7ff769b676a0(&DAT_7ff773f52e20,(char)param_2[3],DAT_7ff7733884f8);
+  if ((char)param_2[3] == '\0') goto LAB_7ff76a8d4375;
+  iVar21 = 1;
+  pcVar9 = (char *)FUN_7ff76581dea0();
+  local_res20 = 0x76b8eed0b3376e51;
+  _DAT_7ff773f52e28 = 0x73746c75736572;
+  FUN_7ff769bc3880(&DAT_7ff773f52e28,(int)param_2[2],0,DAT_7ff7733884f8);
+  local_res18 = 0;
+  uVar18 = uVar19;
+  if ((int)param_2[2] != 0) {
+LAB_7ff76a8d40a0:
+    lVar20 = uVar18 * 0x1488 + *param_2;
+    bVar3 = false;
+    local_68 = uVar18;
+    iVar6 = FUN_7ff76b75d090(lVar20);
+    uVar17 = uVar19;
+    if (iVar6 != 0) {
+LAB_7ff76a8d40c5:
+      pcVar14 = "uno";
+      lVar10 = FUN_7ff76b75ce60(lVar20);
+      lVar10 = lVar10 + uVar17 * 0x148;
+      lVar11 = FUN_7ff76b75ce50(lVar10);
+      do {
+        pcVar1 = pcVar14 + lVar11 + -0x7ff76c401768;
+        cVar4 = *pcVar14;
+        pcVar14 = pcVar14 + 1;
+        if (*pcVar1 != cVar4) {
+          lVar11 = FUN_7ff76b75ce50(lVar10);
+          pcVar14 = pcVar9;
+          goto LAB_7ff76a8d4260;
+        }
+      } while (*pcVar1 != '\0');
+      if (!bVar3) {
+        FUN_7ff769bc38f0((longlong)iVar21,3,0,DAT_7ff7733884f8);
+      }
+      uVar12 = FUN_7ff76b75ce40(lVar10);
+      FUN_7ff76a8d97a0(local_70,uVar12);
+      uVar12 = FUN_7ff76b75ce40(lVar10);
+      FUN_7ff76a8d97a0(&local_78,uVar12);
+      uVar12 = FUN_7ff76a884bf0();
+      FUN_7ff76a8832c0(uVar12,&local_res20,local_78);
+      uVar12 = FUN_7ff76a884bf0();
+      plVar13 = (longlong *)FUN_7ff76a883870(uVar12,local_res20 & 0xffffffff,4);
+      if ((*(char *)(DAT_7ff773b5bad0 + 0x28) == '\0') ||
+         ((((cVar4 = FUN_7ff76abb94a0(), cVar4 == '\0' &&
+            (*(char *)(DAT_7ff773b5bad8 + 0x28) != '\0')) || (plVar13 == (longlong *)0x0)) ||
+          (cVar4 = (**(code **)(*plVar13 + 0x18))(plVar13), cVar4 == '\0')))) {
+        iVar6 = 0;
+        if (plVar13 != (longlong *)0x0) goto LAB_7ff76a8d41cf;
+      }
+      else {
+        iVar6 = FUN_7ff76b92f270(plVar13,0x58);
+LAB_7ff76a8d41cf:
+        pcVar14 = (char *)FUN_7ff76a880620(plVar13);
+        if ((pcVar14 == (char *)0x0) || (*pcVar14 == '\0')) {
+          uVar12 = FUN_7ff76b75d260(lVar10);
+          FUN_7ff76a8806b0(plVar13,uVar12);
+        }
+        if ((iVar6 != 0) && (iVar7 = FUN_7ff76b92f270(plVar13,0x58), iVar7 != iVar6)) {
+          (**(code **)*plVar13)(plVar13);
+        }
+      }
+      uVar12 = DAT_7ff7733884f8;
+      uVar15 = FUN_7ff76a8d9830(local_70);
+      thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,uVar15,uVar12);
+      uVar12 = FUN_7ff76b75d260(lVar10);
+      pcVar14 = "atviName";
+      goto LAB_7ff76a8d42d5;
+    }
+    goto LAB_7ff76a8d433f;
+  }
+LAB_7ff76a8d435f:
+  FUN_7ff769bc61a0(DAT_7ff7733884f8);
+LAB_7ff76a8d4375:
+  if (DAT_7ff773f52dc8 != (code *)0x0) {
+    if ((int)param_2[2] == 0) {
+      uVar19 = 3;
+    }
+    (*DAT_7ff773f52dc8)(uVar17 & 0xffffffff,uVar19);
+  }
+  FUN_7ff769bc6030(DAT_7ff7733884f8);
+  return;
+  while (*pcVar1 != '\0') {
+LAB_7ff76a8d4260:
+    pcVar1 = pcVar14 + (lVar11 - (longlong)pcVar9);
+    cVar4 = *pcVar14;
+    pcVar14 = pcVar14 + 1;
+    if (*pcVar1 != cVar4) goto LAB_7ff76a8d42e3;
+  }
+  if (!bVar3) {
+    FUN_7ff769bc38f0((longlong)iVar21,5,0,DAT_7ff7733884f8);
+  }
+  uVar12 = DAT_7ff7733884f8;
+  uVar15 = FUN_7ff76b75ce40(lVar10);
+  uVar15 = FUN_7ff76b2d7da0(&DAT_7ff76c3e4f10,uVar15);
+  thunk_FUN_7ff769b67980("platformId",uVar15,uVar12);
+  uVar12 = FUN_7ff76b75d260(lVar10);
+  pcVar14 = "platformName";
+LAB_7ff76a8d42d5:
+  thunk_FUN_7ff769b67980(pcVar14,uVar12);
+  bVar3 = true;
+LAB_7ff76a8d42e3:
+  uVar16 = (int)uVar17 + 1;
+  uVar17 = (ulonglong)uVar16;
+  uVar8 = FUN_7ff76b75d090(lVar20);
+  if (uVar8 <= uVar16) goto code_r0x7ff76a8d42fc;
+  goto LAB_7ff76a8d40c5;
+code_r0x7ff76a8d42fc:
+  if (bVar3) {
+    thunk_FUN_7ff769b67720("mutualFriends",*(undefined2 *)(param_2[1] + local_68 * 2));
+    FUN_7ff769bc61a0(DAT_7ff7733884f8);
+    iVar21 = iVar21 + 1;
+  }
+LAB_7ff76a8d433f:
+  local_res18 = local_res18 + 1;
+  uVar18 = (ulonglong)local_res18;
+  if (*(uint *)(param_2 + 2) <= local_res18) goto code_r0x7ff76a8d4358;
+  goto LAB_7ff76a8d40a0;
+code_r0x7ff76a8d4358:
+  uVar17 = (ulonglong)param_1;
+  goto LAB_7ff76a8d435f;
+}
+
+
+```
+
+### STRINGS
+- "platformId"
+- "mutualFriends"
+- "atviName"
+- "platformName"

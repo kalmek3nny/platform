@@ -1,0 +1,123 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b7705b0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b7705b0)
+```c
+
+char FUN_7ff76b7705b0(longlong param_1,undefined8 param_2,char *param_3)
+
+{
+  char *_Dest;
+  char cVar1;
+  longlong lVar2;
+  undefined8 uVar3;
+  undefined8 uVar4;
+  char *pcVar5;
+  undefined1 local_res8 [16];
+  undefined1 local_res18 [8];
+  undefined1 local_res20 [8];
+  char *local_38 [2];
+  
+  cVar1 = FUN_7ff76b779490();
+  if (cVar1 == '\0') {
+LAB_7ff76b770775:
+    cVar1 = '\0';
+  }
+  else {
+    cVar1 = thunk_FUN_7ff782741d56(param_2,0x474554);
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    param_3 = "get_transaction_paginated_v2";
+    cVar1 = thunk_FUN_7ff7825e6de8(param_2,"transaction_receipt");
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    lVar2 = thunk_FUN_7ff7815e7168(param_2);
+    uVar3 = thunk_FUN_7ff78102f888(param_1 + 0x10c0);
+    uVar4 = thunk_FUN_7ff76b8b17da(param_1 + 0x10c0);
+    *(undefined1 *)(lVar2 + 0x2314) = 0;
+    *(undefined4 *)(lVar2 + 0x2310) = 0;
+    local_38[0] = "/v2/exchange/{accountType}-{userId}/transactions/paginated/";
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    thunk_FUN_7ff76382d075(lVar2,uVar4);
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    thunk_FUN_7ff763953408(lVar2,uVar3);
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    thunk_FUN_7ff76386c4b8(lVar2,local_res8);
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    thunk_FUN_7ff76386c4b8(lVar2,local_res18);
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    thunk_FUN_7ff76386c4b8(lVar2,local_res20);
+    thunk_FUN_7ff77f29cfef(lVar2,local_38);
+    cVar1 = thunk_FUN_7ff77f4330ba(lVar2);
+    if (cVar1 == '\0') {
+      *(undefined1 *)(lVar2 + 0x2314) = 0;
+      *(undefined4 *)(lVar2 + 0x2310) = 0;
+    }
+    cVar1 = thunk_FUN_7ff77f4330ba(lVar2);
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    uVar3 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar1 = thunk_FUN_7ff763a39ca0(uVar3,1);
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    uVar3 = thunk_FUN_7ff7815e7168(param_2);
+    param_3 = (char *)FUN_7ff76b7874f0(*(undefined4 *)(param_1 + 0x111c));
+    cVar1 = thunk_FUN_7ff77f30d100(uVar3,"platform");
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    uVar3 = thunk_FUN_7ff7815e7168(param_2);
+    param_3 = (char *)(ulonglong)*(uint *)(param_1 + 0x1148);
+    cVar1 = FUN_7ff76b75a570(uVar3,"limit");
+    if (cVar1 == '\0') goto LAB_7ff76b770775;
+    cVar1 = '\x01';
+  }
+  _Dest = (char *)(param_1 + 0x114c);
+  if (_Dest != (char *)0x0) {
+    pcVar5 = strncat(_Dest,(char *)0x41,(size_t)param_3);
+    if (pcVar5 != (char *)0x0) {
+      if (cVar1 != '\0') {
+        uVar3 = thunk_FUN_7ff7815e7168(param_2);
+        cVar1 = thunk_FUN_7ff77f30d100(uVar3,"pageToken",_Dest);
+        if (cVar1 != '\0') {
+          cVar1 = '\x01';
+          goto LAB_7ff76b7707be;
+        }
+      }
+      cVar1 = '\0';
+    }
+  }
+LAB_7ff76b7707be:
+  if (*(int *)(param_1 + 0x1198) != 0) {
+    if (cVar1 != '\0') {
+      uVar3 = thunk_FUN_7ff7815e7168(param_2);
+      cVar1 = FUN_7ff76b76b520(uVar3,"states",*(undefined8 *)(param_1 + 0x1190),
+                               *(undefined4 *)(param_1 + 0x1198));
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b7707ff;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b7707ff:
+  if (*(char *)(param_1 + 0x1259) == '\0') {
+    return cVar1;
+  }
+  if (cVar1 != '\0') {
+    uVar3 = thunk_FUN_7ff7815e7168(param_2);
+    cVar1 = thunk_FUN_7ff77f30d100(uVar3,"transactionId",param_1 + 0x1121);
+    if (cVar1 != '\0') {
+      return '\x01';
+    }
+  }
+  return '\0';
+}
+
+
+```
+
+### STRINGS
+- "transaction_receipt"
+- "/v2/exchange/{accountType}-{userId}/transactions/paginated/"
+- "pageToken"
+- "get_transaction_paginated_v2"
+- "states"
+- "platform"
+- "transactionId"
+- "limit"

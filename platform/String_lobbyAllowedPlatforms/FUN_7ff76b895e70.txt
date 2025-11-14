@@ -1,0 +1,179 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b895e70
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b895e70)
+```c
+
+undefined8 FUN_7ff76b895e70(undefined8 *param_1,undefined8 param_2,longlong param_3)
+
+{
+  longlong lVar1;
+  bool bVar2;
+  char cVar3;
+  undefined4 *puVar4;
+  undefined8 uVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  ulonglong uVar8;
+  ulonglong uVar9;
+  
+  if (param_3 != 0) {
+    cVar3 = FUN_7ff76b7adbd0(param_3);
+    if (((cVar3 == '\0') || (cVar3 = FUN_7ff76b7aeed0(param_3,"lobbyID",*param_1,0), cVar3 == '\0'))
+       || (cVar3 = FUN_7ff76b7aedd0(param_3,"lobbySize",*(undefined4 *)(param_1 + 1),0),
+          cVar3 == '\0')) {
+      bVar2 = false;
+    }
+    else {
+      bVar2 = true;
+    }
+    puVar6 = (undefined4 *)0x0;
+    if (*(char *)(param_1 + 6) != '\0') {
+      if ((bVar2) && (cVar3 = FUN_7ff76b7ad9f0(param_3,"lobbyAllowedPlatforms"), cVar3 != '\0')) {
+        bVar2 = true;
+      }
+      else {
+        bVar2 = false;
+      }
+      uVar9 = param_1[4];
+      if (uVar9 == 0) {
+        puVar4 = (undefined4 *)0x0;
+      }
+      else {
+        puVar4 = (undefined4 *)thunk_FUN_7ff77f2edcb1(uVar9 * 4,0,0);
+        lVar1 = param_1[3];
+        if (uVar9 != 0) {
+          puVar7 = puVar4;
+          uVar8 = uVar9;
+          do {
+            *puVar7 = *(undefined4 *)((lVar1 - (longlong)puVar4) + (longlong)puVar7);
+            puVar7 = puVar7 + 1;
+            uVar8 = uVar8 - 1;
+          } while (uVar8 != 0);
+        }
+      }
+      if ((int)uVar9 != 0) {
+        uVar9 = uVar9 & 0xffffffff;
+        puVar7 = puVar4;
+        do {
+          uVar5 = FUN_7ff76b7875e0(*puVar7);
+          FUN_7ff76b7ae980(param_3,uVar5);
+          puVar7 = puVar7 + 1;
+          uVar9 = uVar9 - 1;
+        } while (uVar9 != 0);
+      }
+      if ((bVar2) && (cVar3 = FUN_7ff76b7adf90(param_3), cVar3 != '\0')) {
+        bVar2 = true;
+      }
+      else {
+        bVar2 = false;
+      }
+      if (puVar4 != (undefined4 *)0x0) {
+        FUN_7ff76b789e00(puVar4);
+      }
+    }
+    if ((((bVar2) &&
+         (cVar3 = FUN_7ff76b7addb0(param_3,"lobbyPresenceJoinEnabled",
+                                   *(undefined1 *)((longlong)param_1 + 0xc)), cVar3 != '\0')) &&
+        (cVar3 = FUN_7ff76b7aedd0(param_3,"lobbyNumFreeSlots",*(undefined4 *)(param_1 + 2),0),
+        cVar3 != '\0')) &&
+       (cVar3 = FUN_7ff76b7aeed0(param_3,"lobbyPlaylistID",param_1[7],0), cVar3 != '\0')) {
+      bVar2 = true;
+    }
+    else {
+      bVar2 = false;
+    }
+    if (*(char *)(param_1 + 0xb) != '\0') {
+      if ((bVar2) && (cVar3 = FUN_7ff76b7ad9f0(param_3,"lobbyServiceLevelAccess"), cVar3 != '\0')) {
+        bVar2 = true;
+      }
+      else {
+        bVar2 = false;
+      }
+      uVar9 = param_1[9];
+      if (uVar9 != 0) {
+        puVar6 = (undefined4 *)thunk_FUN_7ff77f2edcb1(uVar9 * 6,0,0);
+        lVar1 = param_1[8];
+        if (uVar9 != 0) {
+          puVar4 = puVar6;
+          uVar8 = uVar9;
+          do {
+            if (puVar4 != (undefined4 *)0x0) {
+              *puVar4 = *(undefined4 *)((longlong)puVar4 + (lVar1 - (longlong)puVar6));
+              *(undefined2 *)(puVar4 + 1) =
+                   *(undefined2 *)((longlong)puVar4 + (lVar1 - (longlong)puVar6) + 4);
+            }
+            puVar4 = (undefined4 *)((longlong)puVar4 + 6);
+            uVar8 = uVar8 - 1;
+          } while (uVar8 != 0);
+        }
+      }
+      if ((int)uVar9 != 0) {
+        uVar9 = uVar9 & 0xffffffff;
+        puVar4 = puVar6;
+        do {
+          FUN_7ff76b7ae980(param_3,puVar4);
+          puVar4 = (undefined4 *)((longlong)puVar4 + 6);
+          uVar9 = uVar9 - 1;
+        } while (uVar9 != 0);
+      }
+      if ((bVar2) && (cVar3 = FUN_7ff76b7adf90(param_3), cVar3 != '\0')) {
+        bVar2 = true;
+      }
+      else {
+        bVar2 = false;
+      }
+      if (puVar6 != (undefined4 *)0x0) {
+        FUN_7ff76b789e00(puVar6);
+      }
+    }
+    if (((bVar2) &&
+        (cVar3 = FUN_7ff76b7ae830(param_3,"lobbyPrivacyLevel",param_1 + 0xc), cVar3 != '\0')) &&
+       (cVar3 = FUN_7ff76b7addb0(param_3,"lobbySplitscreenRestricted",
+                                 *(undefined1 *)((longlong)param_1 + 0x71)), cVar3 != '\0')) {
+      bVar2 = true;
+    }
+    else {
+      bVar2 = false;
+    }
+    if (*(char *)((longlong)param_1 + 0x93) == '\0') {
+      cVar3 = *(char *)((longlong)param_1 + 0xd5);
+      if (!bVar2) {
+        return 0;
+      }
+    }
+    else {
+      if (!bVar2) {
+        return 0;
+      }
+      cVar3 = FUN_7ff76b7ae830(param_3,"lobbyMapName",(longlong)param_1 + 0x72);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      cVar3 = *(char *)((longlong)param_1 + 0xd5);
+    }
+    if (((cVar3 != '\0') &&
+        (cVar3 = FUN_7ff76b7ae830(param_3,"lobbyGameType",(longlong)param_1 + 0x94), cVar3 == '\0'))
+       || (cVar3 = FUN_7ff76b7adfe0(param_3), cVar3 == '\0')) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+
+```
+
+### STRINGS
+- "lobbyID"
+- "lobbyMapName"
+- "lobbyPrivacyLevel"
+- "lobbyPlaylistID"
+- "lobbyNumFreeSlots"
+- "lobbyServiceLevelAccess"
+- "lobbySplitscreenRestricted"
+- "lobbyAllowedPlatforms"
+- "lobbyPresenceJoinEnabled"
+- "lobbyGameType"
+- "lobbySize"

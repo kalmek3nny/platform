@@ -1,0 +1,270 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769d22f90
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769d22f90)
+```c
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+
+void FUN_7ff769d22f90(undefined8 param_1)
+
+{
+  bool bVar1;
+  int iVar2;
+  char cVar3;
+  undefined1 uVar4;
+  int iVar5;
+  undefined4 uVar6;
+  longlong lVar7;
+  longlong lVar8;
+  char *pcVar9;
+  undefined8 uVar10;
+  int iVar11;
+  undefined1 *puVar12;
+  longlong lVar13;
+  int iVar14;
+  char *pcVar15;
+  undefined4 *puVar16;
+  undefined1 auStack_1418 [32];
+  int local_13f8;
+  int local_13e8;
+  int local_13e4;
+  undefined8 local_13e0;
+  undefined4 local_13d8;
+  longlong local_13d0;
+  int *local_13c8;
+  undefined8 local_13c0;
+  char *local_13b8;
+  undefined4 *puStack_13b0;
+  undefined1 local_13a8 [4];
+  int local_13a4 [1199];
+  char *local_e8;
+  undefined4 *puStack_e0;
+  char local_d8 [32];
+  undefined4 local_b8 [2];
+  undefined8 local_b0;
+  undefined8 uStack_a8;
+  undefined8 uStack_a0;
+  undefined8 uStack_98;
+  undefined4 local_90;
+  undefined1 local_88 [64];
+  ulonglong local_48;
+  
+  local_48 = DAT_7ff76e1be680 ^ (ulonglong)auStack_1418;
+  local_13c0 = param_1;
+  lVar7 = FUN_7ff7654530f0();
+  if ((lVar7 != 0) && (*(char *)(lVar7 + 0x4431) != '\0')) {
+    iVar5 = FUN_7ff765454130(lVar7);
+    puVar12 = local_13a8;
+    iVar14 = 0;
+    lVar13 = 200;
+    do {
+      FUN_7ff76a8824c0(puVar12);
+      puVar12 = puVar12 + 0x18;
+      lVar13 = lVar13 + -1;
+    } while (lVar13 != 0);
+    iVar11 = 0;
+    lVar13 = 0;
+    if (0 < iVar5) {
+      do {
+        cVar3 = FUN_7ff765456440(lVar7,iVar11);
+        if (cVar3 != '\0') {
+          lVar8 = (longlong)iVar14;
+          iVar14 = iVar14 + 1;
+          FUN_7ff76a88c0e0(local_13a8 + lVar8 * 0x18,*(longlong *)(&DAT_000020f8 + lVar7) + lVar13,
+                           iVar11);
+        }
+        iVar11 = iVar11 + 1;
+        lVar13 = lVar13 + 0x160;
+      } while (iVar11 < iVar5);
+    }
+    FUN_7ff76a88a310(local_13a8,iVar14,lVar7,0);
+    FUN_7ff76ba404f0(param_1,iVar14,0);
+    local_13e4 = 0;
+    if (0 < iVar14) {
+      pcVar15 = local_d8;
+      puVar16 = local_b8;
+      local_13d0 = 0;
+      local_13c8 = local_13a4;
+      local_e8 = pcVar15;
+      puStack_e0 = puVar16;
+      do {
+        lVar13 = local_13d0;
+        iVar2 = local_13e4;
+        iVar5 = *local_13c8;
+        lVar8 = (longlong)iVar5 * 0x160 + *(longlong *)(&DAT_000020f8 + lVar7);
+        iVar11 = *(int *)(lVar8 + 0x120);
+        local_13e8 = iVar5;
+        FUN_7ff769bc3930(local_13d0 + 1,local_13c0);
+        thunk_FUN_7ff769b67720("index",lVar13,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67720("memberIndex",(longlong)iVar5,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67720("teamNum",(longlong)iVar11,DAT_7ff7733884f8);
+        uVar4 = FUN_7ff765455d10(lVar7,iVar5);
+        thunk_FUN_7ff769b676a0("isLobbyHost",uVar4,DAT_7ff7733884f8);
+        iVar5 = *(int *)(lVar8 + 0x11c);
+        local_d8[0] = 'i';
+        local_d8[1] = '\x02';
+        local_d8[2] = 'J';
+        local_d8[3] = -0x5c;
+        local_d8[4] = 'O';
+        local_d8[5] = -0x66;
+        local_d8[6] = -0x20;
+        local_d8[7] = -0x1e;
+        local_d8[8] = '!';
+        local_d8[9] = -0x62;
+        local_d8[10] = -0x11;
+        local_d8[0xb] = -0x6b;
+        local_d8[0xc] = -9;
+        local_d8[0xd] = -0x14;
+        local_d8[0xe] = '\x0f';
+        local_d8[0xf] = -8;
+        local_d8[0x10] = -0x70;
+        local_d8[0x11] = '\x10';
+        local_d8[0x12] = '9';
+        local_d8[0x13] = '^';
+        local_d8[0x14] = 'g';
+        local_d8[0x15] = -0x6c;
+        local_d8[0x16] = -0x2b;
+        local_d8[0x17] = 'y';
+        local_d8[0x18] = -0x34;
+        local_d8[0x19] = 'q';
+        local_d8[0x1a] = -0x43;
+        local_d8[0x1b] = -0x21;
+        local_d8[0x1c] = '^';
+        local_d8[0x1d] = '\\';
+        local_d8[0x1e] = -0x3c;
+        local_d8[0x1f] = ':';
+        uVar6 = FUN_7ff76a15ac10();
+        local_13b8 = pcVar15;
+        puStack_13b0 = puVar16;
+        uVar6 = FUN_7ff76a15b180(uVar6,&local_13b8);
+        iVar11 = FUN_7ff76a15ac40(uVar6);
+        cVar3 = FUN_7ff76a72e040(*(undefined8 *)(lVar8 + 0x108));
+        if (((cVar3 == '\0') && (iVar5 != iVar11)) && (cVar3 = FUN_7ff76523a0f0(), cVar3 != '\0')) {
+          bVar1 = true;
+        }
+        else {
+          bVar1 = false;
+        }
+        pcVar9 = (char *)FUN_7ff765453e50(lVar8);
+        local_88[0] = 0;
+        iVar5 = FUN_7ff765453e90(lVar7,iVar2);
+        cVar3 = *pcVar9;
+        if (cVar3 == '\0') {
+          pcVar9 = (char *)FUN_7ff76b2cc3e0(DAT_7ff76c3e5508);
+        }
+        if (iVar5 == 0) {
+          FUN_7ff76b92f750(local_88,0x40,&DAT_7ff76c3d1414,pcVar9);
+        }
+        else {
+          local_13f8 = iVar5;
+          FUN_7ff76b92f750(local_88,0x40,"%s#%d",pcVar9);
+        }
+        local_b8[0] = 0;
+        local_90 = 0;
+        local_d8[0] = '\0';
+        local_d8[1] = '\0';
+        local_d8[2] = '\0';
+        local_d8[3] = '\0';
+        local_d8[4] = '\0';
+        local_d8[5] = '\0';
+        local_d8[6] = '\0';
+        local_d8[7] = '\0';
+        local_d8[8] = '\0';
+        local_d8[9] = '\0';
+        local_d8[10] = '\0';
+        local_d8[0xb] = '\0';
+        local_d8[0xc] = '\0';
+        local_d8[0xd] = '\0';
+        local_d8[0xe] = '\0';
+        local_d8[0xf] = '\0';
+        local_d8[0x10] = '\0';
+        local_d8[0x11] = '\0';
+        local_d8[0x12] = '\0';
+        local_d8[0x13] = '\0';
+        local_d8[0x14] = '\0';
+        local_d8[0x15] = '\0';
+        local_d8[0x16] = '\0';
+        local_d8[0x17] = '\0';
+        local_d8[0x18] = '\0';
+        local_d8[0x19] = '\0';
+        local_d8[0x1a] = '\0';
+        local_d8[0x1b] = '\0';
+        local_d8[0x1c] = '\0';
+        local_d8[0x1d] = '\0';
+        local_d8[0x1e] = '\0';
+        local_d8[0x1f] = '\0';
+        local_b0 = 0;
+        uStack_a8 = 0;
+        uStack_a0 = 0;
+        uStack_98 = 0;
+        if (bVar1) {
+          uVar10 = FUN_7ff76a8d9840(lVar8 + 0x108);
+          FUN_7ff76523a800(pcVar9,uVar10,local_d8,0x24);
+          pcVar9 = local_d8;
+          uVar10 = FUN_7ff76a8d9840(lVar8 + 0x108);
+          FUN_7ff76523a570(local_88,uVar10,&local_b0,0x24);
+          FUN_7ff76b930f50(local_88,0x40,&local_b0);
+        }
+        thunk_FUN_7ff769b67980("gamertag",pcVar9,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67980("crossplayName",pcVar9,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b676a0("missingGamertag",cVar3 == '\0',DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67980("gamertagWithHash",local_88,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67980("crossplayNameWithHash",local_88,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67720("squadIndex",(longlong)*(int *)(lVar8 + 0x128),DAT_7ff7733884f8);
+        if ((bVar1) || (*(char *)(lVar8 + 0x10) == '\0')) {
+          local_e8 = (char *)((ulonglong)local_e8 & 0xffffffffffffff00);
+        }
+        else {
+          local_13f8 = CONCAT31(local_13f8._1_3_,0x37);
+          FUN_7ff76abe9e30(lVar8 + 0x10,*(undefined1 *)(lVar8 + 0x16),&local_e8,0xc);
+        }
+        thunk_FUN_7ff769b67980("clanTag",&local_e8,DAT_7ff7733884f8);
+        cVar3 = FUN_7ff769be2840(lVar7,local_13e8);
+        thunk_FUN_7ff769b67720("microphoneState",(longlong)cVar3,DAT_7ff7733884f8);
+        local_13e0 = 0;
+        local_13d8 = 0;
+        uVar10 = FUN_7ff76a879010();
+        FUN_7ff76a871bd0(uVar10,0,*(undefined8 *)(lVar8 + 0x108),&local_13e0);
+        thunk_FUN_7ff769b67720
+                  (&DAT_7ff76c490c84,(longlong)((int)local_13e0 + local_13e0._4_4_),DAT_7ff7733884f8
+                  );
+        uVar4 = FUN_7ff765456070(lVar7,local_13e8);
+        thunk_FUN_7ff769b676a0("isMyPlayer",uVar4,DAT_7ff7733884f8);
+        uVar10 = DAT_7ff7733884f8;
+        cVar3 = FUN_7ff765453f00(lVar8);
+        thunk_FUN_7ff769b67720("platform",(longlong)cVar3,uVar10);
+        iVar5 = FUN_7ff765453c70(lVar8);
+        thunk_FUN_7ff769b676a0("isUsingGamePad",iVar5 == 1,DAT_7ff7733884f8);
+        FUN_7ff769bc61a0(DAT_7ff7733884f8);
+        local_13c8 = local_13c8 + 6;
+        local_13e4 = local_13e4 + 1;
+        local_13d0 = local_13d0 + 1;
+      } while (local_13e4 < iVar14);
+    }
+  }
+  FUN_7ff76c296e60(local_48 ^ (ulonglong)auStack_1418);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "microphoneState"
+- "gamertagWithHash"
+- "memberIndex"
+- "crossplayNameWithHash"
+- "clanTag"
+- "isMyPlayer"
+- "teamNum"
+- "crossplayName"
+- "index"
+- "squadIndex"
+- "isUsingGamePad"
+- "isLobbyHost"
+- "platform"
+- "missingGamertag"
+- "%s#%d"
+- "gamertag"

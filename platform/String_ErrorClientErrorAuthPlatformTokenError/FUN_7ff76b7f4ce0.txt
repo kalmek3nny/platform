@@ -1,0 +1,275 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b7f4ce0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b7f4ce0)
+```c
+
+void FUN_7ff76b7f4ce0(longlong param_1,undefined8 param_2)
+
+{
+  void *_Buf;
+  longlong lVar1;
+  char cVar2;
+  int iVar3;
+  ulonglong uVar4;
+  undefined4 uVar5;
+  size_t _MaxCount;
+  ulonglong uVar6;
+  ulonglong uVar7;
+  undefined1 auStack_128 [32];
+  uint local_108 [4];
+  undefined2 local_f8;
+  undefined8 uStack_f0;
+  undefined8 uStack_e8;
+  undefined8 uStack_e0;
+  undefined8 local_d8;
+  undefined8 uStack_d0;
+  undefined8 uStack_c8;
+  undefined8 uStack_c0;
+  undefined2 local_b8;
+  undefined8 uStack_b0;
+  undefined8 uStack_a8;
+  undefined8 uStack_a0;
+  undefined8 local_98;
+  undefined8 uStack_90;
+  undefined8 uStack_88;
+  undefined8 uStack_80;
+  undefined8 local_78;
+  undefined8 uStack_70;
+  undefined8 uStack_68;
+  undefined8 uStack_60;
+  undefined8 local_58;
+  undefined8 uStack_50;
+  undefined8 uStack_48;
+  undefined8 uStack_40;
+  ulonglong local_38;
+  
+  local_38 = DAT_7ff76e1be680 ^ (ulonglong)auStack_128;
+  _local_f8 = 0;
+  uStack_f0 = 0;
+  uStack_e8 = 0;
+  uStack_e0 = 0;
+  local_d8 = 0;
+  uStack_d0 = 0;
+  uStack_c8 = 0;
+  uStack_c0 = 0;
+  FUN_7ff76b7a9b10(param_2,"origin",&local_f8,0x40);
+  uVar6 = 0xffffffffffffffff;
+  uVar7 = 0xffffffffffffffff;
+  do {
+    uVar4 = uVar7 + 1;
+    lVar1 = uVar7 + 1;
+    uVar7 = uVar4;
+  } while (*(char *)((longlong)&local_f8 + lVar1) != '\0');
+  iVar3 = (int)uVar4;
+  if (uVar4 < 5) {
+    iVar3 = 5;
+  }
+  iVar3 = wcsncmp(&local_f8,(wchar_t *)"auth3",(longlong)iVar3);
+  if (iVar3 == 0) {
+    _local_b8 = 0;
+    uStack_b0 = 0;
+    uStack_a8 = 0;
+    uStack_a0 = 0;
+    local_98 = 0;
+    uStack_90 = 0;
+    uStack_88 = 0;
+    uStack_80 = 0;
+    local_78 = 0;
+    uStack_70 = 0;
+    uStack_68 = 0;
+    uStack_60 = 0;
+    local_58 = 0;
+    uStack_50 = 0;
+    uStack_48 = 0;
+    uStack_40 = 0;
+    cVar2 = FUN_7ff76b7aaab0(param_2,"reason");
+    if (cVar2 != '\0') {
+      FUN_7ff76b7a9b10(param_2,"reason",&local_b8,0x80);
+    }
+    uVar7 = 0xffffffffffffffff;
+    do {
+      uVar4 = uVar7 + 1;
+      lVar1 = uVar7 + 1;
+      uVar7 = uVar4;
+    } while (*(char *)((longlong)&local_b8 + lVar1) != '\0');
+    iVar3 = (int)uVar4;
+    if (uVar4 < 0x20) {
+      iVar3 = 0x20;
+    }
+    iVar3 = wcsncmp(&local_b8,(wchar_t *)"Error:ClientError:AuthBadRequest",(longlong)iVar3);
+    if (iVar3 != 0) {
+      uVar7 = 0xffffffffffffffff;
+      do {
+        uVar4 = uVar7 + 1;
+        lVar1 = uVar7 + 1;
+        uVar7 = uVar4;
+      } while (*(char *)((longlong)&local_b8 + lVar1) != '\0');
+      iVar3 = (int)uVar4;
+      if (uVar4 < 0x28) {
+        iVar3 = 0x28;
+      }
+      iVar3 = wcsncmp(&local_b8,(wchar_t *)"Error:ClientError:AuthPlatformTokenError",
+                      (longlong)iVar3);
+      if (iVar3 != 0) {
+        uVar7 = 0xffffffffffffffff;
+        do {
+          uVar4 = uVar7 + 1;
+          lVar1 = uVar7 + 1;
+          uVar7 = uVar4;
+        } while (*(char *)((longlong)&local_b8 + lVar1) != '\0');
+        iVar3 = (int)uVar4;
+        if (uVar4 < 0x25) {
+          iVar3 = 0x25;
+        }
+        iVar3 = wcsncmp(&local_b8,(wchar_t *)"Error:ClientError:CountryBlockedError",(longlong)iVar3
+                       );
+        if (iVar3 != 0) {
+          do {
+            uVar7 = uVar6 + 1;
+            lVar1 = uVar6 + 1;
+            uVar6 = uVar7;
+          } while (*(char *)((longlong)&local_b8 + lVar1) != '\0');
+          iVar3 = (int)uVar7;
+          if (uVar7 < 0x2f) {
+            iVar3 = 0x2f;
+          }
+          iVar3 = wcsncmp(&local_b8,(wchar_t *)"Error:ClientError:AuthUnauthorizedAccountAccess",
+                          (longlong)iVar3);
+          if (iVar3 != 0) goto LAB_7ff76b7f4ea2;
+        }
+      }
+    }
+    *(undefined4 *)(param_1 + 0x164) = *(undefined4 *)(param_1 + 0x160);
+    *(undefined4 *)(param_1 + 0x160) = 5;
+  }
+  else {
+    uVar7 = 0xffffffffffffffff;
+    do {
+      uVar4 = uVar7 + 1;
+      lVar1 = uVar7 + 1;
+      uVar7 = uVar4;
+    } while (*(char *)((longlong)&local_f8 + lVar1) != '\0');
+    iVar3 = (int)uVar4;
+    if (uVar4 < 8) {
+      iVar3 = 8;
+    }
+    iVar3 = wcsncmp(&local_f8,(wchar_t *)"umbrella",(longlong)iVar3);
+    if (iVar3 == 0) {
+      uVar5 = 0;
+      local_108[0] = 0;
+      cVar2 = FUN_7ff76b7aaab0(param_2,&DAT_7ff76c48bf30);
+      if (cVar2 != '\0') {
+        FUN_7ff76b7aa340(param_2,&DAT_7ff76c48bf30,local_108);
+        if (local_108[0] < 0x35b61) {
+          if (local_108[0] == 220000) {
+LAB_7ff76b7f4fa8:
+            uVar5 = 0x36b8;
+          }
+          else if (local_108[0] < 0x33451) {
+            if (local_108[0] == 210000) {
+              uVar5 = 0x371a;
+            }
+            else if (local_108[0] != 0) {
+              if ((local_108[0] == 1) || (local_108[0] != 200000)) {
+LAB_7ff76b7f4ff3:
+                uVar5 = 0x7724;
+              }
+              else {
+                uVar5 = 0x36b2;
+              }
+            }
+          }
+          else if (local_108[0] == 0x34008) {
+            uVar5 = 0x36b5;
+          }
+          else if (local_108[0] == 0x343f0) {
+            uVar5 = 0x36c2;
+          }
+          else {
+            if (local_108[0] != 0x34454) goto LAB_7ff76b7f4ff3;
+            uVar5 = 0x36c1;
+          }
+        }
+        else if (local_108[0] < 0x3ad69) {
+          if (local_108[0] == 0x3ad68) {
+            uVar5 = 0x36bf;
+          }
+          else {
+            if (local_108[0] == 0x36330) goto LAB_7ff76b7f4fa8;
+            if (local_108[0] == 0x36394) {
+              uVar5 = 0x3719;
+            }
+            else {
+              if (local_108[0] != 0x38e28) goto LAB_7ff76b7f4ff3;
+              uVar5 = 0x36be;
+            }
+          }
+        }
+        else if (local_108[0] == 0x3d0f4) {
+          uVar5 = 0x373c;
+        }
+        else if (local_108[0] == 0x3d0f5) {
+          uVar5 = 0x373d;
+        }
+        else {
+          if (local_108[0] != 0x3e418) goto LAB_7ff76b7f4ff3;
+          uVar5 = 0x36c3;
+        }
+        *(undefined4 *)(*(longlong *)(param_1 + 0x20) + 0x13698) = uVar5;
+      }
+      iVar3 = *(int *)(*(longlong *)(param_1 + 0x20) + 0x13698);
+      if ((iVar3 == 0x36bf) || (iVar3 == 0x36c3)) {
+        _Buf = (void *)(param_1 + 0x168);
+        *(undefined4 *)(param_1 + 0x164) = *(undefined4 *)(param_1 + 0x160);
+        *(undefined4 *)(param_1 + 0x160) = 5;
+        if (_Buf != (void *)0x0) {
+          do {
+            uVar6 = uVar6 + 1;
+          } while (*(char *)((longlong)_Buf + uVar6) != '\0');
+          _MaxCount = 0x3ff;
+          if (uVar6 < 0x3ff) {
+            _MaxCount = uVar6;
+          }
+          memchr(_Buf,(int)_Buf,_MaxCount);
+          *(undefined1 *)(_MaxCount + (longlong)_Buf) = 0;
+        }
+      }
+      FUN_7ff76b7f2150(param_1,param_2);
+      goto LAB_7ff76b7f4ead;
+    }
+    do {
+      uVar7 = uVar6 + 1;
+      lVar1 = uVar6 + 1;
+      uVar6 = uVar7;
+    } while (*(char *)((longlong)&local_f8 + lVar1) != '\0');
+    iVar3 = (int)uVar7;
+    if (uVar7 < 3) {
+      iVar3 = 3;
+    }
+    iVar3 = wcsncmp(&local_f8,L"湵o",(longlong)iVar3);
+    if (iVar3 == 0) {
+      FUN_7ff76b7fd830(param_1,param_2);
+      goto LAB_7ff76b7f4ead;
+    }
+  }
+LAB_7ff76b7f4ea2:
+  FUN_7ff76b7f2150(param_1,param_2);
+LAB_7ff76b7f4ead:
+  FUN_7ff76c296e60(local_38 ^ (ulonglong)auStack_128);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "Error:ClientError:AuthPlatformTokenError"
+- "Error:ClientError:AuthUnauthorizedAccountAccess"
+- "umbrella"
+- "auth3"
+- "origin"
+- "reason"
+- "Error:ClientError:AuthBadRequest"
+- "Error:ClientError:CountryBlockedError"

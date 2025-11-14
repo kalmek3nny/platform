@@ -1,0 +1,221 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76bb6d920
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76bb6d920)
+```c
+
+void FUN_7ff76bb6d920(undefined1 *param_1,undefined8 param_2,undefined8 param_3,LPCWSTR param_4)
+
+{
+  code *pcVar1;
+  undefined1 auVar2 [16];
+  undefined1 auVar3 [16];
+  char cVar4;
+  undefined1 *puVar5;
+  undefined1 *puVar6;
+  LPCWSTR pszProperty;
+  longlong lVar7;
+  short *pbOutput;
+  DWORD cbOutput;
+  undefined1 auStackY_2a8 [32];
+  DWORD *in_stack_fffffffffffffd78;
+  DWORD in_stack_fffffffffffffd80;
+  DWORD local_278 [2];
+  NCRYPT_PROV_HANDLE *local_270;
+  uint local_268;
+  short *local_258;
+  longlong lStack_250;
+  undefined1 local_248 [16];
+  short *local_238;
+  LPCWSTR local_230;
+  short local_228 [256];
+  ulonglong local_28;
+  
+  local_28 = DAT_7ff76e1be680 ^ (ulonglong)auStackY_2a8;
+  local_230 = (LPCWSTR)&DAT_0000000f;
+  local_270 = (NCRYPT_PROV_HANDLE *)0x0;
+  pbOutput = (short *)0x1000;
+  local_248._1_15_ = SUB1615((undefined1  [16])0x0,1);
+  auVar2[0xf] = 0;
+  auVar2._0_15_ = local_248._1_15_;
+  local_248 = auVar2 << 8;
+  local_268 = 0;
+  local_238 = (short *)0x0;
+  local_268 = NCryptCreatePersistedKey
+                        ((NCRYPT_PROV_HANDLE)&local_270,
+                         (NCRYPT_KEY_HANDLE *)L"Microsoft Platform Crypto Provider",(LPCWSTR)0x1000,
+                         param_4,(DWORD)in_stack_fffffffffffffd78,in_stack_fffffffffffffd80);
+  cbOutput = (DWORD)param_4;
+  local_268 = local_268 | 0x10000000;
+  if (-1 < (int)local_268) {
+    local_278[0] = 0;
+    strstr((char *)local_228,(char *)0x0);
+    local_268 = NCryptOpenStorageProvider(local_270,L"PCP_PROVIDER_VERSION",(DWORD)local_228);
+    local_268 = local_268 | 0x10000000;
+    lVar7 = -1;
+    if (-1 < (int)local_268) {
+      if (local_278[0] < 0x1ff) {
+        if (0x1ff < ((ulonglong)local_278[0] & 0xfffffffffffffffe)) {
+          FUN_7ff76c297420();
+          pcVar1 = (code *)swi(3);
+          (*pcVar1)();
+          return;
+        }
+        *(undefined2 *)((longlong)local_228 + ((ulonglong)local_278[0] & 0xfffffffffffffffe)) = 0;
+        local_258 = local_228;
+        lStack_250 = -1;
+        do {
+          lStack_250 = lStack_250 + 1;
+        } while (local_228[lStack_250] != 0);
+        cVar4 = FUN_7ff76bb669f0(local_248);
+        if (cVar4 != '\0') {
+          if (param_1[0x20] == '\0') {
+            thunk_FUN_7ff780ff0136(param_1);
+            param_1[0x20] = 1;
+          }
+          else if (param_1 != local_248) {
+            puVar5 = local_248;
+            if (&DAT_0000000f < local_230) {
+              puVar5 = (undefined1 *)local_248._0_8_;
+            }
+            thunk_FUN_7ff76ab7ac07(param_1,puVar5,local_238);
+          }
+        }
+      }
+      else {
+        local_268 = 0x8007000d;
+      }
+    }
+    local_278[0] = 0;
+    strstr((char *)local_228,(char *)0x0);
+    local_268 = NCryptOpenStorageProvider(local_270,L"PCP_PLATFORM_TYPE",(DWORD)local_228);
+    local_268 = local_268 | 0x10000000;
+    if (-1 < (int)local_268) {
+      if (local_278[0] < 0x1ff) {
+        if (0x1ff < ((ulonglong)local_278[0] & 0xfffffffffffffffe)) {
+          FUN_7ff76c297420();
+          pcVar1 = (code *)swi(3);
+          (*pcVar1)();
+          return;
+        }
+        *(undefined2 *)((longlong)local_228 + ((ulonglong)local_278[0] & 0xfffffffffffffffe)) = 0;
+        local_258 = local_228;
+        lStack_250 = -1;
+        do {
+          lStack_250 = lStack_250 + 1;
+        } while (local_228[lStack_250] != 0);
+        cVar4 = FUN_7ff76bb669f0(local_248);
+        if (cVar4 != '\0') {
+          puVar5 = param_1 + 0x28;
+          if (param_1[0x48] == '\0') {
+            thunk_FUN_7ff780ff0136(puVar5);
+            param_1[0x48] = 1;
+          }
+          else if (puVar5 != local_248) {
+            puVar6 = local_248;
+            if (&DAT_0000000f < local_230) {
+              puVar6 = (undefined1 *)local_248._0_8_;
+            }
+            thunk_FUN_7ff76ab7ac07(puVar5,puVar6,local_238);
+          }
+        }
+      }
+      else {
+        local_268 = 0x8007000d;
+      }
+    }
+    local_278[0] = 0;
+    strstr((char *)local_228,(char *)0x0);
+    in_stack_fffffffffffffd78 = local_278;
+    in_stack_fffffffffffffd80 = 0;
+    pbOutput = local_228;
+    cbOutput = 0x1fe;
+    local_268 = NCryptOpenStorageProvider(local_270,L"PCP_TPM_MANUFACTURER_ID",(DWORD)pbOutput);
+    local_268 = local_268 | 0x10000000;
+    if (-1 < (int)local_268) {
+      if (local_278[0] < 0x1ff) {
+        if (0x1ff < ((ulonglong)local_278[0] & 0xfffffffffffffffe)) {
+          FUN_7ff76c297420();
+          pcVar1 = (code *)swi(3);
+          (*pcVar1)();
+          return;
+        }
+        *(undefined2 *)((longlong)local_228 + ((ulonglong)local_278[0] & 0xfffffffffffffffe)) = 0;
+        local_258 = local_228;
+        do {
+          lVar7 = lVar7 + 1;
+        } while (local_228[lVar7] != 0);
+        lStack_250 = lVar7;
+        cVar4 = FUN_7ff76bb669f0(local_248,&local_258);
+        if (cVar4 != '\0') {
+          puVar5 = param_1 + 0x50;
+          if (param_1[0x70] == '\0') {
+            thunk_FUN_7ff780ff0136(puVar5,local_248);
+            param_1[0x70] = 1;
+          }
+          else if (puVar5 != local_248) {
+            puVar6 = local_248;
+            if (&DAT_0000000f < local_230) {
+              puVar6 = (undefined1 *)local_248._0_8_;
+            }
+            pbOutput = local_238;
+            thunk_FUN_7ff76ab7ac07(puVar5,puVar6);
+          }
+        }
+      }
+      else {
+        local_268 = 0x8007000d;
+      }
+    }
+    cVar4 = FUN_7ff76bb6cf70(&local_270,local_248);
+    if (cVar4 != '\0') {
+      puVar5 = param_1 + 0x78;
+      if (param_1[0x98] == '\0') {
+        thunk_FUN_7ff780ff0136(puVar5,local_248);
+        param_1[0x98] = 1;
+      }
+      else if (puVar5 != local_248) {
+        puVar6 = local_248;
+        if (&DAT_0000000f < local_230) {
+          puVar6 = (undefined1 *)local_248._0_8_;
+        }
+        pbOutput = local_238;
+        thunk_FUN_7ff76ab7ac07(puVar5,puVar6);
+      }
+    }
+  }
+  pszProperty = local_230;
+  if (&DAT_0000000f < local_230) {
+    pszProperty = (LPCWSTR)((longlong)local_230 + 1);
+    if (((LPCWSTR)0xfff < pszProperty) &&
+       (pszProperty = local_230 + 0x14,
+       0x1f < (local_248._0_8_ - *(longlong *)(local_248._0_8_ + -8)) - 8U)) {
+      _set_app_type();
+      pcVar1 = (code *)swi(3);
+      (*pcVar1)();
+      return;
+    }
+    FUN_7ff76b2ef880();
+  }
+  local_238 = (short *)0x0;
+  local_230 = (LPCWSTR)0xf;
+  auVar3[0xf] = 0;
+  auVar3._0_15_ = local_248._1_15_;
+  local_248 = auVar3 << 8;
+  if (local_270 != (NCRYPT_PROV_HANDLE *)0x0) {
+    NCryptGetProperty((NCRYPT_HANDLE)local_270,pszProperty,(PBYTE)pbOutput,cbOutput,
+                      in_stack_fffffffffffffd78,in_stack_fffffffffffffd80);
+  }
+  FUN_7ff76c296e60(local_28 ^ (ulonglong)auStackY_2a8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "Microsoft Platform Crypto Provider"
+- "PCP_TPM_MANUFACTURER_ID"
+- "PCP_PROVIDER_VERSION"
+- "PCP_PLATFORM_TYPE"

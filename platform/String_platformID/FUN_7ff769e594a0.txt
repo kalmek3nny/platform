@@ -1,0 +1,64 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769e594a0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769e594a0)
+```c
+
+void FUN_7ff769e594a0(undefined8 *param_1,undefined8 param_2)
+
+{
+  undefined8 uVar1;
+  longlong lVar2;
+  longlong lVar3;
+  undefined4 local_res8 [2];
+  
+  uVar1 = FUN_7ff76a8d9830();
+  thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,uVar1,param_2);
+  FUN_7ff76a8801b0(param_1 + 1,"platformId",param_2);
+  if (*(char *)((longlong)param_1 + 0xac) != '\0') {
+    thunk_FUN_7ff769b67980("crossplayGamertag",(longlong)param_1 + 0xac,param_2);
+  }
+  thunk_FUN_7ff769b67980("fullName",param_1 + 0x11,param_2);
+  thunk_FUN_7ff769b67980("fullNameWithHash",(longlong)param_1 + 0xac,param_2);
+  thunk_FUN_7ff769b67980("platformName",(longlong)param_1 + 100,param_2);
+  thunk_FUN_7ff769b67980("crossplayName",param_1 + 0x11,param_2);
+  thunk_FUN_7ff769b67980("crossplayNameWithHash",(longlong)param_1 + 0xac,param_2);
+  thunk_FUN_7ff769b67980("clanTag",(longlong)param_1 + 0xec,param_2);
+  thunk_FUN_7ff769b67860("clanTagType",(double)*(byte *)(param_1 + 0x1f),param_2);
+  FUN_7ff769e5a000((longlong)param_1 + 0xfc,param_2);
+  FUN_7ff769e59f30(param_1 + 0x23,param_2);
+  thunk_FUN_7ff769b67720("friendsListType",(longlong)*(int *)(param_1 + 0xc),param_2);
+  thunk_FUN_7ff769b676a0("isAtviFriend",*(undefined1 *)((longlong)param_1 + 0x5c),param_2);
+  thunk_FUN_7ff769b676a0("isFavorite",*(undefined1 *)((longlong)param_1 + 0x5d),param_2);
+  uVar1 = FUN_7ff76a8844f0();
+  FUN_7ff76a884e90(uVar1,local_res8,*param_1);
+  uVar1 = FUN_7ff76a8844f0();
+  lVar2 = FUN_7ff76a884430(uVar1,local_res8[0],2);
+  if (lVar2 != 0) {
+    lVar3 = FUN_7ff76b19d700(lVar2 + 0x10);
+    thunk_FUN_7ff769b67720("partySize",*(undefined1 *)(lVar3 + 0x1e8),param_2);
+    lVar2 = FUN_7ff76b19d700(lVar2 + 0x10);
+    thunk_FUN_7ff769b67720("partySizeMaxSize",*(undefined1 *)(lVar2 + 0x1e9),param_2);
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "fullNameWithHash"
+- "crossplayNameWithHash"
+- "clanTag"
+- "crossplayName"
+- "platformId"
+- "friendsListType"
+- "isAtviFriend"
+- "isFavorite"
+- "crossplayGamertag"
+- "fullName"
+- "partySizeMaxSize"
+- "clanTagType"
+- "partySize"
+- "platformName"

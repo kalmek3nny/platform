@@ -1,0 +1,88 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b7703a0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b7703a0)
+```c
+
+undefined8 FUN_7ff76b7703a0(longlong param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  longlong lVar2;
+  undefined8 uVar3;
+  undefined8 uVar4;
+  undefined1 local_res18 [8];
+  undefined1 local_res20 [8];
+  undefined1 local_38 [8];
+  char *local_30;
+  undefined8 local_28 [2];
+  
+  cVar1 = FUN_7ff76b779490();
+  if (cVar1 != '\0') {
+    cVar1 = thunk_FUN_7ff782741d56(param_2,0x504f5354);
+    if (cVar1 != '\0') {
+      cVar1 = thunk_FUN_7ff7825e6de8(param_2,"transaction_receipt","post_transaction");
+      if (cVar1 != '\0') {
+        lVar2 = thunk_FUN_7ff7815e7168(param_2);
+        uVar3 = thunk_FUN_7ff78102f888(param_1 + 0x10c0);
+        uVar4 = thunk_FUN_7ff76b8b17da(param_1 + 0x10c0);
+        *(undefined1 *)(lVar2 + 0x2314) = 0;
+        *(undefined4 *)(lVar2 + 0x2310) = 0;
+        local_30 = "/v2/exchange/{accountType}-{userId}/transactions/";
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        thunk_FUN_7ff76382d075(lVar2,uVar4);
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        thunk_FUN_7ff763953408(lVar2,uVar3);
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        thunk_FUN_7ff76386c4b8(lVar2,local_res18);
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        thunk_FUN_7ff76386c4b8(lVar2,local_res20);
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        thunk_FUN_7ff76386c4b8(lVar2,local_38);
+        thunk_FUN_7ff77f29cfef(lVar2,&local_30);
+        cVar1 = thunk_FUN_7ff77f4330ba(lVar2);
+        if (cVar1 == '\0') {
+          *(undefined1 *)(lVar2 + 0x2314) = 0;
+          *(undefined4 *)(lVar2 + 0x2310) = 0;
+        }
+        cVar1 = thunk_FUN_7ff77f4330ba(lVar2);
+        if (cVar1 != '\0') {
+          uVar3 = thunk_FUN_7ff77f04a3f9(param_2);
+          cVar1 = thunk_FUN_7ff763a39ca0(uVar3,1);
+          if (cVar1 != '\0') {
+            local_28[0] = 0;
+            cVar1 = thunk_FUN_7ff78282aece(param_2,local_28);
+            if (cVar1 != '\0') {
+              cVar1 = FUN_7ff76b7adc60(local_28[0]);
+              if (cVar1 != '\0') {
+                uVar3 = FUN_7ff76b7874f0(*(undefined4 *)(param_1 + 0x111c));
+                cVar1 = FUN_7ff76b7ae830(local_28[0],"platform",uVar3);
+                if (cVar1 != '\0') {
+                  cVar1 = FUN_7ff76b7ae830(local_28[0],"skuId",*(undefined8 *)(param_1 + 0x1120));
+                  if (cVar1 != '\0') {
+                    cVar1 = FUN_7ff76b7adfe0(local_28[0]);
+                    if (cVar1 != '\0') {
+                      return 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return 0;
+}
+
+
+```
+
+### STRINGS
+- "transaction_receipt"
+- "/v2/exchange/{accountType}-{userId}/transactions/"
+- "post_transaction"
+- "skuId"
+- "platform"

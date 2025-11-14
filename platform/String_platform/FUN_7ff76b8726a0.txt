@@ -1,0 +1,162 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b8726a0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b8726a0)
+```c
+
+void FUN_7ff76b8726a0(longlong param_1,undefined8 param_2)
+
+{
+  wchar_t *_Str1;
+  longlong lVar1;
+  bool bVar2;
+  longlong lVar3;
+  char cVar4;
+  int iVar5;
+  undefined4 uVar6;
+  undefined8 uVar7;
+  char *pcVar8;
+  longlong lVar9;
+  uint uVar10;
+  ulonglong uVar11;
+  ulonglong uVar12;
+  size_t _Count;
+  ulonglong uVar13;
+  undefined1 auStack_98 [32];
+  longlong local_78;
+  undefined1 local_70 [24];
+  undefined1 local_58 [40];
+  ulonglong local_30;
+  
+  local_30 = DAT_7ff76e1be680 ^ (ulonglong)auStack_98;
+  _Str1 = (wchar_t *)(param_1 + 0x1120);
+  iVar5 = wcsncmp(_Str1,L"",0x19);
+  if (iVar5 == 0) {
+    thunk_FUN_7ff7801e1328(_Str1,0x1a,0);
+  }
+  cVar4 = FUN_7ff76b85e390(param_1,param_2);
+  if (((cVar4 == '\0') || (cVar4 = thunk_FUN_7ff782741d56(param_2,0x504f5354), cVar4 == '\0')) ||
+     (cVar4 = thunk_FUN_7ff7825e6de8(param_2,"user_events","report_user_events_batch"),
+     cVar4 == '\0')) {
+LAB_7ff76b872770:
+    local_78 = 0;
+  }
+  else {
+    uVar7 = thunk_FUN_7ff7815e7168(param_2);
+    cVar4 = thunk_FUN_7ff77963cd45(uVar7,"/v2/user-events/$batch/");
+    if (cVar4 == '\0') goto LAB_7ff76b872770;
+    local_78 = 0;
+    cVar4 = thunk_FUN_7ff78282aece(param_2,&local_78);
+    if (cVar4 != '\0') {
+      bVar2 = true;
+      goto LAB_7ff76b87277b;
+    }
+  }
+  bVar2 = false;
+LAB_7ff76b87277b:
+  uVar12 = 0;
+  uVar6 = 0;
+  if (local_78 != 0) {
+    FUN_7ff76b7adc60();
+    _Count = (size_t)*(uint *)(param_1 + 0x68);
+    FUN_7ff76b7aedd0(local_78,"titleID",_Count,0);
+    if (_Str1 != (wchar_t *)0x0) {
+      pcVar8 = strncat((char *)_Str1,(char *)0x19,_Count);
+      uVar6 = SUB84(pcVar8,0);
+    }
+    thunk_FUN_7ff77f9da2a7(_Str1,uVar6,local_58,0x25);
+    FUN_7ff76b7ae830(local_78,"idempotentRequestID",local_58);
+    FUN_7ff76b7ad9f0(local_78,"userEvents");
+    uVar13 = 0;
+    if (*(int *)(param_1 + 0x1110) != 0) {
+      do {
+        lVar3 = local_78;
+        if (bVar2) {
+          lVar1 = *(longlong *)(*(longlong *)(param_1 + 0x1118) + uVar13 * 8);
+          cVar4 = FUN_7ff76b7adc60(local_78);
+          uVar7 = thunk_FUN_7ff76b8b17da(lVar1 + 0x10);
+          FUN_7ff76b7ae830(lVar3,"accountType",uVar7);
+          uVar7 = thunk_FUN_7ff78102f888(lVar1 + 0x10);
+          FUN_7ff76b7aeed0(lVar3,"userID",uVar7,0);
+          lVar9 = thunk_FUN_7ff78102f888(lVar1 + 0x68);
+          if (lVar9 != 0) {
+            uVar7 = thunk_FUN_7ff76b8b17da(lVar1 + 0x68);
+            FUN_7ff76b7ae830(lVar3,"firstPartyAccountType",uVar7);
+            uVar7 = thunk_FUN_7ff78102f888(lVar1 + 0x68);
+            FUN_7ff76b7aeed0(lVar3,"firstPartyUserID",uVar7,0);
+          }
+          if (*(int *)(lVar1 + 0xc0) != 0) {
+            uVar7 = FUN_7ff76b7874f0();
+            FUN_7ff76b7ae830(lVar3,"platform",uVar7);
+          }
+          FUN_7ff76b7ad9f0(lVar3,"events");
+          uVar11 = 0;
+          if (*(int *)(lVar1 + 0xc4) != 0) {
+            do {
+              FUN_7ff76b86b030(*(undefined8 *)(*(longlong *)(lVar1 + 200) + uVar11 * 8),lVar3);
+              uVar10 = (int)uVar11 + 1;
+              uVar11 = (ulonglong)uVar10;
+            } while (uVar10 < *(uint *)(lVar1 + 0xc4));
+          }
+          FUN_7ff76b7adf90(lVar3);
+          if (*(longlong *)(lVar1 + 0xd0) != 0) {
+            FUN_7ff76b7aeed0(lVar3,"clanID",*(longlong *)(lVar1 + 0xd0),0);
+          }
+          if ((cVar4 == '\0') || (cVar4 = FUN_7ff76b7adfe0(lVar3), cVar4 == '\0'))
+          goto LAB_7ff76b87295a;
+          bVar2 = true;
+        }
+        else {
+LAB_7ff76b87295a:
+          bVar2 = false;
+        }
+        uVar10 = (int)uVar13 + 1;
+        uVar13 = (ulonglong)uVar10;
+      } while (uVar10 < *(uint *)(param_1 + 0x1110));
+    }
+    FUN_7ff76b7adf90(local_78);
+    FUN_7ff76b7adbd0(local_78,"commonValues");
+    if (*(int *)(param_1 + 0x1148) != 0) {
+      do {
+        uVar6 = FUN_7ff76b867050(*(longlong *)(param_1 + 0x1140) + uVar12 * 0x30);
+        FUN_7ff7657edae0(local_70,0x14,&DAT_7ff76c3d8bb0,uVar6);
+        if (bVar2) {
+          uVar7 = FUN_7ff76b867a00(*(longlong *)(param_1 + 0x1140) + uVar12 * 0x30);
+          cVar4 = FUN_7ff76b7aeed0(local_78,local_70,uVar7,0);
+          if (cVar4 == '\0') goto LAB_7ff76b872a05;
+          bVar2 = true;
+        }
+        else {
+LAB_7ff76b872a05:
+          bVar2 = false;
+        }
+        uVar10 = (int)uVar12 + 1;
+        uVar12 = (ulonglong)uVar10;
+      } while (uVar10 < *(uint *)(param_1 + 0x1148));
+    }
+    FUN_7ff76b7adfe0(local_78);
+    FUN_7ff76b7adfe0(local_78);
+  }
+  FUN_7ff76c296e60(local_30 ^ (ulonglong)auStack_98);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "clanID"
+- "firstPartyUserID"
+- "userEvents"
+- "report_user_events_batch"
+- "titleID"
+- "user_events"
+- "events"
+- "/v2/user-events/$batch/"
+- "userID"
+- "platform"
+- "accountType"
+- "commonValues"
+- "idempotentRequestID"
+- "firstPartyAccountType"

@@ -1,0 +1,161 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a7305b0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a7305b0)
+```c
+
+void FUN_7ff76a7305b0(char *param_1)
+
+{
+  char *pcVar1;
+  char cVar2;
+  undefined4 extraout_EAX;
+  undefined4 uVar3;
+  longlong lVar4;
+  char *pcVar5;
+  undefined8 uVar6;
+  char *pcVar7;
+  char **_EndPtr;
+  undefined1 auStack_858 [32];
+  char local_838 [2048];
+  ulonglong local_38;
+  
+  local_38 = DAT_7ff76e1be680 ^ (ulonglong)auStack_858;
+  if ((param_1 != (char *)0x0) && (*param_1 != '\0')) {
+    FUN_7ff76b931170(local_838,0x7fe,param_1);
+    lVar4 = FUN_7ff76b931cc0(local_838,"auto_login");
+    if (lVar4 != 0) {
+      FUN_7ff76b2dd5a0(DAT_7ff773b5b650,&DAT_7ff76c3b7ed3,0);
+      FUN_7ff76b2dd5a0(DAT_7ff773b5b658,&DAT_7ff76c3b7ed3,0);
+      FUN_7ff76b2dd5a0(DAT_7ff773b5b660,&DAT_7ff76c3b7ed3,0);
+      FUN_7ff76b2dd210(DAT_7ff773b5b670,1,0);
+      FUN_7ff76b2dd7d0(DAT_7ff773b5b688,0,0);
+      FUN_7ff76b2dd7d0(DAT_7ff773b5b690,0,0);
+      DAT_7ff773b614c0 = 0;
+      pcVar5 = _strupr(local_838);
+      while (pcVar5 != (char *)0x0) {
+        pcVar7 = "session_id";
+        do {
+          pcVar1 = pcVar5 + -0x7ff76c5107d8 + (longlong)pcVar7;
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a73075e;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        DAT_7ff773b614c0 = FUN_7ff76b2f10a0(pcVar5);
+LAB_7ff76a73075e:
+        pcVar7 = "auto_login";
+        do {
+          pcVar1 = pcVar5 + -0x7ff76c3ed978 + (longlong)pcVar7;
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a7307b4;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        FUN_7ff76b2dd5a0(DAT_7ff773b5b650,pcVar5,0);
+LAB_7ff76a7307b4:
+        pcVar7 = "auto_platform";
+        do {
+          pcVar1 = pcVar5 + -0x7ff76c5107e8 + (longlong)pcVar7;
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a730801;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        FUN_7ff76b2dd5a0(DAT_7ff773b5b658,pcVar5,0);
+LAB_7ff76a730801:
+        pcVar7 = "auto_join";
+        do {
+          pcVar1 = pcVar5 + -0x7ff76c5107f8 + (longlong)pcVar7;
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a730851;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        FUN_7ff76b2dd5a0(DAT_7ff773b5b660,pcVar5,0);
+LAB_7ff76a730851:
+        pcVar7 = "auto_join_party_size";
+        do {
+          pcVar1 = pcVar5 + -0x7ff76c510808 + (longlong)pcVar7;
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a7308a9;
+        } while (*pcVar1 != '\0');
+        _EndPtr = (char **)&DAT_7ff76c3d1974;
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        strtod(pcVar5,_EndPtr);
+        FUN_7ff76b2dd210(DAT_7ff773b5b670,extraout_EAX,0);
+LAB_7ff76a7308a9:
+        pcVar7 = "auto_mode";
+        do {
+          pcVar1 = pcVar7 + (longlong)(pcVar5 + -0x7ff76c510820);
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a7308ef;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+LAB_7ff76a7308ef:
+        pcVar7 = "auto_login_titleid";
+        do {
+          pcVar1 = pcVar7 + (longlong)(pcVar5 + -0x7ff76c510830);
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a730948;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        uVar3 = FUN_7ff76b931540(pcVar5);
+        FUN_7ff76b2dd210(DAT_7ff773b5b680,uVar3,0);
+LAB_7ff76a730948:
+        pcVar7 = "auto_login_party_guid";
+        do {
+          pcVar1 = pcVar7 + (longlong)(pcVar5 + -0x7ff76c510848);
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a7309a9;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        uVar6 = FUN_7ff76b2f10a0(pcVar5);
+        FUN_7ff76b2dd7d0(DAT_7ff773b5b688,uVar6,0);
+LAB_7ff76a7309a9:
+        pcVar7 = "auto_login_countdown_start_time";
+        do {
+          pcVar1 = pcVar7 + (longlong)(pcVar5 + -0x7ff76c510860);
+          cVar2 = *pcVar7;
+          pcVar7 = pcVar7 + 1;
+          if (*pcVar1 != cVar2) goto LAB_7ff76a730a00;
+        } while (*pcVar1 != '\0');
+        pcVar5 = _strupr((char *)0x0);
+        if (pcVar5 == (char *)0x0) break;
+        uVar3 = FUN_7ff76b931540(pcVar5);
+        FUN_7ff76b2dd7d0(DAT_7ff773b5b690,uVar3,0);
+LAB_7ff76a730a00:
+        pcVar5 = _strupr((char *)0x0);
+      }
+    }
+  }
+  FUN_7ff76c296e60(local_38 ^ (ulonglong)auStack_858);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "auto_login_countdown_start_time"
+- "auto_login_titleid"
+- "auto_join_party_size"
+- "auto_login_party_guid"
+- "auto_login"
+- "auto_platform"
+- "auto_join"
+- "auto_mode"
+- "session_id"

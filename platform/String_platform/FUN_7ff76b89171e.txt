@@ -1,0 +1,82 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b89171e
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b89171e)
+```c
+
+void FUN_7ff76b89171e(void)
+
+{
+  char cVar1;
+  ulonglong uVar2;
+  longlong unaff_RBP;
+  undefined1 *unaff_RSI;
+  size_t _MaxCount;
+  
+  cVar1 = FUN_7ff76b7a96d0();
+  *(undefined1 *)(unaff_RBP + -0x49) = 0;
+  *(undefined8 *)(unaff_RBP + -0x41) = 0;
+  *(undefined1 (*) [16])(unaff_RBP + 0x27) = (undefined1  [16])0x0;
+  if ((cVar1 != '\0') &&
+     (cVar1 = FUN_7ff76b7a7e60(unaff_RBP + -1,"online",unaff_RBP + -0x49), cVar1 != '\0')) {
+    cVar1 = FUN_7ff76b7aaab0(unaff_RBP + -1,"platform");
+    if (((cVar1 == '\0') ||
+        (cVar1 = FUN_7ff76b7a9b10(unaff_RBP + -1,"platform",unaff_RBP + 0x27,0x10), cVar1 != '\0'))
+       && ((cVar1 = FUN_7ff76b7aaab0(unaff_RBP + -1,"updateTime"), cVar1 == '\0' ||
+           (cVar1 = FUN_7ff76b7aa530(unaff_RBP + -1,"updateTime",unaff_RBP + -0x41), cVar1 != '\0'))
+          )) {
+      FUN_7ff76b897560(unaff_RBP + -0x39);
+      cVar1 = FUN_7ff76b7aaab0(unaff_RBP + -1,&DAT_7ff76c3d33e8);
+      if ((cVar1 == '\0') ||
+         (cVar1 = (**(code **)(*(longlong *)(unaff_RBP + -0x39) + 0x10))
+                            (unaff_RBP + -0x39,&DAT_7ff76c3d33e8,unaff_RBP + -1), cVar1 != '\0')) {
+        *unaff_RSI = *(undefined1 *)(unaff_RBP + -0x49);
+        uVar2 = 0xffffffffffffffff;
+        do {
+          uVar2 = uVar2 + 1;
+        } while (*(char *)(unaff_RBP + 0x27 + uVar2) != '\0');
+        _MaxCount = 0x10;
+        if (uVar2 < 0x10) {
+          _MaxCount = uVar2;
+        }
+        memchr((void *)(unaff_RBP + -0x21),(int)unaff_RBP + 0x27,_MaxCount);
+        *(undefined1 *)(unaff_RBP + -0x21 + _MaxCount) = 0;
+        *(undefined1 *)(unaff_RBP + -0x10) = 1;
+        FUN_7ff76b890cf0(unaff_RSI + 1,unaff_RBP + -0x21);
+        FUN_7ff76b897530(unaff_RBP + -0x21,unaff_RBP + -0x39);
+        cVar1 = unaff_RSI[0x30];
+        *(undefined1 *)(unaff_RBP + -9) = 1;
+        if (cVar1 == '\0') {
+          FUN_7ff76b897530(unaff_RSI + 0x18,unaff_RBP + -0x21);
+          unaff_RSI[0x30] = 1;
+        }
+        else {
+          FUN_7ff76b885450();
+        }
+        if (*(char *)(unaff_RBP + -9) != '\0') {
+          (*(code *)**(undefined8 **)(unaff_RBP + -0x21))(unaff_RBP + -0x21,0);
+        }
+        *(undefined8 *)(unaff_RSI + 0x38) = *(undefined8 *)(unaff_RBP + -0x41);
+        if (unaff_RSI[0x40] == '\0') {
+          unaff_RSI[0x40] = 1;
+        }
+      }
+      goto LAB_7ff76b8918ad;
+    }
+  }
+  FUN_7ff76b897560(unaff_RBP + -0x39);
+LAB_7ff76b8918ad:
+  FUN_7ff76b897750(unaff_RBP + -0x39);
+  FUN_7ff76b7a6f40(unaff_RBP + -1);
+  FUN_7ff76c296e60(*(ulonglong *)(unaff_RBP + 0x37) ^ (ulonglong)&stack0x00000000);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "online"
+- "updateTime"
+- "platform"

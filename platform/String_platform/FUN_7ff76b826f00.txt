@@ -1,0 +1,192 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b826f00
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b826f00)
+```c
+
+char FUN_7ff76b826f00(longlong param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  char cVar2;
+  uint local_res8 [2];
+  
+  cVar1 = FUN_7ff76b7aa530(param_2,"user_id",param_1);
+  if (cVar1 == '\0') {
+LAB_7ff76b826f4c:
+    cVar1 = '\0';
+  }
+  else {
+    cVar1 = FUN_7ff76b7a9b10(param_2,&DAT_7ff76c5a88f0,param_1 + 8,0x65);
+    if (cVar1 == '\0') goto LAB_7ff76b826f4c;
+    cVar1 = '\x01';
+  }
+  cVar2 = FUN_7ff76b7aaab0(param_2,"first_party_user_id");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7aa530(param_2,"first_party_user_id",param_1 + 0x70);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b826f82;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b826f82:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"platform");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a9b10(param_2,"platform",param_1 + 0x78,0xb);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b826fbc;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b826fbc:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"service_level");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a9b10(param_2,"service_level",param_1 + 0x83,0xb);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b826ff9;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b826ff9:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"account_type");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a9b10(param_2,"account_type",param_1 + 0x8e,0xb);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b827036;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b827036:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"first_party_account_type");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a9b10(param_2,"first_party_account_type",param_1 + 0x99,0xb);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b827073;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b827073:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"is_crossplay");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a7e60(param_2,"is_crossplay",param_1 + 0xa4);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b8270aa;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b8270aa:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"is_headset_present");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a7e60(param_2,"is_headset_present",param_1 + 0xa5);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b8270e1;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b8270e1:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"is_mic_enabled");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a7e60(param_2,"is_mic_enabled",param_1 + 0xa6);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b827118;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b827118:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"in_voice_chat");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a7e60(param_2,"in_voice_chat",param_1 + 0xa7);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b82714f;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b82714f:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"is_headless");
+  if (cVar2 != '\0') {
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7a7e60(param_2,"is_headless",param_1 + 0xa8);
+      if (cVar1 != '\0') {
+        cVar1 = '\x01';
+        goto LAB_7ff76b827186;
+      }
+    }
+    cVar1 = '\0';
+  }
+LAB_7ff76b827186:
+  cVar2 = FUN_7ff76b7aaab0(param_2,"control_scheme");
+  if (cVar2 != '\0') {
+    local_res8[0] = 0;
+    if (cVar1 != '\0') {
+      cVar1 = FUN_7ff76b7aa340(param_2,"control_scheme",local_res8);
+      if (cVar1 != '\0') {
+        *(uint *)(param_1 + 0xac) = local_res8[0];
+        return '\x01';
+      }
+    }
+    *(uint *)(param_1 + 0xac) = local_res8[0];
+    return '\0';
+  }
+  cVar2 = FUN_7ff76b7aaab0(param_2);
+  if (cVar2 == '\0') {
+    return cVar1;
+  }
+  local_res8[0] = local_res8[0] & 0xffffff00;
+  if (cVar1 != '\0') {
+    cVar1 = FUN_7ff76b7a7e60(param_2,"is_using_gamepad",local_res8);
+    if (cVar1 != '\0') {
+      cVar1 = '\x01';
+      goto LAB_7ff76b82722f;
+    }
+  }
+  cVar1 = '\0';
+LAB_7ff76b82722f:
+  *(uint *)(param_1 + 0xac) = 2 - (uint)((char)local_res8[0] != '\0');
+  return cVar1;
+}
+
+
+```
+
+### STRINGS
+- "first_party_user_id"
+- "is_using_gamepad"
+- "control_scheme"
+- "is_headset_present"
+- "user_id"
+- "is_mic_enabled"
+- "account_type"
+- "is_crossplay"
+- "platform"
+- "in_voice_chat"
+- "first_party_account_type"
+- "service_level"
+- "is_headless"
