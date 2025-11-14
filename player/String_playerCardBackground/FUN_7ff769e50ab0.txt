@@ -1,0 +1,522 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769e50ab0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769e50ab0)
+```c
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+
+void FUN_7ff769e50ab0(undefined8 param_1,undefined4 param_2,byte param_3)
+
+{
+  char cVar1;
+  char cVar2;
+  undefined1 uVar3;
+  byte bVar4;
+  short sVar5;
+  ushort uVar6;
+  undefined2 uVar7;
+  int iVar8;
+  undefined4 uVar9;
+  int iVar10;
+  uint uVar11;
+  undefined4 uVar12;
+  undefined8 uVar13;
+  undefined1 *puVar14;
+  longlong lVar15;
+  undefined8 *puVar16;
+  longlong lVar17;
+  char *pcVar18;
+  char *pcVar19;
+  int iVar20;
+  int iVar21;
+  longlong lVar22;
+  uint *puVar23;
+  undefined1 auStack_c508 [32];
+  undefined8 local_c4e8;
+  undefined8 local_c4e0;
+  char local_c4d8;
+  byte local_c4d7;
+  int local_c4d4;
+  undefined1 local_c4d0 [4];
+  undefined4 local_c4cc;
+  undefined4 local_c4c8;
+  undefined1 local_c4c0 [16];
+  undefined1 local_c4b0 [4];
+  undefined4 local_c4ac;
+  undefined4 local_c4a8;
+  undefined1 local_c4a0 [16];
+  undefined8 local_c490;
+  undefined4 local_c488;
+  undefined4 local_c484;
+  undefined8 local_c480;
+  undefined8 local_c478;
+  undefined1 local_c470 [8];
+  undefined1 local_c468 [64];
+  undefined8 local_c428;
+  longlong local_c420;
+  undefined1 local_c418 [4];
+  undefined4 local_c414;
+  undefined4 local_c410;
+  undefined1 local_c408 [16];
+  undefined1 local_c3f8 [4];
+  undefined4 local_c3f4;
+  undefined4 local_c3f0;
+  undefined1 local_c3e8 [16];
+  undefined1 local_c3d8 [4];
+  undefined4 local_c3d4;
+  undefined4 local_c3d0;
+  undefined1 local_c3c8 [16];
+  undefined1 local_c3b8 [4];
+  undefined4 local_c3b4;
+  undefined4 local_c3b0;
+  undefined1 local_c3a8 [16];
+  undefined1 local_c398 [32];
+  undefined1 local_c378 [32];
+  undefined1 local_c358 [64];
+  undefined1 local_c318 [24];
+  undefined1 local_c300 [20];
+  uint local_c2ec [19];
+  undefined1 local_c29e [78];
+  undefined1 local_c250 [12];
+  undefined1 local_c244 [49388];
+  char local_158 [272];
+  ulonglong local_48;
+  undefined8 uStack_40;
+  
+  uStack_40 = 0x7ff769e50acd;
+  local_48 = DAT_7ff76e1be680 ^ (ulonglong)auStack_c508;
+  local_c4d7 = param_3;
+  local_c478 = param_1;
+  if (DAT_7ff76e7763a4 != '\0') {
+    uVar13 = FUN_7ff76ac27ee0(&DAT_7ff76e7763a4);
+    iVar21 = 0;
+    local_c4e0 = 0;
+    local_c4e8 = 0;
+    FUN_7ff76ac27b50(&DAT_7ff76e7763e4,24000,uVar13,local_c468);
+    FUN_7ff76b93c140(local_c398,uVar13);
+    local_c418[0] = 0;
+    local_c414 = 0;
+    local_c410 = 0xffffffff;
+    local_c408 = (undefined1  [16])0x0;
+    thunk_FUN_7ff76b93d770(local_c398,local_c418,0x79ab3e4f98a18941);
+    iVar8 = FUN_7ff76b93bff0(local_c418,local_c468);
+    uVar13 = FUN_7ff76abe98d0(1);
+    FUN_7ff76b93c140(local_c378,uVar13);
+    cVar2 = FUN_7ff76ac306a0();
+    if (cVar2 == '\0') {
+      puVar14 = local_c358;
+    }
+    else {
+      puVar14 = (undefined1 *)FUN_7ff765004180(param_2,1);
+    }
+    cVar2 = FUN_7ff76ac306a0();
+    if (cVar2 == '\0') {
+      uVar9 = FUN_7ff76ac2a060(param_2);
+      FUN_7ff765004050(local_c358,param_2,uVar9,1);
+    }
+    local_c3f8[0] = 0;
+    local_c3f4 = 0;
+    local_c3f0 = 0xffffffff;
+    local_c3e8 = (undefined1  [16])0x0;
+    FUN_7ff76b93dab0(local_c378,local_c3f8,"commonData");
+    local_c3d8[0] = 0;
+    local_c3d4 = 0;
+    local_c3d0 = 0xffffffff;
+    local_c3c8 = (undefined1  [16])0x0;
+    thunk_FUN_7ff76b93d770(local_c3f8,local_c3d8,0x311418469f09741b);
+    thunk_FUN_7ff76b93d770(local_c3d8,local_c418,0x460767ee2c0f32c3);
+    lVar15 = FUN_7ff76b93bd60(local_c418,puVar14);
+    local_c4d4 = 0;
+    local_c3b8[0] = 0;
+    local_c3b4 = 0;
+    local_c3a8 = (undefined1  [16])0x0;
+    local_c3b0 = 0xffffffff;
+    local_c420 = lVar15;
+    cVar2 = thunk_FUN_7ff76b93d770(local_c398,local_c3b8,0x98e3ac7518558b29);
+    if (cVar2 != '\0') {
+      local_c480 = 0;
+      cVar2 = FUN_7ff76a3c2740(param_2,1);
+      if (cVar2 != '\0') {
+        puVar16 = (undefined8 *)FUN_7ff76a3c1890(local_c470,param_2);
+        local_c480 = *puVar16;
+      }
+      puVar23 = local_c2ec;
+      iVar20 = iVar21;
+LAB_7ff769e50cd1:
+      if (iVar21 < iVar8) {
+        local_c4b0[0] = 0;
+        local_c4a8 = 0xffffffff;
+        local_c4ac = 0;
+        local_c4a0 = (undefined1  [16])0x0;
+        FUN_7ff76b93da50(local_c3b8,local_c4b0,iVar21);
+        local_c4cc = 0;
+        bVar4 = 0;
+        local_c4d0[0] = 0;
+        local_c4d8 = '\0';
+        local_c4c8 = 0xffffffff;
+        local_c4c0 = (undefined1  [16])0x0;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xfa23d9ef19afc32c);
+        lVar17 = FUN_7ff76b93bd60(local_c4d0,local_c468);
+        pcVar19 = "neutral";
+        do {
+          pcVar18 = pcVar19 + lVar15 + -0x7ff76c4916d8;
+          cVar2 = *pcVar19;
+          pcVar19 = pcVar19 + 1;
+          if (*pcVar18 != cVar2) {
+            pcVar19 = "allies";
+            goto LAB_7ff769e50d90;
+          }
+        } while (*pcVar18 != '\0');
+        goto LAB_7ff769e50ebc;
+      }
+      goto LAB_7ff769e50f87;
+    }
+  }
+LAB_7ff769e5184d:
+  FUN_7ff76c296e60(local_48 ^ (ulonglong)auStack_c508);
+  return;
+  while (*pcVar18 != '\0') {
+LAB_7ff769e50d90:
+    pcVar18 = pcVar19 + lVar15 + -0x7ff76c48bb40;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) {
+      pcVar19 = "axis";
+      goto LAB_7ff769e50dc0;
+    }
+  }
+  goto LAB_7ff769e50dd4;
+  while (*pcVar18 != '\0') {
+LAB_7ff769e50dc0:
+    pcVar18 = pcVar19 + lVar15 + -0x7ff76c48bc9c;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) {
+      pcVar19 = "multiteam";
+      goto LAB_7ff769e50e40;
+    }
+  }
+LAB_7ff769e50dd4:
+  pcVar19 = "allies";
+  do {
+    pcVar18 = pcVar19 + lVar17 + -0x7ff76c48bb40;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) {
+      pcVar19 = "axis";
+      goto LAB_7ff769e50e10;
+    }
+  } while (*pcVar18 != '\0');
+  bVar4 = 2;
+  goto LAB_7ff769e50ebc;
+  while (*pcVar18 != '\0') {
+LAB_7ff769e50e40:
+    pcVar18 = pcVar19 + lVar15 + -0x7ff76c4f54d0;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) goto LAB_7ff769e50ebc;
+  }
+  local_c4d8 = '\x01';
+  sVar5 = FUN_7ff76ac24a30();
+  if (sVar5 != 1) {
+    pcVar19 = "allies";
+    do {
+      pcVar18 = pcVar19 + lVar17 + -0x7ff76c48bb40;
+      cVar2 = *pcVar19;
+      pcVar19 = pcVar19 + 1;
+      if (*pcVar18 != cVar2) {
+        pcVar19 = "axis";
+        goto LAB_7ff769e50ea0;
+      }
+    } while (*pcVar18 != '\0');
+    bVar4 = 2;
+  }
+  goto LAB_7ff769e50ebc;
+  while (*pcVar18 != '\0') {
+LAB_7ff769e50ea0:
+    pcVar18 = pcVar19 + lVar17 + -0x7ff76c48bc9c;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) {
+      bVar4 = 3;
+      goto LAB_7ff769e50ebc;
+    }
+  }
+  bVar4 = 1;
+  goto LAB_7ff769e50ebc;
+  while (*pcVar18 != '\0') {
+LAB_7ff769e50e10:
+    pcVar18 = pcVar19 + lVar17 + -0x7ff76c48bc9c;
+    cVar2 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (*pcVar18 != cVar2) goto LAB_7ff769e50ebc;
+  }
+  bVar4 = 1;
+LAB_7ff769e50ebc:
+  pcVar19 = "none";
+  do {
+    cVar2 = pcVar19[lVar17 + -0x7ff76c42e7a8];
+    cVar1 = *pcVar19;
+    pcVar19 = pcVar19 + 1;
+    if (cVar2 != cVar1) {
+      iVar20 = 1;
+      if (cVar2 < cVar1) {
+        iVar20 = -1;
+      }
+      goto LAB_7ff769e50ef7;
+    }
+  } while (cVar2 != '\0');
+  iVar20 = 0;
+LAB_7ff769e50ef7:
+  iVar10 = iVar8 + 1;
+  if (iVar20 != 0) {
+    iVar10 = iVar8;
+  }
+  if (bVar4 == local_c4d7) {
+    thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x94a644b5e0880579);
+    FUN_7ff76b93c210(local_c4d0,local_c468,local_158,0x105);
+    lVar17 = 0;
+    do {
+      pcVar19 = local_158 + lVar17;
+      pcVar18 = &DAT_7ff76c3b7ed3 + lVar17;
+      lVar17 = lVar17 + 1;
+      if (*pcVar19 != *pcVar18) {
+        lVar17 = (longlong)local_c4d4 * 0xf8;
+        FUN_7ff76b930f50(local_c29e + lVar17,0x40,local_158);
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xc10e63fbe7f624f5);
+        uVar11 = FUN_7ff76b93bff0(local_c4d0,local_c468);
+        puVar23[-9] = uVar11;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xfdfacff3f8688e07);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        *puVar23 = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xad3fb0fad4c3626e);
+        uVar3 = FUN_7ff76b93ba60(local_c4d0,local_c468);
+        *(undefined1 *)(puVar23 + -5) = uVar3;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x7bff3d8db7bb109e);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[-4] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xd6ed920648d707fa);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[-7] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a222e4fbf433);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[1] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a122e4fbf280);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[2] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a422e4fbf799);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[3] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a322e4fbf5e6);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[4] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a622e4fbfaff);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[5] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x12e7a522e4fbf94c);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[6] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x282813eec7b5b9ca);
+        uVar11 = FUN_7ff76b93bff0(local_c4d0,local_c468);
+        puVar23[7] = uVar11;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x98a3024830754a20);
+        uVar7 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        *(undefined2 *)(puVar23 + 8) = uVar7;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x6db3201fd1eb3847);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[-3] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x847d5beda159d298);
+        uVar6 = FUN_7ff76b93c160(local_c4d0,local_c468);
+        puVar23[-2] = (uint)uVar6;
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xbcb8923c6d924aa7);
+        uVar9 = FUN_7ff76b93bff0(local_c4d0,local_c468);
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x2657ed2bc4b7a62b);
+        uVar12 = FUN_7ff76b93bff0(local_c4d0,local_c468);
+        FUN_7ff76a8d9790(&local_c490,CONCAT44(uVar9,uVar12));
+        uVar13 = FUN_7ff76a8d9830(&local_c490);
+        FUN_7ff76b930f50(local_c244 + lVar17,0x15,uVar13);
+        uVar13 = FUN_7ff76a8844f0();
+        FUN_7ff76a884e90(uVar13,&local_c488,local_c490);
+        uVar13 = FUN_7ff76a8844f0();
+        lVar15 = FUN_7ff76a884430(uVar13,local_c488,4);
+        if (lVar15 == 0) {
+          puVar14 = &DAT_7ff76c3b7ed3;
+        }
+        else {
+          puVar14 = (undefined1 *)FUN_7ff76a880620(lVar15);
+        }
+        *(undefined1 **)(puVar23 + 0x25) = puVar14;
+        uVar13 = FUN_7ff76a8844f0();
+        FUN_7ff76a884e90(uVar13,&local_c484,local_c490);
+        uVar13 = FUN_7ff76a8844f0();
+        lVar15 = FUN_7ff76a884430(uVar13,local_c484,4);
+        if (lVar15 != 0) {
+          uVar3 = FUN_7ff76a8805b0(lVar15);
+          uVar13 = FUN_7ff76a8805a0(lVar15);
+          local_c4e8 = CONCAT71(local_c4e8._1_7_,0x37);
+          FUN_7ff76abe9e30(uVar13,uVar3,local_c250 + lVar17,0xc);
+        }
+        thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0x3e4bd4e31c5c3ad2);
+        uVar3 = FUN_7ff76b93bff0(local_c4d0,local_c468);
+        *(undefined1 *)(puVar23 + 0x31) = uVar3;
+        local_c428 = local_c490;
+        uVar13 = FUN_7ff7654530f0();
+        iVar8 = FUN_7ff765454130(uVar13);
+        iVar20 = 0;
+        if (iVar8 < 1) goto LAB_7ff769e51727;
+        goto LAB_7ff769e51700;
+      }
+    } while (*pcVar19 != '\0');
+  }
+LAB_7ff769e50f77:
+  iVar21 = iVar21 + 1;
+  iVar20 = local_c4d4;
+  iVar8 = iVar10;
+  if (199 < iVar21) goto LAB_7ff769e50f87;
+  goto LAB_7ff769e50cd1;
+  while (iVar20 = iVar20 + 1, iVar20 < iVar8) {
+LAB_7ff769e51700:
+    FUN_7ff765454d00(local_c470,uVar13,iVar20);
+    cVar2 = FUN_7ff76a8d96c0(local_c470,&local_c428);
+    if (cVar2 != '\0') {
+      uVar3 = FUN_7ff76541bcf0(uVar13,iVar20);
+      *(undefined1 *)((longlong)puVar23 + 0x4d) = uVar3;
+      uVar3 = FUN_7ff76541bd10(uVar13,iVar20);
+      goto LAB_7ff769e5172e;
+    }
+  }
+LAB_7ff769e51727:
+  *(undefined1 *)((longlong)puVar23 + 0x4d) = 0;
+  uVar3 = 0;
+LAB_7ff769e5172e:
+  *(undefined1 *)(puVar23 + 0x13) = uVar3;
+  if (local_c4d8 != '\0') {
+    thunk_FUN_7ff76b93d770(local_c4b0,local_c4d0,0xfa23d9ef19afc32c);
+    bVar4 = FUN_7ff76b93bb30(local_c4d0,local_c468);
+  }
+  local_c4d4 = local_c4d4 + 1;
+  puVar23[-0xb] = 0;
+  puVar23[-6] = (uint)bVar4;
+  puVar23 = puVar23 + 0x3e;
+  lVar15 = local_c420;
+  goto LAB_7ff769e50f77;
+LAB_7ff769e50f87:
+  iVar8 = 0;
+  lVar22 = (longlong)iVar20;
+  lVar17 = lVar22 * 0xf8;
+  lVar15 = lVar17 + SUB168(SEXT816(-0x7bdef7bdef7bdef7) * SEXT816(lVar17),8);
+  FUN_7ff769e4fd20(local_c318,local_c318 + lVar17,(lVar15 >> 7) - (lVar15 >> 0x3f),local_c4d7);
+  uVar13 = local_c478;
+  FUN_7ff76ba404f0(local_c478,iVar20,0);
+  if (0 < lVar22) {
+    puVar14 = local_c300;
+    do {
+      FUN_7ff769bc3930((longlong)iVar8,uVar13);
+      iVar21 = *(int *)(puVar14 + 8);
+      thunk_FUN_7ff769b67720("clientNum",(longlong)*(int *)(puVar14 + -0x18),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b676a0("isBot",*puVar14,DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720(&DAT_7ff76c490c84,(longlong)iVar21,DAT_7ff7733884f8);
+      iVar20 = 0x36;
+      if (iVar21 < 0x36) {
+        iVar20 = iVar21;
+      }
+      thunk_FUN_7ff769b67720("baseRank",(longlong)iVar20,DAT_7ff7733884f8);
+      iVar20 = 0;
+      if (0 < iVar21 + -0x36) {
+        iVar20 = iVar21 + -0x36;
+      }
+      thunk_FUN_7ff769b67720("prestige",(longlong)iVar20,DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("score",(longlong)*(int *)(puVar14 + -0x10),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("kills",(longlong)*(int *)(puVar14 + 4),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("deaths",(longlong)*(int *)(puVar14 + -8),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("assists",(longlong)*(int *)(puVar14 + 0x14),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("downs",(longlong)*(int *)(puVar14 + 0x18),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("revives",(longlong)*(int *)(puVar14 + 0x1c),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore0",(longlong)*(int *)(puVar14 + 0x18),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore1",(longlong)*(int *)(puVar14 + 0x1c),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore2",(longlong)*(int *)(puVar14 + 0x20),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore3",(longlong)*(int *)(puVar14 + 0x24),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore4",(longlong)*(int *)(puVar14 + 0x28),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("extraScore5",(longlong)*(int *)(puVar14 + 0x2c),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("objectivescore",(longlong)*(int *)(puVar14 + 0x30),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("placement",(longlong)*(short *)(puVar14 + 0x34),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67980(&DAT_7ff76c3b8490,puVar14 + 0x62,DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67980("nameWithHash",*(undefined8 *)(puVar14 + 0xa8),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67980("clanTag",puVar14 + 0xb0,DAT_7ff7733884f8);
+      pcVar19 = puVar14 + 0xbc;
+      thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,pcVar19,DAT_7ff7733884f8);
+      thunk_FUN_7ff769b676a0("isMuted",puVar14[0x61],DAT_7ff7733884f8);
+      thunk_FUN_7ff769b676a0("isMicOn",puVar14[0x60],DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720(&DAT_7ff76c4f55d0,(longlong)*(int *)(puVar14 + -4),DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720
+                ("playerCardBackground",(longlong)*(int *)(puVar14 + 0xdc),DAT_7ff7733884f8);
+      cVar2 = FUN_7ff76ab21170();
+      if (cVar2 == '\a') {
+        bVar4 = 0;
+      }
+      else {
+        bVar4 = FUN_7ff76ab21140(puVar14[0xd8],cVar2);
+        bVar4 = bVar4 ^ 1;
+      }
+      thunk_FUN_7ff769b676a0("isCrossplayPlayer",bVar4,DAT_7ff7733884f8);
+      lVar15 = FUN_7ff76a8d9830(&local_c480);
+      lVar15 = lVar15 - (longlong)pcVar19;
+      do {
+        cVar2 = pcVar19[lVar15];
+        cVar1 = *pcVar19;
+        pcVar19 = pcVar19 + 1;
+        if (cVar2 != cVar1) {
+          iVar21 = 1;
+          if (cVar2 < cVar1) {
+            iVar21 = -1;
+          }
+          goto LAB_7ff769e51800;
+        }
+      } while (cVar2 != '\0');
+      iVar21 = 0;
+LAB_7ff769e51800:
+      thunk_FUN_7ff769b676a0(&DAT_7ff76c4f5604,iVar21 == 0,DAT_7ff7733884f8);
+      FUN_7ff769bc61a0(DAT_7ff7733884f8);
+      iVar8 = iVar8 + 1;
+      puVar14 = puVar14 + 0xf8;
+      lVar22 = lVar22 + -1;
+      uVar13 = local_c478;
+    } while (lVar22 != 0);
+  }
+  goto LAB_7ff769e5184d;
+}
+
+
+```
+
+### STRINGS
+- "isCrossplayPlayer"
+- "nameWithHash"
+- "extraScore0"
+- "extraScore4"
+- "allies"
+- "score"
+- "extraScore1"
+- "extraScore2"
+- "extraScore5"
+- "extraScore3"
+- "isMicOn"
+- "multiteam"
+- "kills"
+- "prestige"
+- "assists"
+- "playerCardBackground"
+- "isMuted"
+- "isBot"
+- "placement"
+- "neutral"
+- "clientNum"
+- "commonData"
+- "objectivescore"
+- "clanTag"
+- "deaths"
+- "baseRank"
+- "revives"
+- "downs"

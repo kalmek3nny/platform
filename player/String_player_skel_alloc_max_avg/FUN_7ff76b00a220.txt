@@ -1,0 +1,175 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b00a220
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b00a220)
+```c
+
+/* WARNING: Function: __chkstk replaced with injection: alloca_probe */
+
+void FUN_7ff76b00a220(int *param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  char cVar7;
+  undefined4 uVar8;
+  longlong lVar9;
+  longlong *plVar10;
+  undefined1 auStack_1368 [32];
+  undefined4 local_1348;
+  undefined8 local_1340;
+  int local_1338;
+  undefined1 local_1328 [56];
+  undefined1 local_12f0;
+  undefined4 local_12ec;
+  undefined8 local_1178;
+  undefined1 local_1170 [4096];
+  undefined1 local_170 [312];
+  ulonglong local_38;
+  
+  local_38 = DAT_7ff76e1be680 ^ (ulonglong)auStack_1368;
+  if (*param_1 != 0) {
+    cVar7 = FUN_7ff76580e850();
+    if (cVar7 == '\0') {
+      local_1338 = param_1[0xd];
+      iVar1 = param_1[1];
+      iVar2 = param_1[4];
+      iVar3 = param_1[10];
+      iVar4 = param_1[0x10];
+      iVar5 = param_1[7];
+      iVar6 = param_1[0x13];
+      cVar7 = FUN_7ff76b945d90();
+      if (cVar7 != '\0') {
+        plVar10 = (longlong *)FUN_7ff76b944a70();
+        (**(code **)(*plVar10 + 0x280))
+                  (plVar10,"DLog_RecordEventInternal","dlog_event_skel_alloc_info");
+        local_1348 = 0xffffffff;
+        cVar7 = FUN_7ff76b942320(local_1328,0,&local_1178,0x1000);
+        if (cVar7 != '\0') {
+          cVar7 = FUN_7ff76b945d90();
+          if (cVar7 == '\0') {
+            local_12ec = 0xd;
+          }
+          else {
+            cVar7 = FUN_7ff76b941540(local_1328,"dlog_event_skel_alloc_info",1);
+            local_12f0 = 1;
+            if ((((((cVar7 != '\0') &&
+                   (cVar7 = FUN_7ff76b9459e0(local_1328,"skel_mem_pos_max",*param_1), cVar7 != '\0')
+                   ) && (cVar7 = FUN_7ff76b94d800(local_1328,"player_skel_alloc_max_avg",iVar1),
+                        cVar7 != '\0')) &&
+                 ((cVar7 = FUN_7ff76b94d800(local_1328,"actor_skel_alloc_max_avg",iVar2),
+                  cVar7 != '\0' &&
+                  (cVar7 = FUN_7ff76b94d800(local_1328,"agent_skel_alloc_max_avg",iVar5),
+                  cVar7 != '\0')))) &&
+                ((cVar7 = FUN_7ff76b94d800(local_1328,"vehicle_skel_alloc_max_avg",iVar3),
+                 cVar7 != '\0' &&
+                 ((cVar7 = FUN_7ff76b94d800(local_1328,"fake_actor_skel_alloc_max_avg",local_1338),
+                  cVar7 != '\0' &&
+                  (cVar7 = FUN_7ff76b94d800(local_1328,"corpse_skel_alloc_max_avg",iVar4),
+                  cVar7 != '\0')))))) &&
+               (cVar7 = FUN_7ff76b94d800(local_1328,"other_skel_alloc_max_avg",iVar6), cVar7 != '\0'
+               )) {
+              FUN_7ff76b948540(local_1328);
+            }
+          }
+        }
+        plVar10 = (longlong *)FUN_7ff76b944a70();
+        (**(code **)(*plVar10 + 0x288))(plVar10);
+      }
+    }
+    else {
+      local_1178 = 0;
+      FUN_7ff76b940920(local_170,local_1170,0x1000);
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b940950(local_170,1);
+      FUN_7ff7657f67e0(local_170,0,"dlog_event_skel_alloc_info");
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b940950(local_170,2);
+      FUN_7ff7657f6650(local_170,0,"dlog_event_skel_alloc_info");
+      iVar1 = *param_1;
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b94fef0(local_170,3,iVar1);
+      iVar1 = param_1[1];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,4,iVar1);
+      iVar1 = param_1[4];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,5,iVar1);
+      iVar1 = param_1[7];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,6,iVar1);
+      iVar1 = param_1[10];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,7,iVar1);
+      iVar1 = param_1[0xd];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,8,iVar1);
+      iVar1 = param_1[0x10];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,9,iVar1);
+      iVar1 = param_1[0x13];
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      FUN_7ff76b950730(local_170,10,iVar1);
+      lVar9 = FUN_7ff76b94e2e0(local_170);
+      if (lVar9 == 1) {
+        FUN_7ff76b94e3e0(local_170);
+      }
+      uVar8 = FUN_7ff76b950580(local_170);
+      local_1340 = 0x969d72f12689de7f;
+      local_1348 = 2;
+      FUN_7ff76b948250(local_1178,"dlog_event_skel_alloc_info",local_1170,uVar8);
+    }
+  }
+  FUN_7ff76c296e60(local_38 ^ (ulonglong)auStack_1368);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "fake_actor_skel_alloc_max_avg"
+- "corpse_skel_alloc_max_avg"
+- "dlog_event_skel_alloc_info"
+- "DLog_RecordEventInternal"
+- "agent_skel_alloc_max_avg"
+- "player_skel_alloc_max_avg"
+- "other_skel_alloc_max_avg"
+- "actor_skel_alloc_max_avg"
+- "vehicle_skel_alloc_max_avg"
+- "skel_mem_pos_max"

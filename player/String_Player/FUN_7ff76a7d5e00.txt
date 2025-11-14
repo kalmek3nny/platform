@@ -1,0 +1,33 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a7d5e00
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a7d5e00)
+```c
+
+void FUN_7ff76a7d5e00(undefined8 param_1,int param_2)
+
+{
+  char cVar1;
+  undefined4 local_res18 [4];
+  
+  cVar1 = FUN_7ff764ffbd70(param_2,local_res18);
+  if (cVar1 != '\0') {
+    cVar1 = FUN_7ff769bc2cc0(local_res18[0],0x350d22c8f8893547,DAT_7ff7733884f8);
+    if (cVar1 != '\0') {
+      thunk_FUN_7ff769b67980(&DAT_7ff76c4ed7d4,"player",DAT_7ff7733884f8);
+      thunk_FUN_7ff769b67720("controller",(longlong)param_2,DAT_7ff7733884f8);
+      thunk_FUN_7ff769b676a0("immediate",1,DAT_7ff7733884f8);
+      FUN_7ff769bc6030(DAT_7ff7733884f8);
+    }
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "controller"
+- "immediate"
+- "player"

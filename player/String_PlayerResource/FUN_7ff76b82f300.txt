@@ -1,0 +1,84 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b82f300
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b82f300)
+```c
+
+char FUN_7ff76b82f300(longlong param_1,undefined8 param_2)
+
+{
+  undefined8 uVar1;
+  undefined8 uVar2;
+  undefined4 *puVar3;
+  char cVar4;
+  undefined8 local_res8;
+  
+  cVar4 = thunk_FUN_7ff763b3216d(param_2,"mm-dispatcher");
+  if (cVar4 == '\0') {
+LAB_7ff76b82f448:
+    uVar2 = thunk_FUN_7ff76b89f3bc(param_2);
+    thunk_FUN_7ff77f51e559(uVar2);
+LAB_7ff76b82f458:
+    local_res8 = 0;
+  }
+  else {
+    cVar4 = thunk_FUN_7ff782741d56(param_2,0x504f5354);
+    if (cVar4 == '\0') goto LAB_7ff76b82f448;
+    cVar4 = thunk_FUN_7ff7825e6de8(param_2,"PlayerResource","initiate_dc_qos");
+    if (cVar4 == '\0') goto LAB_7ff76b82f448;
+    uVar2 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar4 = thunk_FUN_7ff763a39ca0(uVar2,3);
+    if (cVar4 == '\0') goto LAB_7ff76b82f448;
+    uVar2 = thunk_FUN_7ff76b89f3bc(param_2);
+    puVar3 = (undefined4 *)thunk_FUN_7ff77f51e559(uVar2);
+    uVar2 = thunk_FUN_7ff7815e7168(param_2);
+    cVar4 = FUN_7ff76b75ae10(uVar2,"/v1/player/{player_id}/initiate_dc_qos",puVar3 + 0x28);
+    if (cVar4 == '\0') goto LAB_7ff76b82f458;
+    uVar2 = thunk_FUN_7ff7815e7168(param_2);
+    cVar4 = thunk_FUN_7ff77f27de65(uVar2,"client",(longlong)puVar3 + 0xcb);
+    if (cVar4 == '\0') goto LAB_7ff76b82f458;
+    uVar2 = thunk_FUN_7ff7815e7168(param_2);
+    cVar4 = FUN_7ff76b75a570(uVar2,"titleID",*puVar3);
+    if (cVar4 == '\0') goto LAB_7ff76b82f458;
+    local_res8 = 0;
+    cVar4 = thunk_FUN_7ff781392b6b(param_2,&local_res8);
+    uVar2 = local_res8;
+    if (cVar4 != '\0') {
+      uVar1 = *(undefined8 *)(puVar3 + 0x28);
+      cVar4 = thunk_FUN_7ff7635e4ba6(local_res8,1,0);
+      if (cVar4 != '\0') {
+        cVar4 = thunk_FUN_7ff77f9e2e9d(uVar2,uVar1);
+        if (cVar4 != '\0') {
+          cVar4 = '\x01';
+          goto LAB_7ff76b82f463;
+        }
+      }
+    }
+  }
+  cVar4 = '\0';
+LAB_7ff76b82f463:
+  if (*(longlong *)(param_1 + 0x10) != 0) {
+    if (cVar4 != '\0') {
+      cVar4 = thunk_FUN_7ff7636282d1
+                        (local_res8,2,*(longlong *)(param_1 + 0x10),*(undefined4 *)(param_1 + 0x18))
+      ;
+      if (cVar4 != '\0') {
+        return '\x01';
+      }
+    }
+    cVar4 = '\0';
+  }
+  return cVar4;
+}
+
+
+```
+
+### STRINGS
+- "/v1/player/{player_id}/initiate_dc_qos"
+- "titleID"
+- "initiate_dc_qos"
+- "mm-dispatcher"
+- "PlayerResource"
+- "client"

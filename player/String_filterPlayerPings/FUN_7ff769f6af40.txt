@@ -1,0 +1,113 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769f6af40
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769f6af40)
+```c
+
+void FUN_7ff769f6af40(undefined8 param_1)
+
+{
+  bool bVar1;
+  int iVar2;
+  longlong lVar3;
+  undefined1 auStack_78 [32];
+  undefined1 *local_58;
+  undefined1 local_48 [24];
+  undefined1 local_30 [24];
+  ulonglong local_18;
+  
+  local_18 = DAT_7ff76e1be680 ^ (ulonglong)auStack_78;
+  iVar2 = FUN_7ff76ba40c30();
+  if (iVar2 != 2) {
+    local_48[0] = 0;
+    FUN_7ff764ce9530(local_48,"#x%c%llx",0x30,0x77c34d7541078bdd);
+    local_30[0] = 0;
+    FUN_7ff764ce9530(local_30,"#x%c%llx",0x30,0x8e2e9eb44b74c4b6);
+    local_58 = local_48;
+    FUN_7ff76ba39bb0(param_1,"%s:%d : %s",local_30,0x4a4);
+  }
+  iVar2 = FUN_7ff76ba40e20(param_1,1);
+  if (iVar2 == 0) {
+    local_30[0] = 0;
+    FUN_7ff764ce9530(local_30,"#x%c%llx",0x30,0xa1bc323748177730);
+    local_48[0] = 0;
+    FUN_7ff764ce9530(local_48,"#x%c%llx",0x30,0x8e2e9eb44b74c4b6);
+    local_58 = local_30;
+    FUN_7ff76ba39bb0(param_1,"%s:%d : %s",local_48,0x4a5);
+  }
+  iVar2 = FUN_7ff76ba42ce0(param_1,2);
+  if (iVar2 != 6) {
+    local_30[0] = 0;
+    FUN_7ff764ce9530(local_30,"#x%c%llx",0x30,0x5965186368aa1d7a);
+    local_48[0] = 0;
+    FUN_7ff764ce9530(local_48,"#x%c%llx",0x30,0x8e2e9eb44b74c4b6);
+    local_58 = local_30;
+    FUN_7ff76ba39bb0(param_1,"%s:%d : %s",local_48,0x4a6);
+  }
+  lVar3 = FUN_7ff769bd3070(param_1,1,1);
+  lVar3 = *(longlong *)(lVar3 + 0x60);
+  FUN_7ff76ba40910(param_1,2,"filterPlayerPings");
+  bVar1 = false;
+  iVar2 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar2 == 1) {
+    iVar2 = FUN_7ff76ba428e0(param_1,0xffffffff);
+    bVar1 = 0 < iVar2;
+  }
+  if (bVar1) {
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) | 0x80000000;
+  }
+  else {
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) & 0x7fffffff;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"filterPoi");
+  iVar2 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar2 == 1) {
+    iVar2 = FUN_7ff76ba428e0(param_1,0xffffffff);
+    if (iVar2 < 1) goto LAB_7ff769f6b184;
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) | 0x40000000;
+  }
+  else {
+LAB_7ff769f6b184:
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) & 0xbfffffff;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"filterMission");
+  iVar2 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar2 == 1) {
+    iVar2 = FUN_7ff76ba428e0(param_1,0xffffffff);
+    if (iVar2 < 1) goto LAB_7ff769f6b1d8;
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) | 0x20000000;
+  }
+  else {
+LAB_7ff769f6b1d8:
+    *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) & 0xdfffffff;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"filterVehicle");
+  iVar2 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar2 == 1) {
+    iVar2 = FUN_7ff76ba428e0(param_1,0xffffffff);
+    if (0 < iVar2) {
+      *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) | 0x10000000;
+      goto LAB_7ff769f6b233;
+    }
+  }
+  *(uint *)(lVar3 + 0x60) = *(uint *)(lVar3 + 0x60) & 0xefffffff;
+LAB_7ff769f6b233:
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76c296e60(local_18 ^ (ulonglong)auStack_78);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "filterPlayerPings"
+- "%s:%d : %s"
+- "#x%c%llx"
+- "filterPoi"
+- "filterMission"
+- "filterVehicle"

@@ -1,0 +1,86 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b837f90
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b837f90)
+```c
+
+undefined1 FUN_7ff76b837f90(longlong param_1,undefined8 param_2)
+
+{
+  undefined8 uVar1;
+  undefined8 uVar2;
+  undefined4 *puVar3;
+  char cVar4;
+  undefined8 local_res18;
+  
+  cVar4 = thunk_FUN_7ff763b3216d(param_2,"mm-dispatcher");
+  if (((cVar4 != '\0') && (cVar4 = thunk_FUN_7ff782741d56(param_2,0x504f5354), cVar4 != '\0')) &&
+     (cVar4 = thunk_FUN_7ff7825e6de8(param_2,"PlayerResource","qos_hosts_reply"), cVar4 != '\0')) {
+    uVar2 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar4 = thunk_FUN_7ff763a39ca0(uVar2,3);
+    if (cVar4 != '\0') {
+      uVar2 = thunk_FUN_7ff76b89f3bc(param_2);
+      puVar3 = (undefined4 *)thunk_FUN_7ff77f51e559(uVar2);
+      uVar2 = thunk_FUN_7ff7815e7168(param_2);
+      cVar4 = FUN_7ff76b75ae10(uVar2,"/v1/player/{player_id}/qos_hosts_reply",puVar3 + 0x28);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      uVar2 = thunk_FUN_7ff7815e7168(param_2);
+      cVar4 = thunk_FUN_7ff77f27de65(uVar2,"client",(longlong)puVar3 + 0xcb);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      uVar2 = thunk_FUN_7ff7815e7168(param_2);
+      cVar4 = FUN_7ff76b75a570(uVar2,"titleID",*puVar3);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      local_res18 = 0;
+      cVar4 = thunk_FUN_7ff781392b6b(param_2,&local_res18);
+      uVar2 = local_res18;
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      uVar1 = *(undefined8 *)(puVar3 + 0x28);
+      cVar4 = thunk_FUN_7ff7635e4ba6(local_res18,1,0);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      cVar4 = thunk_FUN_7ff77f9e2e9d(uVar2,uVar1);
+      uVar2 = local_res18;
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      uVar1 = *(undefined8 *)(param_1 + 0x10);
+      cVar4 = thunk_FUN_7ff7635e4ba6(local_res18,2,0);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      cVar4 = thunk_FUN_7ff77f9e2e9d(uVar2,uVar1);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      cVar4 = FUN_7ff76b832de0(local_res18,3,*(undefined8 *)(param_1 + 0x18),0,0);
+      if (cVar4 == '\0') {
+        return 0;
+      }
+      return 1;
+    }
+  }
+  uVar2 = thunk_FUN_7ff76b89f3bc(param_2);
+  thunk_FUN_7ff77f51e559(uVar2);
+  return 0;
+}
+
+
+```
+
+### STRINGS
+- "titleID"
+- "mm-dispatcher"
+- "PlayerResource"
+- "qos_hosts_reply"
+- "/v1/player/{player_id}/qos_hosts_reply"
+- "client"

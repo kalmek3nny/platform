@@ -1,0 +1,48 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a3872a0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a3872a0)
+```c
+
+void FUN_7ff76a3872a0(void)
+
+{
+  undefined8 uVar1;
+  
+  FUN_7ff76aa80da0("onPlayerQuit",&LAB_7ff76a3c2a10,&DAT_7ff773b5e218);
+  FUN_7ff76aa80da0("confirmProfileChange",&DAT_7ff76a387af0,&DAT_7ff773b5e230);
+  FUN_7ff76586b2e0();
+  uVar1 = FUN_7ff76a884bf0();
+  FUN_7ff76a8856f0(uVar1);
+  uVar1 = FUN_7ff76a828870();
+  FUN_7ff76a828880(uVar1);
+  FUN_7ff76a73dba0();
+  FUN_7ff765455720();
+  FUN_7ff76a365840();
+  FUN_7ff76b0742c0();
+  FUN_7ff769834ae0();
+  FUN_7ff76ac2a5e0();
+  FUN_7ff76a73d4c0();
+  FUN_7ff76b1a5b90();
+  FUN_7ff76a8473a0();
+  FUN_7ff76583b850();
+  FUN_7ff76a3826c0(&DAT_7ff773b578c0);
+  FUN_7ff76a356ee0(&DAT_7ff7738f54a0);
+  FUN_7ff76a860720();
+  FUN_7ff76a7d0dd0();
+  FUN_7ff76a841ad0();
+  FUN_7ff76a82bbc0();
+  FUN_7ff76a7b3760();
+  FUN_7ff76a7ca430();
+  FUN_7ff76a86f910();
+  FUN_7ff76a85c870();
+  return;
+}
+
+
+```
+
+### STRINGS
+- "onPlayerQuit"
+- "confirmProfileChange"

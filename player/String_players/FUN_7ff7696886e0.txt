@@ -1,0 +1,95 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff7696886e0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff7696886e0)
+```c
+
+ulonglong FUN_7ff7696886e0(char *param_1,char *param_2,char *param_3,undefined8 param_4)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  ulonglong uVar4;
+  uint uVar5;
+  char *pcVar6;
+  
+  uVar5 = 0x1505;
+  pcVar6 = "null";
+  if (param_1 != (char *)0x0) {
+    pcVar6 = param_1;
+  }
+  cVar1 = *pcVar6;
+  while (cVar1 != '\0') {
+    pcVar6 = pcVar6 + 1;
+    uVar5 = uVar5 * 0x21 ^ (int)cVar1;
+    cVar1 = *pcVar6;
+  }
+  pcVar6 = "null";
+  if (param_2 != (char *)0x0) {
+    pcVar6 = param_2;
+  }
+  cVar1 = *pcVar6;
+  while (cVar1 != '\0') {
+    pcVar6 = pcVar6 + 1;
+    uVar5 = uVar5 * 0x21 ^ (int)cVar1;
+    cVar1 = *pcVar6;
+  }
+  pcVar6 = "null";
+  if (param_3 != (char *)0x0) {
+    pcVar6 = param_3;
+  }
+  cVar1 = *pcVar6;
+  while (cVar1 != '\0') {
+    pcVar6 = pcVar6 + 1;
+    uVar5 = uVar5 * 0x21 ^ (int)cVar1;
+    cVar1 = *pcVar6;
+  }
+  if (uVar5 == DAT_7ff773091b20) {
+    uVar4 = (ulonglong)DAT_7ff773091b24;
+  }
+  else {
+    uVar4 = 0;
+    DAT_7ff773091b24 = 0;
+  }
+  uVar3 = (uint)uVar4;
+  DAT_7ff773091b20 = uVar5;
+  if ((int)uVar3 < 10000) {
+    pcVar6 = "shot";
+    if (param_1 != (char *)0x0) {
+      pcVar6 = param_1;
+    }
+    do {
+      uVar2 = (undefined4)uVar4;
+      if (9999 < uVar3) {
+        uVar2 = 9999;
+      }
+      if (param_2 == (char *)0x0) {
+        FUN_7ff764ce94d0(param_4,"screenshots/%s%04i.%s",pcVar6,uVar2,param_3);
+      }
+      else {
+        FUN_7ff764ce94d0(param_4,"screenshots/%s%04i%s.%s",pcVar6,uVar2,param_2,param_3);
+      }
+      cVar1 = FUN_7ff76b2d0af0(param_4,"players");
+      uVar4 = (ulonglong)DAT_7ff773091b24;
+      if (cVar1 == '\0') break;
+      uVar3 = DAT_7ff773091b24 + 1;
+      uVar4 = (ulonglong)uVar3;
+      DAT_7ff773091b24 = uVar3;
+    } while ((int)uVar3 < 10000);
+  }
+  if ((int)uVar4 < 9999) {
+    DAT_7ff773091b24 = (int)uVar4 + 1;
+    return CONCAT71((uint7)(uint3)(DAT_7ff773091b24 >> 8),1);
+  }
+  return uVar4 & 0xffffffffffffff00;
+}
+
+
+```
+
+### STRINGS
+- "screenshots/%s%04i.%s"
+- "players"
+- "screenshots/%s%04i%s.%s"

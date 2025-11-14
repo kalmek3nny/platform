@@ -1,0 +1,60 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769f6a210
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769f6a210)
+```c
+
+void FUN_7ff769f6a210(undefined8 param_1)
+
+{
+  int iVar1;
+  longlong lVar2;
+  undefined1 auStack_78 [32];
+  undefined1 *local_58;
+  undefined1 local_48 [24];
+  undefined1 local_30 [24];
+  ulonglong local_18;
+  
+  local_18 = DAT_7ff76e1be680 ^ (ulonglong)auStack_78;
+  iVar1 = FUN_7ff76ba40c30();
+  if (iVar1 != 2) {
+    local_48[0] = 0;
+    FUN_7ff764ce9530(local_48,"#x%c%llx",0x30,0x77c34d7541078bdd);
+    local_30[0] = 0;
+    FUN_7ff764ce9530(local_30,"#x%c%llx",0x30,0xfafa264264ab6a62);
+    local_58 = local_48;
+    FUN_7ff76ba39bb0(param_1,"%s:%d : %s",local_30,0x4db);
+  }
+  iVar1 = FUN_7ff76ba40e20(param_1,1);
+  if (iVar1 == 0) {
+    local_30[0] = 0;
+    FUN_7ff764ce9530(local_30,"#x%c%llx",0x30,0xa1bc323748177730);
+    local_48[0] = 0;
+    FUN_7ff764ce9530(local_48,"#x%c%llx",0x30,0xfafa264264ab6a62);
+    local_58 = local_30;
+    FUN_7ff76ba39bb0(param_1,"%s:%d : %s",local_48,0x4dc);
+  }
+  lVar2 = FUN_7ff769bd3070(param_1,1,1);
+  lVar2 = *(longlong *)(lVar2 + 0x60);
+  FUN_7ff76ba404f0(param_1,0,10);
+  thunk_FUN_7ff769b676a0("filterPlayerPings",*(uint *)(lVar2 + 0x60) >> 0x1f,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b676a0("filterPoi",*(uint *)(lVar2 + 0x60) >> 0x1e & 0xffffff01,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b676a0
+            ("filterMission",*(uint *)(lVar2 + 0x60) >> 0x1d & 0xffffff01,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b676a0
+            ("filterVehicle",*(uint *)(lVar2 + 0x60) >> 0x1c & 0xffffff01,DAT_7ff7733884f8);
+  FUN_7ff76c296e60(local_18 ^ (ulonglong)auStack_78);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "filterPlayerPings"
+- "%s:%d : %s"
+- "#x%c%llx"
+- "filterPoi"
+- "filterMission"
+- "filterVehicle"

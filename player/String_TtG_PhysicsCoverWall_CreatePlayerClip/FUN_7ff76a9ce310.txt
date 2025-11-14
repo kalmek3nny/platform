@@ -1,0 +1,124 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a9ce310
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a9ce310)
+```c
+
+void FUN_7ff76a9ce310(ulonglong param_1)
+
+{
+  longlong lVar1;
+  ulonglong uVar2;
+  char cVar3;
+  uint uVar4;
+  char cVar5;
+  undefined4 uVar6;
+  longlong lVar7;
+  undefined8 uVar8;
+  undefined8 *puVar9;
+  ulonglong uVar10;
+  undefined1 auStack_f8 [32];
+  undefined8 *local_d8;
+  undefined8 *local_d0;
+  undefined8 local_c8;
+  undefined4 local_c0;
+  undefined1 local_b8;
+  undefined4 *local_b0;
+  undefined1 *local_a8;
+  undefined1 local_a0;
+  undefined1 local_98;
+  undefined1 local_90;
+  ulonglong local_88;
+  undefined8 local_80;
+  ulonglong local_78 [2];
+  undefined4 local_68;
+  undefined4 local_64;
+  undefined4 local_60;
+  undefined4 local_58;
+  undefined4 local_54;
+  undefined4 local_50;
+  undefined1 local_48 [16];
+  ulonglong local_38;
+  
+  local_38 = DAT_7ff76e1be680 ^ (ulonglong)auStack_f8;
+  param_1 = param_1 & 0xffffffff;
+  lVar7 = FUN_7ff76593bd00();
+  lVar7 = *(longlong *)(lVar7 + 0x3e0);
+  if (lVar7 != 0) {
+    FUN_7ff76bed1b40(lVar7,"TtG_PhysicsCoverWall_CreatePlayerClip",0x25);
+  }
+  cVar5 = FUN_7ff76abc24d0();
+  cVar3 = DAT_7ff76c42c4e7;
+  if (cVar5 == '\x01') {
+    cVar3 = DAT_7ff76c42c500;
+  }
+  if (cVar3 != '\0') {
+    lVar1 = (&DAT_7ff77436a620)[param_1];
+    uVar8 = FUN_7ff7686ebf90(lVar1);
+    uVar8 = FUN_7ff76a9cf190(uVar8);
+    (&DAT_7ff77436a7a0)[param_1] = uVar8;
+    uVar6 = FUN_7ff76bb20400(2,0,0);
+    local_58 = *(undefined4 *)(lVar1 + 0x150);
+    local_54 = *(undefined4 *)(lVar1 + 0x154);
+    local_50 = *(undefined4 *)(lVar1 + 0x158);
+    local_68 = *(undefined4 *)(lVar1 + 0x15c);
+    local_64 = *(undefined4 *)(lVar1 + 0x160);
+    local_60 = *(undefined4 *)(lVar1 + 0x164);
+    FUN_7ff76ba91c90(&local_68,local_48);
+    local_78[0] = 0xd122c2f1082d4961;
+    uVar10 = 0;
+    local_78[1] = 0xa551a39d78725674;
+    do {
+      uVar2 = *(ulonglong *)((longlong)local_78 + uVar10);
+      uVar4 = (uint)uVar2;
+      *(ulonglong *)((longlong)&DAT_7ff77436aaf0 + uVar10) =
+           ((~uVar2 & 0xa551a39d78722411) - 1) +
+           (~((ulonglong)(((uVar4 | 0x878ddbee) - uVar4) + 0x78722411 & 2) *
+              (((uVar2 | 0x5aae5c62878ddbee) - uVar2) + 0xa551a39d78722411 | 2) +
+             (((uVar2 | 0x5aae5c62878ddbee) - uVar2) + 0xa551a39d78722411 & 0xfffffffffffffffd) *
+             (ulonglong)(~(((uVar4 | 0x878ddbee) - uVar4) + 0x78722411) & 2)) -
+           (uVar2 & 0x5aae5c62878ddbee));
+      uVar10 = uVar10 + 8;
+    } while (uVar10 < 0x10);
+    local_78[0] = 0x9f3c23164c6b4e6e;
+    uVar10 = 0;
+    local_78[1] = 0xbf5f4a0948735869;
+    do {
+      local_80 = 0xbf5f4a7b2d05370a;
+      local_88 = *(ulonglong *)((longlong)local_78 + uVar10);
+      uVar4 = (uint)local_88;
+      *(ulonglong *)((longlong)&DAT_7ff77436aae0 + uVar10) =
+           ((~local_88 & 0xbf5f4a7b2d05370a) - 1) +
+           (~((ulonglong)(((uVar4 | 0xd2fac8f5) - uVar4) + 0x2d05370a & 2) *
+              (((local_88 | 0x40a0b584d2fac8f5) - local_88) + 0xbf5f4a7b2d05370a | 2) +
+             (((local_88 | 0x40a0b584d2fac8f5) - local_88) + 0xbf5f4a7b2d05370a & 0xfffffffffffffffd
+             ) * (ulonglong)(~(((uVar4 | 0xd2fac8f5) - uVar4) + 0x2d05370a) & 2)) -
+           (local_88 & 0x40a0b584d2fac8f5));
+      uVar10 = uVar10 + 8;
+    } while (uVar10 < 0x10);
+    local_a8 = local_48;
+    local_90 = 0;
+    local_98 = 1;
+    local_a0 = 1;
+    local_b0 = &local_58;
+    local_b8 = 5;
+    local_c0 = 0x10000;
+    local_c8 = 0;
+    local_d0 = &DAT_7ff77436aaf0;
+    local_d8 = &DAT_7ff77436aae0;
+    puVar9 = (undefined8 *)FUN_7ff76aa17b80(&local_88,0,(&DAT_7ff77436a7a0)[param_1],uVar6);
+    (&DAT_7ff77436a3f0)[param_1] = *puVar9;
+  }
+  if (lVar7 != 0) {
+    FUN_7ff76bed1dc0(lVar7,&DAT_7ff76c41c8c8);
+  }
+  FUN_7ff76c296e60(local_38 ^ (ulonglong)auStack_f8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "TtG_PhysicsCoverWall_CreatePlayerClip"

@@ -1,0 +1,265 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769e5e550
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769e5e550)
+```c
+
+void FUN_7ff769e5e550(undefined8 param_1,undefined4 param_2,int param_3,undefined1 param_4,
+                     undefined4 param_5,undefined1 param_6)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined8 uVar5;
+  undefined8 uVar6;
+  ulonglong *puVar7;
+  undefined8 *puVar8;
+  int iVar9;
+  int iVar10;
+  undefined1 auStack_358 [32];
+  undefined4 **local_338;
+  ulonglong local_328 [2];
+  undefined8 *local_318;
+  char *pcStack_310;
+  int local_308;
+  undefined4 *local_300;
+  undefined8 local_2f8;
+  undefined1 local_2f0 [8];
+  undefined8 local_2e8;
+  undefined8 uStack_2e0;
+  undefined8 uStack_2d8;
+  undefined8 uStack_2d0;
+  undefined8 local_2c8;
+  undefined8 uStack_2c0;
+  undefined8 uStack_2b8;
+  undefined8 uStack_2b0;
+  undefined8 local_2a8;
+  undefined8 uStack_2a0;
+  undefined8 uStack_298;
+  undefined8 uStack_290;
+  undefined8 local_288;
+  undefined8 uStack_280;
+  undefined8 uStack_278;
+  undefined8 uStack_270;
+  undefined8 local_268;
+  undefined8 uStack_260;
+  undefined4 local_258;
+  undefined1 local_254;
+  undefined8 local_250;
+  undefined8 local_248;
+  undefined8 local_240;
+  undefined8 local_238;
+  char local_230 [128];
+  ulonglong local_1b0;
+  undefined1 local_1a8;
+  undefined8 local_1a7;
+  undefined8 uStack_19f;
+  undefined8 uStack_197;
+  undefined8 uStack_18f;
+  undefined8 local_187;
+  undefined8 uStack_17f;
+  undefined8 uStack_177;
+  undefined8 uStack_16f;
+  undefined8 local_167;
+  undefined8 uStack_15f;
+  undefined8 uStack_157;
+  undefined8 uStack_14f;
+  undefined8 local_147;
+  undefined8 uStack_13f;
+  undefined8 uStack_137;
+  undefined8 uStack_12f;
+  undefined8 local_127;
+  undefined8 uStack_11f;
+  undefined4 local_117;
+  undefined1 local_113;
+  undefined8 local_f8;
+  undefined8 uStack_f0;
+  undefined8 uStack_e8;
+  undefined8 uStack_e0;
+  undefined8 local_d8;
+  undefined8 uStack_d0;
+  undefined8 uStack_c8;
+  undefined8 uStack_c0;
+  undefined8 local_b8;
+  undefined8 uStack_b0;
+  undefined8 uStack_a8;
+  undefined8 uStack_a0;
+  undefined8 local_98;
+  undefined8 uStack_90;
+  undefined8 uStack_88;
+  undefined8 uStack_80;
+  undefined8 local_78;
+  undefined8 uStack_70;
+  undefined8 local_68;
+  undefined8 local_60;
+  ulonglong local_58;
+  
+  local_58 = DAT_7ff76e1be680 ^ (ulonglong)auStack_358;
+  local_328[0] = CONCAT44(local_328[0]._4_4_,param_3);
+  uVar5 = FUN_7ff76a80e080();
+  cVar1 = FUN_7ff76a80e3e0(uVar5,param_2);
+  if (cVar1 == '\0') {
+    FUN_7ff76a80de20(uVar5,param_2,0);
+    goto LAB_7ff769e5ea53;
+  }
+  FUN_7ff76a80de20(uVar5,param_2,param_4);
+  FUN_7ff76a80ede0(uVar5,param_2,param_5,param_6);
+  FUN_7ff76a80e8c0(uVar5,param_2);
+  iVar2 = FUN_7ff76a80dfc0(uVar5,param_2);
+  local_308 = iVar2;
+  FUN_7ff76ba404f0(param_1,0,3);
+  iVar9 = param_3 + -0x1e;
+  if (iVar2 < param_3 + -0x1e) {
+    iVar9 = iVar2;
+  }
+  if (iVar9 < 0) {
+    iVar9 = 0;
+  }
+  iVar10 = param_3 + 0x1e;
+  if (iVar2 < param_3 + 0x1e) {
+    iVar10 = iVar2;
+  }
+  if (iVar10 < 0) {
+    iVar10 = 0;
+  }
+  uVar3 = FUN_7ff76a15af20(param_2);
+  local_300 = (undefined4 *)CONCAT44(local_300._4_4_,uVar3);
+  local_250 = 0x23986b8399c4f32;
+  local_248 = 0x82a6b14733b2685a;
+  local_240 = 0x9ebe9dd4483ac756;
+  local_238 = 0xee5d97ad45ad251f;
+  local_318 = &local_250;
+  pcStack_310 = local_230;
+  uVar4 = FUN_7ff76a159c90(uVar3,&local_318,1);
+  local_250 = 0x23986b8399c4f32;
+  local_248 = 0x82a6b14733b2685a;
+  local_240 = 0x9ebe9dd4483ac756;
+  local_238 = 0xc2f00318f053500a;
+  local_318 = &local_250;
+  pcStack_310 = local_230;
+  uVar3 = FUN_7ff76a159c90(uVar3,&local_318,1);
+  cVar1 = FUN_7ff76a15abd0(uVar4);
+  if (cVar1 == '\0') {
+LAB_7ff769e5e728:
+    FUN_7ff76a15d670(uVar4,iVar9);
+  }
+  else {
+    iVar2 = FUN_7ff76a15ac40(uVar4);
+    if (iVar9 < iVar2) goto LAB_7ff769e5e728;
+  }
+  cVar1 = FUN_7ff76a15abd0(uVar3);
+  if (cVar1 == '\0') {
+LAB_7ff769e5e749:
+    FUN_7ff76a15d670(uVar3,iVar10);
+  }
+  else {
+    iVar2 = FUN_7ff76a15ac40(uVar3);
+    if (iVar2 < iVar10) goto LAB_7ff769e5e749;
+  }
+  local_250 = 0x23986b8399c4f32;
+  local_248 = 0x82a6b14733b2685a;
+  local_240 = 0x9ebe9dd4483ac756;
+  local_238 = 0xd722e18e8d22f298;
+  local_318 = &local_250;
+  pcStack_310 = local_230;
+  uVar3 = FUN_7ff76a159c90((ulonglong)local_300 & 0xffffffff,&local_318,1);
+  FUN_7ff76a15d670(uVar3,local_328[0] & 0xffffffff);
+  thunk_FUN_7ff769b67720("startOffset",(longlong)iVar9,param_1);
+  FUN_7ff769bc3880("players",(iVar10 - iVar9) + 1,0,param_1);
+  if (local_308 != 0) {
+    local_2f8 = FUN_7ff76a80e3b0(uVar5,param_2);
+    if (iVar9 < iVar10) {
+      iVar2 = 1 - iVar9;
+      do {
+        uVar3 = FUN_7ff76a80e010(uVar5,param_2,local_2f8,iVar9);
+        strstr(local_230,(char *)0x0);
+        local_300 = (undefined4 *)0x0;
+        uVar6 = thunk_FUN_7ff76a8707c0();
+        local_338 = &local_300;
+        cVar1 = FUN_7ff76a870880(uVar6,param_2,0,uVar3);
+        if (cVar1 != '\0') {
+          FUN_7ff76a8d9790(local_328,0);
+          uVar6 = FUN_7ff76a884bf0();
+          puVar7 = (ulonglong *)FUN_7ff76a884ff0(uVar6,local_2f0,*local_300);
+          local_328[0] = *puVar7;
+          local_1b0 = local_328[0];
+          cVar1 = FUN_7ff76a8d97d0(local_328);
+          if (cVar1 == '\0') {
+            local_60 = 0;
+          }
+          else {
+            uVar6 = FUN_7ff76a8844f0();
+            puVar8 = (undefined8 *)FUN_7ff76a884c70(uVar6,&local_318,local_328[0]);
+            local_60 = *puVar8;
+          }
+          uVar6 = FUN_7ff76a80e080();
+          uVar6 = FUN_7ff76a80e090(uVar6,param_2,uVar3);
+          FUN_7ff76b930f50(local_230,0x80,uVar6);
+          uVar6 = FUN_7ff76a80e080();
+          local_1a8 = FUN_7ff76a80e2b0(uVar6,param_2,uVar3);
+          FUN_7ff769e58c50(&local_2e8,local_328,local_60,1);
+          local_1a7 = local_2e8;
+          uStack_19f = uStack_2e0;
+          uStack_197 = uStack_2d8;
+          uStack_18f = uStack_2d0;
+          local_167 = local_2a8;
+          uStack_15f = uStack_2a0;
+          uStack_157 = uStack_298;
+          uStack_14f = uStack_290;
+          local_187 = local_2c8;
+          uStack_17f = uStack_2c0;
+          uStack_177 = uStack_2b8;
+          uStack_16f = uStack_2b0;
+          local_117 = local_258;
+          local_127 = local_268;
+          uStack_11f = uStack_260;
+          local_147 = local_288;
+          uStack_13f = uStack_280;
+          uStack_137 = uStack_278;
+          uStack_12f = uStack_270;
+          local_113 = local_254;
+          puVar8 = (undefined8 *)FUN_7ff769e58ed0(&local_2e8,param_2,local_328);
+          local_f8 = *puVar8;
+          uStack_f0 = puVar8[1];
+          uStack_e8 = puVar8[2];
+          uStack_e0 = puVar8[3];
+          local_d8 = puVar8[4];
+          uStack_d0 = puVar8[5];
+          uStack_c8 = puVar8[6];
+          uStack_c0 = puVar8[7];
+          local_b8 = puVar8[8];
+          uStack_b0 = puVar8[9];
+          uStack_a8 = puVar8[10];
+          uStack_a0 = puVar8[0xb];
+          local_98 = puVar8[0xc];
+          uStack_90 = puVar8[0xd];
+          uStack_88 = puVar8[0xe];
+          uStack_80 = puVar8[0xf];
+          local_78 = puVar8[0x10];
+          uStack_70 = puVar8[0x11];
+          local_68 = puVar8[0x12];
+        }
+        local_338 = (undefined4 **)param_1;
+        FUN_7ff769e5a500(iVar9 + iVar2,local_230,param_2,uVar3);
+        iVar9 = iVar9 + 1;
+      } while (iVar9 < iVar10);
+    }
+  }
+  FUN_7ff769bc61a0(param_1);
+  thunk_FUN_7ff769b67720("count",local_308,param_1);
+  FUN_7ff76a80de20(uVar5,param_2,0);
+LAB_7ff769e5ea53:
+  FUN_7ff76c296e60(local_58 ^ (ulonglong)auStack_358);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "players"
+- "startOffset"
+- "count"

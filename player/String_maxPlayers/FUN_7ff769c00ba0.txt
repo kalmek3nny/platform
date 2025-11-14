@@ -1,0 +1,118 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769c00ba0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769c00ba0)
+```c
+
+void FUN_7ff769c00ba0(undefined4 param_1,undefined4 param_2,longlong param_3,char param_4,
+                     char param_5)
+
+{
+  char cVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 uVar6;
+  undefined8 uVar7;
+  int iVar8;
+  int iVar9;
+  int iVar10;
+  int iVar11;
+  int iVar12;
+  undefined4 local_res18 [2];
+  char local_res20;
+  undefined1 *local_60;
+  undefined8 local_58;
+  undefined1 local_50 [8];
+  undefined8 local_48;
+  
+  local_res20 = param_4;
+  iVar3 = FUN_7ff7654545e0(param_3);
+  local_60 = &DAT_7ff76c3b7ed3;
+  if (param_3 != 0) {
+    FUN_7ff765453830(&local_58,param_3);
+    uVar7 = FUN_7ff76a884bf0();
+    FUN_7ff76a884e90(uVar7,local_res18,local_58);
+    uVar7 = FUN_7ff76a828870();
+    iVar4 = FUN_7ff76a828ad0(uVar7,param_2,local_res18[0],6);
+    if (iVar4 == 1) {
+      local_60 = (undefined1 *)FUN_7ff7654545f0(param_3,param_2);
+    }
+  }
+  iVar9 = 0;
+  iVar11 = 0;
+  iVar12 = 0;
+  iVar4 = 0;
+  iVar10 = 0;
+  iVar5 = FUN_7ff765454130(param_3);
+  uVar6 = FUN_7ff765453950(param_3,param_1);
+  iVar8 = 0;
+  if (0 < iVar5) {
+    do {
+      cVar1 = FUN_7ff765456440(param_3,iVar8);
+      iVar10 = iVar4;
+      if (cVar1 != '\0') {
+        cVar1 = FUN_7ff765456070(param_3,iVar8);
+        if (local_res20 == '\0') {
+          if (param_5 != '\0') {
+            cVar2 = FUN_7ff76a1f1ee0(param_3,param_2,iVar8);
+            goto LAB_7ff769c00cc2;
+          }
+        }
+        else {
+          cVar2 = FUN_7ff7654417f0(param_3,uVar6,iVar8);
+LAB_7ff769c00cc2:
+          if ((cVar2 == '\0') && (cVar1 == '\0')) goto LAB_7ff769c00cf7;
+        }
+        iVar9 = iVar9 + 1;
+        cVar2 = FUN_7ff765455f60(param_3,iVar8);
+        if ((cVar2 != '\0') && (iVar11 = iVar11 + 1, cVar1 == '\0')) {
+          iVar12 = iVar12 + 1;
+        }
+        cVar1 = FUN_7ff765456110(param_3,iVar8);
+        if (cVar1 != '\0') {
+          iVar10 = iVar4 + 1;
+        }
+      }
+LAB_7ff769c00cf7:
+      iVar8 = iVar8 + 1;
+      iVar4 = iVar10;
+    } while (iVar8 < iVar5);
+  }
+  FUN_7ff769bd25c0("partyId",(longlong)*(int *)(param_3 + 0x43e0),DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67720("partyType",(longlong)iVar3,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67980("partyName",local_60,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67720("memberCount",(longlong)iVar9,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67720("memberInVoiceCount",(longlong)iVar11,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67720("nonLocalMemberInVoiceCount",(longlong)iVar12,DAT_7ff7733884f8);
+  thunk_FUN_7ff769b67720("memberOnlineCount",(longlong)iVar10,DAT_7ff7733884f8);
+  if (local_res20 == '\0') {
+    if (param_5 != '\0') {
+      iVar5 = FUN_7ff76a1b9160();
+    }
+  }
+  else {
+    iVar5 = FUN_7ff765453af0();
+  }
+  thunk_FUN_7ff769b67720("maxPlayers",(longlong)iVar5,DAT_7ff7733884f8);
+  uVar7 = FUN_7ff76a79a340();
+  FUN_7ff76a799b70(uVar7,local_50,param_3);
+  FUN_7ff769bd25c0("textChatId",local_48,DAT_7ff7733884f8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "textChatId"
+- "partyName"
+- "maxPlayers"
+- "partyType"
+- "memberOnlineCount"
+- "partyId"
+- "nonLocalMemberInVoiceCount"
+- "memberInVoiceCount"
+- "memberCount"

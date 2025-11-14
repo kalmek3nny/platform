@@ -1,0 +1,58 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a818d00
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a818d00)
+```c
+
+void FUN_7ff76a818d00(longlong param_1,undefined4 param_2,longlong param_3)
+
+{
+  undefined1 uVar1;
+  char cVar2;
+  longlong lVar3;
+  undefined8 uVar4;
+  longlong lVar5;
+  
+  lVar5 = param_1 + 8;
+  if (param_1 == 0) {
+    lVar5 = 0;
+  }
+  lVar3 = FUN_7ff76a3c1830(param_2);
+  uVar1 = FUN_7ff765451310(lVar5);
+  uVar4 = FUN_7ff76a819b80(param_1);
+  uVar4 = thunk_FUN_7ff77a45cfa3(uVar4);
+  cVar2 = FUN_7ff76b945d90();
+  if (cVar2 == '\0') {
+    *(undefined4 *)(param_3 + 0x3c) = 0xd;
+  }
+  else {
+    cVar2 = FUN_7ff76b941a70(param_3,"party_snapshot");
+    if (cVar2 != '\0') {
+      cVar2 = FUN_7ff76b94ce20(param_3,"party_type",*(undefined8 *)(param_1 + 0x43f0),0);
+      if (cVar2 != '\0') {
+        cVar2 = FUN_7ff76b94d890(param_3,"party_id",uVar4);
+        if (cVar2 != '\0') {
+          cVar2 = FUN_7ff76b94d920(param_3,"party_player_count",uVar1);
+          if (cVar2 != '\0') {
+            cVar2 = FUN_7ff76b941f70(param_3,"is_current_voice_party",lVar3 == lVar5);
+            if (cVar2 != '\0') {
+              FUN_7ff76b9425a0(param_3);
+            }
+          }
+        }
+      }
+    }
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "party_id"
+- "party_player_count"
+- "is_current_voice_party"
+- "party_type"
+- "party_snapshot"

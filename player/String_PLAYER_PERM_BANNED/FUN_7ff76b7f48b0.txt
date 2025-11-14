@@ -1,0 +1,114 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b7f48b0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b7f48b0)
+```c
+
+char * FUN_7ff76b7f48b0(longlong param_1)
+
+{
+  switch(*(undefined4 *)(param_1 + 0x438)) {
+  case 0:
+    return "NOT_AN_ERROR";
+  case 1:
+    return "FIRST_PARTY_ERROR";
+  case 2:
+    return "AUTH_ERROR";
+  case 3:
+    return "UMBRELLA_ERROR";
+  case 4:
+    return "NO_CROSSPLAY_ACCOUNT_FOUND";
+  case 5:
+    return "UNO_ERROR";
+  case 6:
+    return "LOGINQUEUE_ERROR";
+  case 7:
+    return "LSG_ERROR";
+  case 8:
+    return "ANTI_CHEAT_ERROR";
+  case 9:
+    return "UNKNOWN_ERROR";
+  case 10:
+    return "LOBBY_DISCONNECT_ERROR";
+  case 0xb:
+    return "UNO_TFA_UNAUTHORIZED";
+  case 0xc:
+    return "UNO_AUTH_THROTTLED";
+  case 0xd:
+    return "UNO_AUTH_TOKEN_EXPIRED";
+  case 0xe:
+    return "FIRST_PARTY_TFA_UNAUTHORIZED";
+  case 0xf:
+    return "UMBRELLA_CHALLENGE";
+  case 0x10:
+    return "LOGIN_SERVICE_ERROR";
+  default:
+    return "unknown";
+  case 0x12:
+    return "UMBRELLA_PHONE_VERIFICATION";
+  case 0x13:
+    return "DEVICE_ATTESTATION_TOKEN_FETCH_FAILED";
+  case 0x14:
+    return "DEVICE_ATTESTATION_FAILED";
+  case 0x15:
+    return "PLAYER_PERM_BANNED";
+  case 0x16:
+    return "PLAYER_TEMP_BANNED";
+  case 0x17:
+    return "EMAIL_VERIFICATION_REQUIRED";
+  case 0x18:
+    return "DATE_OF_BIRTH_REQUIRED";
+  case 0x19:
+    return "USER_ACTION_REQUIRED";
+  case 0x1a:
+    return "PHONE_NUMBER_INVALID";
+  case 0x1b:
+    return "PHONE_NUMBER_IN_USE";
+  case 0x1c:
+    return "MFA_ENROLLMENT_REQUIRED";
+  case 0x1d:
+    return "SMS_THROTTLED";
+  case 0x1e:
+    return "PHONE_NUMBER_BANNED";
+  case 0x1f:
+    return "PHONE_NUMBER_COUNTRY_INVALID";
+  }
+}
+
+
+```
+
+### STRINGS
+- "PHONE_NUMBER_INVALID"
+- "DATE_OF_BIRTH_REQUIRED"
+- "UMBRELLA_CHALLENGE"
+- "UNO_AUTH_THROTTLED"
+- "DEVICE_ATTESTATION_TOKEN_FETCH_FAILED"
+- "MFA_ENROLLMENT_REQUIRED"
+- "LOGIN_SERVICE_ERROR"
+- "SMS_THROTTLED"
+- "LSG_ERROR"
+- "unknown"
+- "EMAIL_VERIFICATION_REQUIRED"
+- "FIRST_PARTY_ERROR"
+- "AUTH_ERROR"
+- "PLAYER_PERM_BANNED"
+- "PHONE_NUMBER_COUNTRY_INVALID"
+- "ANTI_CHEAT_ERROR"
+- "UNO_TFA_UNAUTHORIZED"
+- "NOT_AN_ERROR"
+- "NO_CROSSPLAY_ACCOUNT_FOUND"
+- "FIRST_PARTY_TFA_UNAUTHORIZED"
+- "DEVICE_ATTESTATION_FAILED"
+- "UNO_ERROR"
+- "PHONE_NUMBER_BANNED"
+- "PLAYER_TEMP_BANNED"
+- "PHONE_NUMBER_IN_USE"
+- "USER_ACTION_REQUIRED"
+- "LOBBY_DISCONNECT_ERROR"
+- "UNKNOWN_ERROR"
+- "UMBRELLA_PHONE_VERIFICATION"
+- "UNO_AUTH_TOKEN_EXPIRED"
+- "LOGINQUEUE_ERROR"
+- "UMBRELLA_ERROR"

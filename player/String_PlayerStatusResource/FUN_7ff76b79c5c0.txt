@@ -1,0 +1,68 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b79c5c0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b79c5c0)
+```c
+
+undefined1 FUN_7ff76b79c5c0(longlong param_1,undefined8 param_2)
+
+{
+  undefined8 uVar1;
+  undefined4 *puVar2;
+  char cVar3;
+  
+  cVar3 = thunk_FUN_7ff763b3216d(param_2,"extension-service");
+  if ((cVar3 != '\0') &&
+     (cVar3 = thunk_FUN_7ff7825e6de8
+                        (param_2,"PlayerStatusResource","process_set_player_status_offline"),
+     cVar3 != '\0')) {
+    uVar1 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar3 = thunk_FUN_7ff763a39ca0(uVar1,1);
+    if (cVar3 != '\0') {
+      uVar1 = thunk_FUN_7ff76b89f3bc(param_2);
+      puVar2 = (undefined4 *)thunk_FUN_7ff77f51e559(uVar1);
+      cVar3 = thunk_FUN_7ff782741d56(param_2,0x504f5354);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      uVar1 = thunk_FUN_7ff7815e7168(param_2);
+      cVar3 = FUN_7ff76b799010(uVar1,"/{version}/playerStatus/{accountType}-{accountID}/offline/",
+                               &PTR_DAT_7ff76c5a35b0,&DAT_7ff76c401768,param_1 + 0x28);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      uVar1 = thunk_FUN_7ff7815e7168(param_2);
+      cVar3 = thunk_FUN_7ff77f30d100(uVar1,"context",param_1 + 0x10);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      uVar1 = thunk_FUN_7ff7815e7168(param_2);
+      cVar3 = thunk_FUN_7ff77f27de65(uVar1,"client",(longlong)puVar2 + 0xcb);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      uVar1 = thunk_FUN_7ff7815e7168(param_2);
+      cVar3 = FUN_7ff76b75a570(uVar1,"titleID",*puVar2);
+      if (cVar3 == '\0') {
+        return 0;
+      }
+      return 1;
+    }
+  }
+  uVar1 = thunk_FUN_7ff76b89f3bc(param_2);
+  thunk_FUN_7ff77f51e559(uVar1);
+  return 0;
+}
+
+
+```
+
+### STRINGS
+- "process_set_player_status_offline"
+- "titleID"
+- "extension-service"
+- "PlayerStatusResource"
+- "/{version}/playerStatus/{accountType}-{accountID}/offline/"
+- "context"
+- "client"

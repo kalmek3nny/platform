@@ -1,0 +1,113 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b9246c0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b9246c0)
+```c
+
+undefined8 FUN_7ff76b9246c0(longlong param_1,undefined8 param_2)
+
+{
+  bool bVar1;
+  char cVar2;
+  undefined8 uVar3;
+  longlong lVar4;
+  longlong lVar5;
+  undefined8 uVar6;
+  undefined1 local_res8 [16];
+  undefined1 local_res18 [8];
+  undefined1 local_res20 [8];
+  char *local_28 [2];
+  
+  uVar3 = thunk_FUN_7ff76b89f3bc(param_2);
+  lVar4 = thunk_FUN_7ff77f51e559(uVar3);
+  cVar2 = thunk_FUN_7ff763b3216d(param_2,"player-flags");
+  if (((cVar2 != '\0') &&
+      (cVar2 = thunk_FUN_7ff7825e6de8(param_2,"AssignedFlagsResource","get_assignments"),
+      cVar2 != '\0')) && (cVar2 = thunk_FUN_7ff782741d56(param_2,0x474554), cVar2 != '\0')) {
+    uVar3 = thunk_FUN_7ff77f04a3f9(param_2);
+    cVar2 = thunk_FUN_7ff763a39ca0(uVar3,3);
+    if (cVar2 != '\0') {
+      uVar3 = thunk_FUN_7ff7815e7168(param_2);
+      cVar2 = thunk_FUN_7ff77f27de65(uVar3,"client",lVar4 + 0xcb);
+      if (cVar2 != '\0') {
+        uVar3 = thunk_FUN_7ff7815e7168(param_2);
+        cVar2 = thunk_FUN_7ff77f30d100(uVar3,"context",*(undefined8 *)(param_1 + 0x10));
+        if (cVar2 != '\0') {
+          bVar1 = true;
+          goto LAB_7ff76b924783;
+        }
+      }
+    }
+  }
+  bVar1 = false;
+LAB_7ff76b924783:
+  if (*(char *)(param_1 + 0x78) == '\0') {
+    if (!bVar1) {
+      return 0;
+    }
+    lVar5 = thunk_FUN_7ff7815e7168(param_2);
+    local_28[0] = "/v1/assignments/{accountType}-{dwid}/";
+    *(undefined1 *)(lVar5 + 0x2314) = 0;
+    *(undefined4 *)(lVar5 + 0x2310) = 0;
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76382d075(lVar5,lVar4 + 0xa8);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff763953408(lVar5,*(undefined8 *)(lVar4 + 0xa0));
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res8);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res18);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res20);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    cVar2 = thunk_FUN_7ff77f4330ba(lVar5);
+    if (cVar2 == '\0') {
+      *(undefined1 *)(lVar5 + 0x2314) = 0;
+      *(undefined4 *)(lVar5 + 0x2310) = 0;
+    }
+  }
+  else {
+    if (!bVar1) {
+      return 0;
+    }
+    lVar5 = thunk_FUN_7ff7815e7168(param_2);
+    uVar3 = thunk_FUN_7ff78102f888(param_1 + 0x20);
+    uVar6 = thunk_FUN_7ff76b8b17da(param_1 + 0x20);
+    *(undefined1 *)(lVar5 + 0x2314) = 0;
+    *(undefined4 *)(lVar5 + 0x2310) = 0;
+    local_28[0] = "/v1/assignments/{accountType}-{dwid}/";
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76382d075(lVar5,uVar6);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff763953408(lVar5,uVar3);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res8);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res18);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    thunk_FUN_7ff76386c4b8(lVar5,local_res20);
+    thunk_FUN_7ff77f29cfef(lVar5,local_28);
+    cVar2 = thunk_FUN_7ff77f4330ba(lVar5);
+    if (cVar2 == '\0') {
+      *(undefined1 *)(lVar5 + 0x2314) = 0;
+      *(undefined4 *)(lVar5 + 0x2310) = 0;
+    }
+  }
+  cVar2 = thunk_FUN_7ff77f4330ba(lVar5);
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  return 1;
+}
+
+
+```
+
+### STRINGS
+- "/v1/assignments/{accountType}-{dwid}/"
+- "player-flags"
+- "AssignedFlagsResource"
+- "context"
+- "get_assignments"
+- "client"

@@ -1,0 +1,40 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a9cd690
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a9cd690)
+```c
+
+void FUN_7ff76a9cd690(int param_1,ulonglong param_2)
+
+{
+  undefined8 uVar1;
+  longlong lVar2;
+  longlong lVar3;
+  
+  lVar2 = FUN_7ff76593bd00();
+  lVar2 = *(longlong *)(lVar2 + 0x3e0);
+  if (lVar2 != 0) {
+    FUN_7ff76bed1b40(lVar2,"TtCG_PhysicsCoverWall_RemovePlayerClip",0x26);
+  }
+  lVar3 = (longlong)param_1 * 0x10 + (param_2 & 0xffffffff);
+  if ((&DAT_7ff77436a5a0)[lVar3] != DAT_7ff77436a360) {
+    FUN_7ff7666d22c0();
+    FUN_7ff76aa16030(param_1 * 3 + 2,(&DAT_7ff77436a5a0)[lVar3],0);
+    FUN_7ff7667304f0();
+    uVar1 = *(undefined8 *)(&DAT_7ff77436aa20 + lVar3 * 8);
+    (&DAT_7ff77436a5a0)[lVar3] = DAT_7ff77436a360;
+    thunk_FUN_7ff76bb24a60(param_1 * 3 + 2,uVar1,1);
+    *(undefined8 *)(&DAT_7ff77436aa20 + lVar3 * 8) = 0;
+  }
+  if (lVar2 != 0) {
+    FUN_7ff76bed1dc0(lVar2,&DAT_7ff76c41c8c8);
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "TtCG_PhysicsCoverWall_RemovePlayerClip"

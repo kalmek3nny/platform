@@ -1,0 +1,174 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769c05790
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769c05790)
+```c
+
+void FUN_7ff769c05790(undefined8 param_1)
+
+{
+  uint uVar1;
+  char cVar2;
+  undefined2 uVar3;
+  int iVar4;
+  undefined8 uVar5;
+  undefined8 uVar6;
+  undefined8 *puVar7;
+  ulonglong *puVar8;
+  ulonglong uVar9;
+  longlong lVar10;
+  undefined1 auStack_128 [32];
+  ulonglong *local_108;
+  undefined8 local_f8;
+  ulonglong local_f0;
+  undefined1 local_e8 [4];
+  undefined2 local_e4 [2];
+  undefined4 local_e0 [2];
+  undefined8 local_d8;
+  undefined8 local_d0;
+  uint local_c8;
+  undefined4 uStack_c4;
+  undefined8 uStack_c0;
+  ulonglong local_a8 [6];
+  ulonglong local_78;
+  ulonglong uStack_70;
+  ulonglong uStack_68;
+  ulonglong uStack_60;
+  undefined4 local_58;
+  ulonglong local_50;
+  ulonglong uStack_48;
+  ulonglong uStack_40;
+  ulonglong uStack_38;
+  undefined4 local_30;
+  int local_2c;
+  ulonglong local_28;
+  
+  local_28 = DAT_7ff76e1be680 ^ (ulonglong)auStack_128;
+  cVar2 = FUN_7ff76a81e510();
+  if (cVar2 != '\0') {
+    iVar4 = FUN_7ff76ba40c30(param_1);
+    if (iVar4 == 2) {
+      iVar4 = thunk_FUN_7ff76ba40da0(param_1,1);
+      if (iVar4 == 0) goto LAB_7ff769c057f2;
+      iVar4 = FUN_7ff76ba40df0(param_1,2);
+      if (iVar4 == 0) goto LAB_7ff769c057f2;
+    }
+    else {
+LAB_7ff769c057f2:
+      local_a8[0] = local_a8[0] & 0xffffffffffffff00;
+      FUN_7ff764ce9530(local_a8,"#x%c%llx",0x30,0x30cb554b4587ba0);
+      local_c8 = local_c8 & 0xffffff00;
+      FUN_7ff764ce9530(&local_c8,"#x%c%llx",0x30,0x722f4b228d7aac01);
+      local_108 = local_a8;
+      FUN_7ff76ba39bb0(param_1,"%s:%d : %s",&local_c8,0x113);
+    }
+    iVar4 = FUN_7ff76ba40c30(param_1);
+    if (iVar4 == 2) {
+      iVar4 = thunk_FUN_7ff76ba40da0(param_1,1);
+      if (iVar4 != 0) {
+        iVar4 = FUN_7ff76ba40df0(param_1,2);
+        if (iVar4 != 0) {
+          uVar5 = FUN_7ff769bd2f80(param_1,2);
+          uVar6 = FUN_7ff76a79a200();
+          FUN_7ff76a799d10(uVar6,&local_c8,uVar5);
+          lVar10 = (longlong)(int)local_c8;
+          if (local_c8 != 0) {
+            local_78 = local_78 & 0xffffffffffffff00;
+            uVar6 = FUN_7ff76a79a200();
+            local_a8[0] = CONCAT44(uStack_c4,local_c8);
+            local_a8[1] = uStack_c0;
+            FUN_7ff76a79a650(uVar6,local_e4,local_a8);
+            FUN_7ff76a79a200();
+            uVar3 = FUN_7ff76a79a4a0(local_e4[0]);
+            FUN_7ff76ba404f0(param_1,0,8);
+            FUN_7ff769bd25c0(&DAT_7ff76c3fff38,uVar5,DAT_7ff7733884f8);
+            thunk_FUN_7ff769b67980("privacyLevel",&DAT_7ff76c3b7ed3,param_1);
+            thunk_FUN_7ff769b67720("channelType",lVar10,param_1);
+            thunk_FUN_7ff769b67720("latestMessageId",uVar3,param_1);
+            thunk_FUN_7ff769b67720("memberCount",1,param_1);
+            thunk_FUN_7ff769b67720("maxMemberCount",8,param_1);
+            FUN_7ff769bc3880("members",1,0,param_1);
+            if (local_c8 == 7) {
+              FUN_7ff769bc38f0(1,0,1);
+              uVar5 = FUN_7ff76a79a200();
+              local_a8[0] = CONCAT44(uStack_c4,local_c8);
+              local_a8[1] = uStack_c0;
+              FUN_7ff76a79acb0(uVar5,local_e0,local_a8);
+              FUN_7ff76b199ec0(local_e8,local_e0[0]);
+              puVar7 = (undefined8 *)FUN_7ff76b19af20(local_e8,local_a8);
+              local_d0 = *puVar7;
+              puVar7 = (undefined8 *)FUN_7ff76b19ab90(local_e8,local_a8);
+              local_d8 = *puVar7;
+              uVar5 = FUN_7ff76a8d9830(&local_d0);
+              thunk_FUN_7ff769b67980("playerId",uVar5,param_1);
+              local_a8[0] = 0x1bca81b6c7560221;
+              uVar9 = 0;
+              local_a8[1] = 0x76b8eed0b3370a18;
+              do {
+                local_f8 = 0x76b8eed0b3376e51;
+                local_f0 = *(ulonglong *)((longlong)local_a8 + uVar9);
+                uVar1 = (uint)local_f0;
+                *(ulonglong *)((longlong)&DAT_7ff773585bc0 + uVar9) =
+                     ((~local_f0 & 0x76b8eed0b3376e51) - 1) +
+                     (~((ulonglong)(((uVar1 | 0x4cc891ae) - uVar1) + 0xb3376e51 & 2) *
+                        (((local_f0 | 0x8947112f4cc891ae) - local_f0) + 0x76b8eed0b3376e51 | 2) +
+                       (((local_f0 | 0x8947112f4cc891ae) - local_f0) + 0x76b8eed0b3376e51 &
+                       0xfffffffffffffffd) *
+                       (ulonglong)(~(((uVar1 | 0x4cc891ae) - uVar1) + 0xb3376e51) & 2)) -
+                     (local_f0 & 0x8947112f4cc891ae));
+                uVar9 = uVar9 + 8;
+              } while (uVar9 < 0x10);
+              FUN_7ff76a8801b0(&local_d8,&DAT_7ff773585bc0,param_1);
+              FUN_7ff769bc61a0(param_1);
+              FUN_7ff76b19a6d0(local_e8,&local_50);
+              if (local_2c == 0) {
+                local_78 = local_50;
+                uStack_70 = uStack_48;
+                uStack_68 = uStack_40;
+                uStack_60 = uStack_38;
+                local_58 = local_30;
+              }
+              else {
+                puVar8 = (ulonglong *)FUN_7ff76b19ac00(local_e8,local_a8);
+                local_78 = *puVar8;
+                uStack_70 = puVar8[1];
+                uStack_68 = puVar8[2];
+                uStack_60 = puVar8[3];
+                local_58 = (undefined4)puVar8[4];
+              }
+            }
+            else {
+              FUN_7ff769bc38f0(1,0,1);
+              local_d8 = 0;
+              uVar5 = FUN_7ff76a8d9830(&local_d8);
+              thunk_FUN_7ff769b67980("playerId",uVar5,param_1);
+              FUN_7ff769bc61a0(param_1);
+            }
+            FUN_7ff769bc61a0(param_1);
+            thunk_FUN_7ff769b67980(&DAT_7ff76c3b8490,&local_78,param_1);
+            goto LAB_7ff769c05c61;
+          }
+        }
+      }
+    }
+  }
+  FUN_7ff76ba419a0(param_1);
+LAB_7ff769c05c61:
+  FUN_7ff76c296e60(local_28 ^ (ulonglong)auStack_128);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "latestMessageId"
+- "playerId"
+- "maxMemberCount"
+- "members"
+- "#x%c%llx"
+- "channelType"
+- "privacyLevel"
+- "%s:%d : %s"
+- "memberCount"

@@ -1,0 +1,35 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a9ce990
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a9ce990)
+```c
+
+void FUN_7ff76a9ce990(ulonglong param_1)
+
+{
+  longlong lVar1;
+  
+  param_1 = param_1 & 0xffffffff;
+  lVar1 = FUN_7ff76593bd00();
+  lVar1 = *(longlong *)(lVar1 + 0x3e0);
+  if (lVar1 != 0) {
+    FUN_7ff76bed1b40(lVar1,"TtG_PhysicsCoverWall_RemovePlayerClip",0x25);
+  }
+  if ((&DAT_7ff77436a3f0)[param_1] != DAT_7ff77436a360) {
+    FUN_7ff76aa16030(0,(&DAT_7ff77436a3f0)[param_1],0);
+    (&DAT_7ff77436a3f0)[param_1] = DAT_7ff77436a360;
+    thunk_FUN_7ff76bb24a60(0,(&DAT_7ff77436a7a0)[param_1],1);
+    (&DAT_7ff77436a7a0)[param_1] = 0;
+  }
+  if (lVar1 != 0) {
+    FUN_7ff76bed1dc0(lVar1,&DAT_7ff76c41c8c8);
+  }
+  return;
+}
+
+
+```
+
+### STRINGS
+- "TtG_PhysicsCoverWall_RemovePlayerClip"

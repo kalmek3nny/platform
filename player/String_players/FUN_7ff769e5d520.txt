@@ -1,0 +1,113 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769e5d520
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769e5d520)
+```c
+
+undefined8 FUN_7ff769e5d520(undefined8 param_1)
+
+{
+  longlong lVar1;
+  char cVar2;
+  undefined1 uVar3;
+  int iVar4;
+  uint uVar5;
+  undefined8 uVar6;
+  longlong lVar7;
+  longlong lVar8;
+  uint uVar9;
+  longlong lVar10;
+  ulonglong uVar11;
+  undefined4 local_res18 [2];
+  undefined8 local_res20;
+  
+  FUN_7ff76a8d9760(&local_res20);
+  uVar6 = FUN_7ff76a8844f0();
+  FUN_7ff76a884e90(uVar6,local_res18,local_res20);
+  cVar2 = thunk_FUN_7ff764ffbda0(local_res18[0]);
+  if (cVar2 == '\0') {
+    cVar2 = FUN_7ff76a882500(local_res18);
+    if (cVar2 != '\0') {
+      uVar6 = FUN_7ff76a8844f0();
+      lVar8 = FUN_7ff76a884430(uVar6,local_res18[0],2);
+      if (lVar8 != 0) {
+        lVar7 = FUN_7ff76b19d700(lVar8 + 0x10);
+        iVar4 = FUN_7ff76b19d710(lVar8 + 0x10);
+        FUN_7ff76ba404f0(param_1,4,0);
+        uVar6 = FUN_7ff76b2d7da0(&DAT_7ff76c3e4f10,*(undefined8 *)(lVar7 + 0x1e0));
+        thunk_FUN_7ff769b67980("partyId",uVar6,param_1);
+        thunk_FUN_7ff769b67720("privacySetting",(longlong)iVar4,DAT_7ff7733884f8);
+        thunk_FUN_7ff769b67720("maxPartySize",*(undefined1 *)(lVar7 + 0x1e9),param_1);
+        uVar5 = FUN_7ff76b19d6e0(lVar7);
+        FUN_7ff769bc3880("players",uVar5,0,param_1);
+        uVar9 = 0;
+        if (uVar5 != 0) {
+          lVar8 = 0;
+          lVar10 = 1;
+          do {
+            FUN_7ff769bc3930(lVar10,param_1);
+            uVar6 = FUN_7ff76a8d9830(lVar8 + lVar7);
+            thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,uVar6,param_1);
+            thunk_FUN_7ff769b676a0("isLeader",uVar9 == 0,param_1);
+            FUN_7ff769bc61a0(param_1);
+            uVar9 = uVar9 + 1;
+            lVar8 = lVar8 + 0x50;
+            lVar10 = lVar10 + 1;
+          } while (uVar9 < uVar5);
+        }
+        FUN_7ff769bc61a0(param_1);
+        return 1;
+      }
+    }
+  }
+  else {
+    lVar7 = FUN_7ff765453110();
+    lVar10 = 0;
+    lVar8 = lVar7 + 8;
+    if (lVar7 == 0) {
+      lVar8 = lVar10;
+    }
+    if (lVar8 != 0) {
+      FUN_7ff76ba404f0(param_1,4,0);
+      uVar6 = FUN_7ff765453870(lVar8);
+      uVar6 = thunk_FUN_7ff77a45cfa3(uVar6);
+      FUN_7ff769bd25c0("partyId",uVar6,param_1);
+      iVar4 = FUN_7ff7654548d0(lVar8);
+      thunk_FUN_7ff769b67720("privacySetting",(longlong)iVar4,param_1);
+      iVar4 = FUN_7ff765454130(lVar8);
+      thunk_FUN_7ff769b67720("maxPartySize",(longlong)iVar4,param_1);
+      uVar5 = FUN_7ff765451660(lVar8);
+      FUN_7ff769bc3880("players",uVar5,0,param_1);
+      if (uVar5 != 0) {
+        lVar7 = 1;
+        uVar11 = (ulonglong)uVar5;
+        do {
+          lVar1 = *(longlong *)(&DAT_000020f8 + lVar8);
+          FUN_7ff769bc3930(lVar7,param_1);
+          uVar6 = FUN_7ff76a8d9830(lVar1 + lVar10 + 0x108);
+          thunk_FUN_7ff769b67980(&DAT_7ff76c4ed274,uVar6,param_1);
+          uVar3 = FUN_7ff765455ea0(lVar1 + lVar10);
+          thunk_FUN_7ff769b676a0("isLeader",uVar3,param_1);
+          FUN_7ff769bc61a0(param_1);
+          lVar10 = lVar10 + 0x160;
+          lVar7 = lVar7 + 1;
+          uVar11 = uVar11 - 1;
+        } while (uVar11 != 0);
+      }
+      FUN_7ff769bc61a0(param_1);
+      return 1;
+    }
+  }
+  return 0;
+}
+
+
+```
+
+### STRINGS
+- "maxPartySize"
+- "players"
+- "privacySetting"
+- "isLeader"
+- "partyId"

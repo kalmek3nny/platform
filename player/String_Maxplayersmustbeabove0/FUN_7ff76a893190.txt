@@ -1,0 +1,207 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a893190
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a893190)
+```c
+
+void FUN_7ff76a893190(longlong param_1,longlong param_2,int param_3)
+
+{
+  longlong *plVar1;
+  char *pcVar2;
+  undefined8 uVar3;
+  undefined *puVar4;
+  char cVar5;
+  byte bVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
+  longlong lVar10;
+  ulonglong uVar11;
+  undefined8 uVar12;
+  char *pcVar13;
+  char *pcVar14;
+  int iVar15;
+  undefined1 *puVar16;
+  undefined1 auStack_8a8 [32];
+  undefined1 *local_888;
+  longlong local_878;
+  undefined8 local_870;
+  longlong local_868;
+  undefined1 local_860 [24];
+  char local_848 [1024];
+  undefined1 local_448 [1024];
+  ulonglong local_48;
+  
+  local_48 = DAT_7ff76e1be680 ^ (ulonglong)auStack_8a8;
+  iVar9 = 0;
+  local_878 = param_2;
+  local_868 = param_1;
+  strstr(local_848,(char *)0x0);
+  plVar1 = (longlong *)(param_1 + 0x118);
+  iVar15 = 0;
+  if (*(char *)(DAT_7ff773b595f8 + 0x28) == '\0') {
+    pcVar13 = (&PTR_DAT_7ff76c523e90)[*(byte *)(*plVar1 + 8)];
+    if ((*(char **)(DAT_7ff773b595f0 + 0x28) != (char *)0x0) &&
+       (**(char **)(DAT_7ff773b595f0 + 0x28) != '\0')) {
+      local_870 = 0;
+      FUN_7ff76b931170(local_448,0x400);
+      lVar10 = FUN_7ff76b931d20(local_448,&DAT_7ff76c4008b8,&local_870);
+      while (lVar10 != 0) {
+        pcVar14 = pcVar13;
+        while( true ) {
+          pcVar2 = pcVar14 + (lVar10 - (longlong)pcVar13);
+          cVar5 = *pcVar14;
+          pcVar14 = pcVar14 + 1;
+          if (*pcVar2 != cVar5) break;
+          iVar15 = 0;
+          if (*pcVar2 == '\0') goto LAB_7ff76a8932fd;
+        }
+        lVar10 = FUN_7ff76b931d20(0,&DAT_7ff76c4008b8,&local_870);
+      }
+    }
+    iVar7 = FUN_7ff765d902e0(local_848,
+                             "Invalid game mode (%s). Check dvar \'online_matchmaking_private_match_allowed_gamemodekeys_csv\'. "
+                             ,(&PTR_DAT_7ff76c523e90)[*(byte *)(*plVar1 + 8)]);
+    iVar15 = 0;
+    if (0 < iVar7) {
+      if (param_3 < iVar7) {
+        iVar15 = 0;
+      }
+      else {
+        FUN_7ff76b931740(param_2,(longlong)param_3,local_848);
+        iVar15 = iVar7;
+      }
+    }
+  }
+LAB_7ff76a8932fd:
+  cVar5 = *(char *)(*plVar1 + 8);
+  uVar11 = *(ulonglong *)(*plVar1 + 0x10);
+  if ((uVar11 & 0x7fffffffffffffff) == 0) {
+    uVar11 = FUN_7ff765cfe260(*(undefined8 *)(DAT_7ff7743b1d68 + 0x28));
+  }
+  uVar12 = FUN_7ff76abc1d60(uVar11);
+  if (cVar5 == '\x04') {
+    pcVar13 = *(char **)(DAT_7ff773b59620 + 0x28);
+    lVar10 = DAT_7ff773b59618;
+  }
+  else {
+    lVar10 = local_878;
+    if (cVar5 != '\x05') goto LAB_7ff76a893447;
+    pcVar13 = *(char **)(DAT_7ff773b59608 + 0x28);
+    lVar10 = DAT_7ff773b59600;
+  }
+  uVar3 = *(undefined8 *)(lVar10 + 0x28);
+  if ((((pcVar13 != (char *)0x0) && (*pcVar13 != '\0')) &&
+      (cVar5 = FUN_7ff76a893090(uVar12), cVar5 == '\0')) ||
+     (cVar5 = FUN_7ff76a893090(uVar12,uVar3), lVar10 = local_878, cVar5 != '\0')) {
+    puVar4 = (&PTR_DAT_7ff76c523e90)[*(byte *)(*plVar1 + 8)];
+    uVar11 = *(ulonglong *)(*plVar1 + 0x10);
+    if ((uVar11 & 0x7fffffffffffffff) == 0) {
+      uVar11 = FUN_7ff765cfe260(*(undefined8 *)(DAT_7ff7743b1d68 + 0x28));
+    }
+    local_860[0] = 0;
+    FUN_7ff764ce9530(local_860,"#x%c%llx",0x34,uVar11);
+    iVar7 = FUN_7ff765d902e0(local_848,"Invalid game type (%s) game mode (%s) pair. ",local_860,
+                             puVar4);
+    lVar10 = local_878;
+    if ((0 < iVar7) && (iVar7 <= param_3 - iVar15)) {
+      FUN_7ff76b931740(iVar15 + local_878,(longlong)(param_3 - iVar15),local_848);
+      iVar15 = iVar15 + iVar7;
+    }
+  }
+LAB_7ff76a893447:
+  if ((*(char **)(DAT_7ff773b598e8 + 0x28) == (char *)0x0) ||
+     (**(char **)(DAT_7ff773b598e8 + 0x28) == '\0')) {
+    bVar6 = FUN_7ff76a893090(*plVar1 + 0x24,*(undefined8 *)(DAT_7ff773b598e0 + 0x28));
+    bVar6 = bVar6 ^ 1;
+  }
+  else {
+    bVar6 = FUN_7ff76a893090(*plVar1 + 0x24);
+  }
+  if (bVar6 == 0) {
+    iVar8 = FUN_7ff765d902e0(local_848,"Invalid initial map (%s). ",*plVar1 + 0x24);
+    iVar7 = iVar9;
+    if ((0 < iVar8) && (iVar8 <= param_3 - iVar15)) {
+      FUN_7ff76b931740(iVar15 + lVar10,(longlong)(param_3 - iVar15),local_848);
+      iVar7 = iVar8;
+    }
+    iVar15 = iVar15 + iVar7;
+  }
+  lVar10 = *plVar1;
+  uVar11 = *(ulonglong *)(lVar10 + 0x10);
+  if ((uVar11 & 0x7fffffffffffffff) == 0) {
+    uVar11 = FUN_7ff765cfe260(*(undefined8 *)(DAT_7ff7743b1d68 + 0x28));
+  }
+  if (*(char *)(DAT_7ff773b59610 + 0x28) == '\0') {
+    lVar10 = FUN_7ff76abc1b20(lVar10 + 0x24);
+    if (lVar10 != 0) {
+      local_888 = &DAT_7ff76c3b7ed3;
+      puVar16 = &DAT_7ff76c3b7ed3;
+      if (*(undefined1 **)(lVar10 + 0x10) != (undefined1 *)0x0) {
+        puVar16 = *(undefined1 **)(lVar10 + 0x10);
+      }
+      FUN_7ff76b930fd0(local_448,0x400,puVar16,&DAT_7ff76c4008b8);
+      local_870 = 0;
+      lVar10 = FUN_7ff76b931d20(local_448,&DAT_7ff76c3d1974,&local_870);
+      while (lVar10 != 0) {
+        pcVar13 = (char *)FUN_7ff76abc1d60(uVar11);
+        lVar10 = lVar10 - (longlong)pcVar13;
+        while( true ) {
+          pcVar14 = pcVar13 + lVar10;
+          cVar5 = *pcVar13;
+          pcVar13 = pcVar13 + 1;
+          if (*pcVar14 != cVar5) break;
+          if (*pcVar14 == '\0') goto LAB_7ff76a893648;
+        }
+        lVar10 = FUN_7ff76b931d20(0,&DAT_7ff76c3d1974,&local_870);
+      }
+    }
+    lVar10 = *plVar1;
+    uVar11 = *(ulonglong *)(lVar10 + 0x10);
+    if ((uVar11 & 0x7fffffffffffffff) == 0) {
+      uVar11 = FUN_7ff765cfe260(*(undefined8 *)(DAT_7ff7743b1d68 + 0x28));
+    }
+    local_860[0] = 0;
+    FUN_7ff764ce9530(local_860,"#x%c%llx",0x34,uVar11);
+    iVar8 = FUN_7ff765d902e0(local_848,"Invalid game type (%s) and initial map (%s) pair. ",
+                             local_860,lVar10 + 0x24);
+    iVar7 = iVar9;
+    if ((0 < iVar8) && (iVar8 <= param_3 - iVar15)) {
+      FUN_7ff76b931740(iVar15 + local_878,(longlong)(param_3 - iVar15),local_848);
+      iVar7 = iVar8;
+    }
+    iVar15 = iVar15 + iVar7;
+  }
+LAB_7ff76a893648:
+  lVar10 = local_868;
+  cVar5 = FUN_7ff76a8d97d0(local_868 + 8);
+  if (cVar5 == '\0') {
+    iVar7 = FUN_7ff765d902e0(local_848,"Invalid host xuid. ");
+    if ((0 < iVar7) && (iVar7 <= param_3 - iVar15)) {
+      FUN_7ff76b931740(iVar15 + local_878,(longlong)(param_3 - iVar15),local_848);
+      iVar9 = iVar7;
+    }
+    iVar15 = iVar15 + iVar9;
+  }
+  if (*(int *)(lVar10 + 4) < 1) {
+    iVar9 = FUN_7ff765d902e0(local_848,"Max players must be above 0. ");
+    if ((0 < iVar9) && (iVar9 <= param_3 - iVar15)) {
+      FUN_7ff76b931740(iVar15 + local_878,(longlong)(param_3 - iVar15),local_848);
+    }
+  }
+  FUN_7ff76c296e60(local_48 ^ (ulonglong)auStack_8a8);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "Invalid game type (%s) game mode (%s) pair. "
+- "Max players must be above 0. "
+- "#x%c%llx"
+- "Invalid game type (%s) and initial map (%s) pair. "
+- "Invalid host xuid. "
+- "Invalid initial map (%s). "

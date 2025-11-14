@@ -1,0 +1,26 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76b91ba60
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76b91ba60)
+```c
+
+undefined1 FUN_7ff76b91ba60(longlong param_1)
+
+{
+  undefined8 uVar1;
+  undefined1 uVar2;
+  undefined1 local_18 [16];
+  
+  uVar1 = *(undefined8 *)(param_1 + 8);
+  thunk_FUN_7ff765821623(local_18,"player-flags",0);
+  uVar2 = thunk_FUN_7ff7802439f7(uVar1,local_18);
+  thunk_FUN_7ff7643dff9b(local_18);
+  return uVar2;
+}
+
+
+```
+
+### STRINGS
+- "player-flags"

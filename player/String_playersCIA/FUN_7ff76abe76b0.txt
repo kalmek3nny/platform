@@ -1,0 +1,31 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76abe76b0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76abe76b0)
+```c
+
+char * FUN_7ff76abe76b0(ulonglong param_1)
+
+{
+  char *pcVar1;
+  
+  if ((param_1 & 1) != 0) {
+    return "players";
+  }
+  if ((param_1 & 2) != 0) {
+    return "playersCIA";
+  }
+  pcVar1 = "players";
+  if (PTR_s_players_7ff76e043468 != (undefined *)0x0) {
+    pcVar1 = PTR_s_players_7ff76e043468;
+  }
+  return pcVar1;
+}
+
+
+```
+
+### STRINGS
+- "players"
+- "playersCIA"

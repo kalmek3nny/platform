@@ -1,0 +1,127 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff769f6a3e0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff769f6a3e0)
+```c
+
+void FUN_7ff769f6a3e0(undefined8 param_1,longlong param_2,char param_3)
+
+{
+  undefined1 auVar1 [16];
+  undefined8 uVar2;
+  int iVar3;
+  undefined1 auVar4 [64];
+  undefined1 extraout_var [56];
+  
+  FUN_7ff76ba40910(param_1,2,"mapMask");
+  iVar3 = FUN_7ff76ba40df0(param_1,0xffffffff);
+  if (iVar3 == 0) {
+    if (param_3 != '\0') {
+      *(undefined8 *)(param_2 + 0x18) = 0;
+    }
+  }
+  else {
+    uVar2 = FUN_7ff76ba42a90(param_1,0xffffffff,0);
+    uVar2 = FUN_7ff764ffb770(uVar2,1);
+    uVar2 = FUN_7ff7694b72a0(uVar2,2);
+    *(undefined8 *)(param_2 + 0x18) = uVar2;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"mapOverlay");
+  iVar3 = FUN_7ff76ba40df0(param_1,0xffffffff);
+  if (iVar3 == 0) {
+    if (param_3 != '\0') {
+      *(undefined8 *)(param_2 + 0x20) = 0;
+    }
+  }
+  else {
+    uVar2 = FUN_7ff76ba42a90(param_1,0xffffffff,0);
+    uVar2 = FUN_7ff764ffb770(uVar2,1);
+    uVar2 = FUN_7ff7694b72a0(uVar2,2);
+    *(undefined8 *)(param_2 + 0x20) = uVar2;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"mapRotOverlay");
+  iVar3 = FUN_7ff76ba40df0(param_1,0xffffffff);
+  if (iVar3 == 0) {
+    if (param_3 != '\0') {
+      *(undefined8 *)(param_2 + 0x28) = 0;
+    }
+  }
+  else {
+    uVar2 = FUN_7ff76ba42a90(param_1,0xffffffff,0);
+    uVar2 = FUN_7ff764ffb770(uVar2,1);
+    uVar2 = FUN_7ff7694b72a0(uVar2,2);
+    *(undefined8 *)(param_2 + 0x28) = uVar2;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"minimapObjectivesGutterImage");
+  iVar3 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar3 == 2) {
+    uVar2 = FUN_7ff76ba42c30(param_1,0xffffffff);
+    *(undefined8 *)(param_2 + 0x38) = uVar2;
+  }
+  else if (param_3 != '\0') {
+    *(undefined8 *)(param_2 + 0x38) = 0;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"minimapPlayerGutterImage");
+  iVar3 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar3 == 2) {
+    uVar2 = FUN_7ff76ba42c30(param_1,0xffffffff);
+    *(undefined8 *)(param_2 + 0x40) = uVar2;
+  }
+  else if (param_3 != '\0') {
+    *(undefined8 *)(param_2 + 0x40) = 0;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"minimapRadarBackingImage");
+  iVar3 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar3 == 2) {
+    uVar2 = FUN_7ff76ba42c30(param_1,0xffffffff);
+    *(undefined8 *)(param_2 + 0x50) = uVar2;
+  }
+  else if (param_3 != '\0') {
+    *(undefined8 *)(param_2 + 0x50) = 0;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"minimapRadarBackgroundImage");
+  iVar3 = FUN_7ff76ba42ce0(param_1,0xffffffff);
+  if (iVar3 == 2) {
+    uVar2 = FUN_7ff76ba42c30(param_1,0xffffffff);
+    *(undefined8 *)(param_2 + 0x48) = uVar2;
+  }
+  else if (param_3 != '\0') {
+    *(undefined8 *)(param_2 + 0x48) = 0;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  FUN_7ff76ba40910(param_1,2,"boundsRadius");
+  iVar3 = FUN_7ff76ba40da0(param_1,0xffffffff);
+  if (iVar3 == 0) {
+    if (param_3 != '\0') {
+      *(undefined4 *)(param_2 + 0x58) = 0;
+    }
+  }
+  else {
+    auVar4._0_8_ = thunk_FUN_7ff769b67d10(param_1,0xffffffff);
+    auVar4._8_56_ = extraout_var;
+    auVar1 = vmaxss_avx(ZEXT816(0) << 0x40,auVar4._0_16_);
+    *(int *)(param_2 + 0x58) = auVar1._0_4_;
+  }
+  FUN_7ff76ba427e0(param_1,0xfffffffe);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "mapOverlay"
+- "mapRotOverlay"
+- "minimapRadarBackgroundImage"
+- "minimapPlayerGutterImage"
+- "mapMask"
+- "boundsRadius"
+- "minimapObjectivesGutterImage"
+- "minimapRadarBackingImage"

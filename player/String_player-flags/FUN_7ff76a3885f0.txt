@@ -1,0 +1,50 @@
+=== REVERSE ENGINEERING TASK: GENERAL ANALYSIS ===
+Target: FUN_7ff76a3885f0
+Instruction: Explain the logic flow, purpose, and any interesting behaviors of this function.
+
+### 1. C CODE (7ff76a3885f0)
+```c
+
+void FUN_7ff76a3885f0(longlong param_1)
+
+{
+  undefined8 uVar1;
+  longlong lVar2;
+  char cVar3;
+  undefined8 uVar4;
+  int iVar5;
+  undefined1 local_18 [16];
+  
+  uVar1 = FUN_7ff765863260();
+  iVar5 = 0;
+  do {
+    uVar4 = FUN_7ff7658632b0(uVar1,iVar5);
+    cVar3 = FUN_7ff765865e00(uVar4);
+    if (cVar3 != '\0') {
+      uVar4 = FUN_7ff765865b80(uVar4);
+      lVar2 = FUN_7ff76b7f47c0(uVar4);
+      if (lVar2 == param_1) {
+        if (iVar5 != 0) {
+          return;
+        }
+        uVar1 = FUN_7ff76583f440(0);
+        thunk_FUN_7ff77f8951d1(param_1,uVar1);
+        uVar1 = FUN_7ff76583e500(0);
+        thunk_FUN_7ff77f8951d1(param_1,uVar1);
+        uVar1 = FUN_7ff765846b10(0);
+        thunk_FUN_7ff765821623(local_18,"player-flags",0);
+        thunk_FUN_7ff7827e0197(param_1,local_18,uVar1);
+        thunk_FUN_7ff7643dff9b(local_18);
+        return;
+      }
+    }
+    iVar5 = iVar5 + 1;
+  } while (iVar5 < 1);
+  return;
+}
+
+
+```
+
+### STRINGS
+- "player-flags"
