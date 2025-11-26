@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingTop="40dp"
+    android:padding="12dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_surface"
+            android:elevation="12dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Diffuse Control"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Complete Edition"
+                android:textColor="#A8C7FA"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btnHide"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🚀  Apply and Go Home"
+                android:backgroundTint="#A8C7FA"
+                android:textColor="#001D35"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:stateListAnimator="@null"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+                <Button android:id="@+id/btnSetWallpaper" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:text="WP" android:backgroundTint="#2A2A2A" android:textColor="#AAAAAA" android:textSize="11sp" android:layout_marginEnd="4dp"/>
+                <Button android:id="@+id/btnPermissions" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:text="Listen" android:backgroundTint="#2A2A2A" android:textColor="#AAAAAA" android:textSize="11sp" android:layout_marginEnd="4dp"/>
+                <Button android:id="@+id/btnMic" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:text="Mic" android:backgroundTint="#2A2A2A" android:textColor="#AAAAAA" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#33FFFFFF" android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="NOW PLAYING WIDGET" android:textColor="#A8C7FA" android:textSize="10sp" android:textStyle="bold"/>
+                <Switch android:id="@+id/switchWidget" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/lblWidgetScale" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Size Scale" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekWidgetScale" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:id="@+id/lblPosX" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Position X" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekPosX" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:id="@+id/lblPosY" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Position Y" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekPosY" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="24dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="TREBLE PARTICLES" android:textColor="#A8C7FA" android:textSize="10sp" android:textStyle="bold"/>
+                <Switch android:id="@+id/switchDust" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/lblDustCount" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Count" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekDustCount" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:id="@+id/lblDustSize" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dot Size" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekDustSize" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:id="@+id/lblDust" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Opacity" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekDust" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PHYSICS" android:textColor="#A8C7FA" android:textSize="10sp" android:textStyle="bold" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+            <TextView android:id="@+id/lblSpeed" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Flow Speed" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekSpeed" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblWander" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Wander Range" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekWander" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblBeat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Beat Pulse" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekBeat" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblShake" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Beat Shake" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekShake" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="VISUALS" android:textColor="#A8C7FA" android:textSize="10sp" android:textStyle="bold" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Light Mode (White)"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Inverts status bar icons"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+                <Switch android:id="@+id/switchLight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/lblVig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Vignette" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekVig" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblSize" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Blob Scale" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekSize" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblSat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Color Boost" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekSat" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblDensity" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Fog Density" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekDensity" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="12dp"/>
+            <TextView android:id="@+id/lblBright" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Background Brightness" android:textColor="#EEEEEE" android:layout_marginBottom="4dp"/>
+            <SeekBar android:id="@+id/seekBright" android:layout_width="match_parent" android:layout_height="24dp" android:max="100" android:progressDrawable="@drawable/slider_track" android:thumb="@drawable/slider_thumb" android:splitTrack="false" android:layout_marginBottom="24dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="POWER" android:textColor="#B7F397" android:textSize="10sp" android:textStyle="bold" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Battery Saver" android:textColor="#FFFFFF" android:textSize="16sp"/>
+                <Switch android:id="@+id/switchSaver" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Touch Reactivity" android:textColor="#FFFFFF" android:textSize="16sp"/>
+                <Switch android:id="@+id/switchTouch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="OLED Blackout" android:textColor="#FFFFFF" android:textSize="16sp"/>
+                <Switch android:id="@+id/switchOled" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#66222222"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Show Debug Overlay" android:textColor="#888888" android:textSize="12sp"/>
+                <Switch android:id="@+id/switchDebug" android:layout_width="wrap_content" android:layout_height="wrap_content" android:track="@drawable/switch_track_custom" android:thumb="@drawable/switch_thumb_custom" android:showText="false" android:background="@null"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
